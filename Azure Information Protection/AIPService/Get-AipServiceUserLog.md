@@ -35,7 +35,7 @@ For more information about protection usage logging and a step-by-step example, 
 
 ### Example 1: Get user logs for a date range
 ```
-PS C:\>Get-AipServiceUserLog -Path 'C:\Logs' -FromDate 12/12/2015 -ToDate 12/15/2015 -NumberOfThreads 10
+PS C:\>Get-AipServiceUserLog -Path 'C:\Logs' -FromDate "12/12/2015" -ToDate "12/15/2015" -NumberOfThreads 10
 ```
 
 This command downloads user logs created between 12/12/2015 and 12/15/2015 (in UTC time) to the folder C:\Logs. 
@@ -44,14 +44,14 @@ The command uses 10 threads to download the logs.
 
 ### Example 2: Get user logs for a date
 ```
-PS C:\>Get-AipServiceUserLog -Path 'C:\Logs' -ForDate 12/5/2015
+PS C:\>Get-AipServiceUserLog -Path 'C:\Logs' -ForDate "12/5/2015"
 ```
 
 This command downloads the user logs for 12/5/2015 (in UTC time) to the folder C:\Logs.
 
 ### Example 3: Get user logs for a date, taking into account a UTC +offset time conversion
 ```
-PS C:\>Get-AipServiceUserLog -Path 'C:\Logs' -ForDate 2/2/2016 12:00:00
+PS C:\>Get-AipServiceUserLog -Path 'C:\Logs' -ForDate "2/2/2016 12:00:00"
 ```
 
 This command shows how you might need to take into account a UTC +offset time conversion from your local time, before downloading user logs to the folder C:\Logs.
@@ -60,7 +60,7 @@ You are in New Zealand, which means your computer's local time is UTC+12 and you
 
 ### Example 4: Get user logs for a date range, taking into account a UTC -offset time conversion
 ```
-PS C:\>Get-AipServiceUserLog -Path 'C:\Logs' -FromDate 2/1/2016 18:00:00 -ToDate 2/9/15/2016 18:00:00
+PS C:\>Get-AipServiceUserLog -Path 'C:\Logs' -FromDate "2/1/2016 18:00:00" -ToDate "2/9/15/2016 18:00:00"
 ```
 
 This command shows how you might need to take into account a UTC -offset time conversion from your local time before downloading user logs to the folder C:\Logs.
