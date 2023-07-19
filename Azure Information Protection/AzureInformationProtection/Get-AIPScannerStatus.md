@@ -127,7 +127,7 @@ When using the **NodesInfo** variable to drill down to node details, node intege
 ### Example 4: Use the Verbose parameter and the RepositoriesStatus variable (unified labeling client)
 
 ```powershell
-PS C:\Windows\system32> $x=Get-AIPScannerStatus - Verbose
+PS C:\Windows\system32> $x=Get-AIPScannerStatus -Verbose
 PS C:\Windows\system32> $x.RepositoriesStatus
 
 Path        Status
