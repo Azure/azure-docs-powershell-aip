@@ -18,9 +18,7 @@ Enable-AipService [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The **Enable-AipService** cmdlet activates the protection service from Azure Information Protection so that all users in your tenant can protect documents and emails. 
-
-You can also do this action in a management portal. For more information, see [Activating the protection service from Azure Information Protection](/information-protection/deploy-use/activate-service). 
+The **Enable-AipService** cmdlet activates the protection service from Azure Information Protection so that all users in your tenant can protect documents and emails. For more information, see [Activating the protection service from Azure Information Protection](/information-protection/deploy-use/activate-service). 
 
 When you activate the protection service, you turn on this service for all rights-enabled applications and services for your tenant, but some applications and services and might need further configuration before they can use the protection capabilities from Azure Information Protection.
 
