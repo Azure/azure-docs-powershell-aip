@@ -52,11 +52,6 @@
       },
       "ms.service": {
         "Azure Information Protection/**/*.yml": "rights-management"
-      },
-      "feedback_system": "Standard",
-      "feedback_product_url": "https://feedbackportal.microsoft.com/feedback/forum/5ad50ce6-8a83-ec11-8d21-0022482fa693",
-      "feedback_help_link_url": "https://learn.microsoft.com/en-us/answers/tags/24/azure-information-protection",
-      "feedback_help_link_type": "get-help-at-qna"
       }
     },
     "globalMetadata": {
@@ -67,6 +62,10 @@
       "searchScope": [
         "Azure"
       ],
+      "feedback_system": "Standard",
+      "feedback_product_url": "https://feedbackportal.microsoft.com/feedback/forum/5ad50ce6-8a83-ec11-8d21-0022482fa693",
+      "feedback_help_link_url": "https://learn.microsoft.com/en-us/answers/tags/24/azure-information-protection",
+      "feedback_help_link_type": "get-help-at-qna",
       "breadcrumb_path": "/powershell/bread/toc.json",
       "ms.devlang": "powershell",
       "products": ["https://authoring-docs-microsoft.poolparty.biz/devrel/c900d0ba-7127-44a2-8ba8-afc4f786377d"]
