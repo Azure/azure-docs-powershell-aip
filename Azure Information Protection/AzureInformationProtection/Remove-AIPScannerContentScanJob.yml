@@ -1,0 +1,68 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Delete a content scan job.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Add-AIPScannerRepository
+  href: Add-AIPScannerRepository.yml
+- text: Get-AIPScannerContentScanJob
+  href: Get-AIPScannerContentScanJob.yml
+- text: Get-AIPScannerRepository
+  href: Get-AIPScannerRepository.yml
+- text: Remove-AIPScannerRepository
+  href: Remove-AIPScannerRepository.yml
+- text: Set-AIPScannerContentScanJob
+  href: Set-AIPScannerContentScanJob.yml
+- text: Set-AIPScannerRepository
+  href: Set-AIPScannerRepository.yml
+syntaxes:
+- Remove-AIPScannerContentScanJob [-WhatIf] [-Confirm] [<CommonParameters>]
+examples:
+- title: Example 1
+  code: |-
+    PS C:\> {{ Add example code here }}
+  description: |-
+    {{ Add example description here }}
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Confirm
+  description: |+
+    Prompts you for confirmation before running the cmdlet.
+
+  defaultValue: None
+  position: Named
+  aliases: cf
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    Shows what would happen if the cmdlet runs.
+    The cmdlet is not run.
+
+  defaultValue: None
+  position: Named
+  aliases: wi
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Remove-AIPScannerContentScanJob
+name: Remove-AIPScannerContentScanJob
+description: |-
+  Deletes an entire Azure Information Protection content scan job.
+
+  > [!CAUTION]
+  > Deleting the content scan job means that the configured repositories may not be scanned again, unless they are configured for a different content scan job.
+  > 
+
+  For more information about content scan jobs, see the [Azure Information Protection on-premises scanner documentation](/information-protection/deploy-aip-scanner-configure-install#create-a-content-scan-job).
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2144636
+  schema: 2.0.0

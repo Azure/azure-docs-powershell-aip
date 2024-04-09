@@ -1,0 +1,71 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Disables document tracking for Rights Management.
+module: AADRM
+notes: ""
+links:
+- text: Enable-AadrmDocumentTrackingFeature
+  href: ./Enable-AadrmDocumentTrackingFeature.yml
+- text: Get-AadrmDocumentTrackingFeature
+  href: ./Get-AadrmDocumentTrackingFeature.yml
+syntaxes:
+- Disable-AadrmDocumentTrackingFeature [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
+examples:
+- title: 'Example 1: Disable document tracking'
+  code: |-
+    PS C:\>Disable-AadrmDocumentTrackingFeature
+  description: |-
+    This command disables document tracking for Azure Information Protection.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Confirm
+  description: |+
+    Prompts you for confirmation before running the cmdlet.
+
+  defaultValue: "False"
+  position: Named
+  aliases: cf
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Forces the command to run without asking for user confirmation.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+  defaultValue: "False"
+  position: Named
+  aliases: wi
+  parameterValueGroup: ""
+uid: AADRM.Disable-AadrmDocumentTrackingFeature
+name: Disable-AadrmDocumentTrackingFeature
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Disable-AadrmDocumentTrackingFeature** cmdlet disables the document tracking feature for Azure Information Protection. This cmdlet disables access to the document tracking site so that all users in your organization cannot track or revoke access to documents that they have protected. In addition, activity related to shared documents (who opened them, when, from which location) is not logged to the document tracking site. For example, if you later enable the document tracking site, users will see the documents that they protected while the site was disabled but cannot see who opened them.
+
+  You must use PowerShell to disable document tracking; you cannot do this configuration by using a management portal.
+
+  Document tracking is enabled by default for an organization using the Azure Rights Management service from Azure Information Protection, but you might need to disable this feature for privacy requirements that are specific to your organization or region. This setting is organization-wide; you cannot disable document tracking for some users in your organization and not for others.
+
+  When document tracking is disabled, users still see options that refer to tracking and revocation in applications such as Word and File Explorer, and the Azure Information Protection client. However, when users access the document tracking site, they see the following message:
+
+  **Your administrator has disabled document tracking for your organization.**
+  **Contact your administrator for details.**
+
+  You can disable document tracking either before you activate the Azure Rights Management service, or after. After you have disabled document tracking, you can re-enable it at any time.
+
+  For additional information about the document tracking site, see [Configuring and using document tracking for Azure Information Protection](/information-protection/rms-client/client-admin-guide-document-tracking) from the Azure Information Protection client administrator guide.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=623032
+  schema: 2.0.0
+  ms.assetid: 5C8ED12E-4A84-446E-962F-5E886CB40DF9

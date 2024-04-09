@@ -1,0 +1,59 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  **Relevant for:** AIP unified labeling client only
+
+  Gets configuration settings for the Network Discovery service.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-MIPNetworkDiscoveryJobs
+  href: Get-MIPNetworkDiscoveryJobs.yml
+- text: Get-MIPNetworkDiscoveryStatus
+  href: Get-MIPNetworkDiscoveryStatus.yml
+- text: Import-MIPNetworkDiscoveryConfiguration
+  href: Import-MIPNetworkDiscoveryConfiguration.yml
+- text: Install-MIPNetworkDiscovery
+  href: Install-MIPNetworkDiscovery.yml
+- text: Set-MIPNetworkDiscovery
+  href: Set-MIPNetworkDiscovery.yml
+- text: Set-MIPNetworkDiscoveryConfiguration
+  href: Set-MIPNetworkDiscoveryConfiguration.yml
+- text: Start-MIPNetworkDiscovery
+  href: Start-MIPNetworkDiscovery.yml
+- text: Uninstall-MIPNetworkDiscovery
+  href: Uninstall-MIPNetworkDiscovery.yml
+syntaxes:
+- Get-MIPNetworkDiscoveryConfiguration [<CommonParameters>]
+examples:
+- title: Example 1
+  code: |-
+    PS C:\> Get-MIPNetworkDiscoveryConfiguration
+
+    OnlineConfiguration      : On
+  description: |-
+    This command gets the current PowerShell configuration settings for the Network Discovery service. In this example, the output shows that the scanner is using the default configuration of using the online configuration from the Azure portal.
+  summary: ""
+uid: AzureInformationProtection.Get-MIPNetworkDiscoveryConfiguration
+name: Get-MIPNetworkDiscoveryConfiguration
+description: |-
+  The **Get-MIPNetworkDiscoveryConfiguration** cmdlet gets configuration settings for the Network Discovery service.
+
+  The Network Discovery service manages network scan jobs, and enable Azure Information Protection administrators to scan specific IP addresses or ranges for risky repositories. Administrators may want to add these repositories to content scan jobs to scan their content further.
+
+  The **Get-MIPNetworkDiscoveryConfiguration** cmdlet displays only the settings and values that you can configure with [**Set-MIPNetworkDiscoveryConfiguration**](./Set-MIPNetworkDiscoveryConfiguration.yml) cmdlet. This includes only whether the Network Discovery service settings are taken from the online configuration currently in the Azure portal, or from a file that was exported from the Azure portal.
+
+  > [!TIP]
+  > Run [Import-MIPNetworkDiscoveryConfiguration](./Import-MIPNetworkDiscoveryConfiguration.yml) to configure the scanner to get Network Discovery service settings from an offline file. When you run **Get-MIPNetworkDiscoveryConfiguration** after importing settings from a file, the **OnlineConfiguration** is displayed as **Off**.
+
+  [!INCLUDE [audit-logs-sunset](../includes/audit-logs-sunset.md)]
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2137624
+  schema: 2.0.0

@@ -1,0 +1,54 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Removes a super user from Rights Management.
+module: AADRM
+notes: ""
+links:
+- text: Add-AadrmSuperUser
+  href: ./Add-AadrmSuperUser.yml
+- text: Get-AadrmSuperUser
+  href: ./Get-AadrmSuperUser.yml
+- text: Enable-AadrmSuperUserFeature
+  href: ./Enable-AadrmSuperUserFeature.yml
+- text: Set-AadrmSuperUserGroup
+  href: ./Set-AadrmSuperUserGroup.yml
+syntaxes:
+- Remove-AadrmSuperUser -EmailAddress <String> [<CommonParameters>]
+examples:
+- title: 'Example 1: Remove a super user'
+  code: |-
+    PS C:\>Remove-AadrmSuperUser -EmailAddress "EvanNarvaez@Contoso.com"
+  description: |-
+    This command removes an individually specified super user from Rights Management by specifying that user's email address.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: EmailAddress
+  isRequired: true
+  description: |+
+    Specifies the email address of a user or group. 
+
+    The cmdlet removes the user or group identified by the email address that you specify.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AADRM.Remove-AadrmSuperUser
+name: Remove-AadrmSuperUser
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Remove-AadrmSuperUser** cmdlet removes a user from the list of users who are individually granted super user privileges for your organization.
+
+  This cmdlet does not remove a group or a user from that a group that is assigned super user privileges by using the [Set-AadrmSuperUserGroup](./Set-AadrmSuperUserGroup.yml) cmdlet.
+
+  For more information about super users, see the [Get-AadrmSuperUser](./Get-AadrmSuperUser.yml) cmdlet.
+
+  You must use PowerShell to configure super users; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400621
+  schema: 2.0.0
+  ms.assetid: 48A3F450-B87B-43DB-8723-8917FD5E0B7B

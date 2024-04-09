@@ -1,0 +1,48 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the role-based administrators for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Add-AipServiceRoleBasedAdministrator
+  href: ./Add-AipServiceRoleBasedAdministrator.yml
+- text: Remove-AipServiceRoleBasedAdministrator
+  href: ./Remove-AipServiceRoleBasedAdministrator.yml
+syntaxes:
+- Get-AipServiceRoleBasedAdministrator [-Role <Role>] [<CommonParameters>]
+examples:
+- title: 'Example 1: List administrators'
+  code: |-
+    PS C:\>Get-AipServiceRoleBasedAdministrator
+  description: |-
+    This command lists the role-based administrators for Azure Information Protection.
+  summary: ""
+parameters:
+- type: <xref href="Role" data-throw-if-not-resolved="False" />
+  name: Role
+  description: |+
+    Specifies a role. The cmdlet gets the administrators that belong to the role that you specify.
+
+    The acceptable values for this parameter are:
+
+    - **ConnectorAdministrator**
+
+    - **GlobalAdministrator**
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: GlobalAdministrator, ConnectorAdministrator
+uid: AIPService.Get-AipServiceRoleBasedAdministrator
+name: Get-AipServiceRoleBasedAdministrator
+description: |-
+  The **Get-AipServiceRoleBasedAdministrator** cmdlet gets the role-based administrators for the protection service from Azure Information Protection. You can get the administrators for a specified role.
+
+  You must use PowerShell to configure delegated administrative control for the protection service; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 528FCC5D-F653-4B40-8D82-F036BAB66E5C
+  online version: https://go.microsoft.com/fwlink/?linkid=2045180
+  schema: 2.0.0

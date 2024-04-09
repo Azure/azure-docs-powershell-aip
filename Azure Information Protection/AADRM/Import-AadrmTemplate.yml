@@ -1,0 +1,57 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Creates a custom Rights Management policy template.
+module: AADRM
+notes: ""
+links:
+- text: Add-AadrmTemplate
+  href: ./Add-AadrmTemplate.yml
+- text: Export-AadrmTemplate
+  href: ./Export-AadrmTemplate.yml
+- text: Get-AadrmTemplate
+  href: ./Get-AadrmTemplate.yml
+- text: Remove-AadrmTemplate
+  href: ./Remove-AadrmTemplate.yml
+syntaxes:
+- Import-AadrmTemplate -Path <String> [<CommonParameters>]
+examples:
+- title: 'Example 1: Import a template file'
+  code: |-
+    PS C:\>Import-AadrmTemplate -Path "C:\MyTemplates\MyFile.xml"
+  description: |-
+    This command imports a template file.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: Path
+  isRequired: true
+  description: |+
+    Specifies the path to the template file to import.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AADRM.Import-AadrmTemplate
+name: Import-AadrmTemplate
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Import-AadrmTemplate** cmdlet creates a custom Rights Management template for Azure Rights Management and sets its properties according to data contained in a template file.
+
+  Although you can configure Rights Management templates in the Azure portal, you must use PowerShell to export and import these templates.
+
+  The file you import must be a valid Rights Management template file that has been exported from Azure RMS or AD RMS. The file can have any file name extension.
+
+  If you import a template file identified by a GUID that matches the GUID of an existing template for the tenant, the original template is overwritten without warning. During the import operation, the GUID for the new template is set to the GUID in the input file, so the new template is valid to consume content protected with the imported template as long as Azure RMS has the necessary decryption keys.
+
+  If the name of the template in the import file matches the name of an existing template for the tenant in any language, you will have two templates with the same name.
+
+  You can store a maximum of 500 custom templates (published or archived) in Azure. If you can't import templates because you have reached this limit as a result of keeping many archived templates, consider exporting them to save the information locally and then removing these templates from Azure RMS.
+
+  For more information about custom templates, see [Configuring and managing templates for Azure Information Protection](/information-protection/deploy-use/configure-policy-templates).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkID=400628
+  schema: 2.0.0
+  ms.assetid: 86B51085-E23E-4A2E-A512-9098C908F3AD

@@ -1,0 +1,53 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Removes a super user from Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Add-AipServiceSuperUser
+  href: ./Add-AipServiceSuperUser.yml
+- text: Get-AipServiceSuperUser
+  href: ./Get-AipServiceSuperUser.yml
+- text: Enable-AipServiceSuperUserFeature
+  href: ./Enable-AipServiceSuperUserFeature.yml
+- text: Set-AipServiceSuperUserGroup
+  href: ./Set-AipServiceSuperUserGroup.yml
+syntaxes:
+- Remove-AipServiceSuperUser -EmailAddress <String> [<CommonParameters>]
+examples:
+- title: 'Example 1: Remove a super user'
+  code: |-
+    PS C:\>Remove-AipServiceSuperUser -EmailAddress "EvanNarvaez@Contoso.com"
+  description: |-
+    This command removes an individually specified super user from Azure Information Protection by specifying that user's email address.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: EmailAddress
+  isRequired: true
+  description: |+
+    Specifies the email address of a user or group. 
+
+    The cmdlet removes the user or group identified by the email address that you specify.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AIPService.Remove-AipServiceSuperUser
+name: Remove-AipServiceSuperUser
+description: |-
+  The **Remove-AipServiceSuperUser** cmdlet removes a user from the list of users who are individually granted super user privileges for your organization.
+
+  This cmdlet does not remove a group or a user from that a group that is assigned super user privileges by using the [Set-AipServiceSuperUserGroup](./Set-AipServiceSuperUserGroup.yml) cmdlet.
+
+  For more information about super users, see the [Get-AipServiceSuperUser](./Get-AipServiceSuperUser.yml) cmdlet.
+
+  You must use PowerShell to configure super users; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 48A3F450-B87B-43DB-8723-8917FD5E0B7B
+  online version: https://go.microsoft.com/fwlink/?linkid=2045326
+  schema: 2.0.0

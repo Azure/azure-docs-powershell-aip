@@ -1,0 +1,278 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Defines settings for an Azure Information Protection content scan job.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Add-AIPScannerRepository
+  href: Add-AIPScannerRepository.yml
+- text: Get-AIPScannerContentScanJob
+  href: Get-AIPScannerContentScanJob.yml
+- text: Get-AIPScannerRepository
+  href: Get-AIPScannerRepository.yml
+- text: Remove-AIPScannerContentScanJob
+  href: Remove-AIPScannerContentScanJob.yml
+- text: Remove-AIPScannerRepository
+  href: Remove-AIPScannerRepository.yml
+- text: Set-AIPScannerRepository
+  href: Set-AIPScannerRepository.yml
+syntaxes:
+- >-
+  Set-AIPScannerContentScanJob [-Schedule <Schedule>] [-DiscoverInformationTypes <DiscoverInformationTypes>]
+
+   [-RecommendedAsAutomatic <OnOffEnum>] [-EnableDlp <OnOffEnum>] [-Enforce <OnOffEnum>]
+
+   [-LabelFilesByContent <OnOffEnum>] [-RelabelFiles <OnOffEnum>] [-AllowLabelDowngrade <OnOffEnum>]
+
+   [-EnforceDefaultLabel <OnOffEnum>] [-DefaultLabelType <DefaultLabelType>] [-DefaultLabelId <Guid>]
+
+   [-DefaultOwner <String>] [-RepositoryOwner <String>] [-PreserveFileDetails <OnOffEnum>]
+
+   [-IncludeFileTypes <String>] [-ExcludeFileTypes <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+examples:
+- title: Example 1 Define default content scan job settings
+  code: |-
+    PS C:\WINDOWS\system32> Set-AIPScannerContentScanJob -Enforce Off
+  description: |-
+    This example defines the content scan job with default settings, and sets the **Policy enforcement** option to **Off**.
+  summary: ""
+- title: Example 2 Define a basic content scan job that runs continuously
+  code: |-
+    PS C:\WINDOWS\system32> Set-AIPScannerContentScanJob -Enforce Off -RelabelFiles On -EnforceDefaultLabel On -Schedule Always
+  description: |-
+    This example defines the content scan job with without enforcing a policy, allowing files to be re-labeled, using a default label, and is scheduled to run always.
+  summary: ""
+- title: Example 3 Define a content scan job that allows for specific re-labeling actions only
+  code: |-
+    PS C:\WINDOWS\system32> Set-AIPScannerContentScanJob -RelabelFiles On -AllowLabelDowngrade On -EnforceDefaultLabel On
+  description: |-
+    This example defines a content scan job that allows for content to be re-labeled only to downgrade a label or use a default label.
+  summary: ""
+- title: Example 4 Define a content scan job that excludes .msg and .tmp files
+  code: |-
+    PS C:\WINDOWS\system32> Set-AIPScannerContentScanJob -IncludeFileTypes '' -ExcludeFileTypes '.msg,.tmp'
+  description: |-
+    This example defines a content scan job that includes all file types except for .msg and .tmp files.
+  summary: ""
+- title: Example 5 Define a content scan job with DLP enabled, and a specific repository owner
+  code: |-
+    PS C:\WINDOWS\system32> Set-AIPScannerContentScanJob -EnableDLP On -RepositoryOwner 'domain\user'
+  description: |-
+    This example defines the content scan job to use the Microsoft 365 built-in data loss prevention (DLP) sensitivity information types when scanning your content, and also defines a specific owner for the content scan job's repositories.
+  summary: ""
+- title: Example 6 Define a content scan job with a default label to use when automatically labeling content
+  code: |-
+    PS C:\WINDOWS\system32> Set-AIPScannerContentScanJob -DefaultLabelType Custom -DefaultLabelId 'ff1f1c9d-2f92-4a18-3d84-4608b742424'
+  description: |-
+    This example defines the content scan job with a specific label used as the default label, specified by the label ID.
+  summary: ""
+parameters:
+- type: <xref href="OnOffEnum" data-throw-if-not-resolved="False" />
+  name: AllowLabelDowngrade
+  description: |+
+    Determines whether the content scan job allows for labeling downgrade actions.
+
+    Relevant only when the **RelabelFiles** parameter is set to **on**.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: On, Off
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Confirm
+  description: |+
+    Prompts you for confirmation before running the cmdlet.
+
+  defaultValue: None
+  position: Named
+  aliases: cf
+  parameterValueGroup: ""
+- type: <xref href="Guid" data-throw-if-not-resolved="False" />
+  name: DefaultLabelId
+  description: |+
+    Defines the ID of the default label used when automatically labeling content with a default label.
+
+    Mandatory if the **DefaultLabelType** parameter is set to **custom**.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="DefaultLabelType" data-throw-if-not-resolved="False" />
+  name: DefaultLabelType
+  description: |+
+    Determines the type of default label used when automatically labeling content with a default label.
+
+    When used, define the label ID you want to use as the default ID using the **DefaultLabelId** parameter.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: None, PolicyDefault, Custom
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: DefaultOwner
+  description: |+
+    Defines the default owner value used for the files scanned, using the account email address. By default, this is the scanner account.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="DiscoverInformationTypes" data-throw-if-not-resolved="False" />
+  name: DiscoverInformationTypes
+  description: |+
+    Determines the types of information types discovered during the content scan job.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: PolicyOnly, All
+- type: <xref href="OnOffEnum" data-throw-if-not-resolved="False" />
+  name: EnableDlp
+  description: |+
+    Determines whether the content scan job uses the Microsoft 365 built-in data loss prevention (DLP) sensitivity information types when scanning your content.
+
+    > [!TIP]
+    > If you configure this parameter, you may also want to configure a specific repository owner using the **RepositoryOwner** parameter.
+    > 
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: On, Off
+- type: <xref href="OnOffEnum" data-throw-if-not-resolved="False" />
+  name: Enforce
+  description: |+
+    Determines whether the content scan job enforces content scanning and labeling according to your policy.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: On, Off
+- type: <xref href="OnOffEnum" data-throw-if-not-resolved="False" />
+  name: EnforceDefaultLabel
+  description: |+
+    Determines whether using a default label is always used when relabeling content.
+
+    Relevant only when the **RelabelFiles** parameter is set to **on**.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: On, Off
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: ExcludeFileTypes
+  description: |+
+    Determines any file types that are ignored during your content scan job. Define multiple file types using a comma-separated list.
+
+    If you define this parameter, define the **IncludeFileTypes** parameter as null. For example, **Example 4** above.
+
+    Relevant only when the **OverrideContentScanJob** parameter is set to **on** in the [Add-AIPScannerRepository](Add-AIPScannerRepository.yml) or [Set-AIPScannerRepository](Set-AIPScannerRepository.yml) cmdlets.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: IncludeFileTypes
+  description: |+
+    Explicitly determines the file types that are scanned by your content scan job. Define multiple file types using a comma-separated list.
+
+    If you define this parameter, define the **ExcludeFileTypes** parameter as null. For example, **Example 4** above.
+
+    Relevant only when the **OverrideContentScanJob** parameter is set to **on** in the [Add-AIPScannerRepository](Add-AIPScannerRepository.yml) or [Set-AIPScannerRepository](Set-AIPScannerRepository.yml) cmdlets.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="OnOffEnum" data-throw-if-not-resolved="False" />
+  name: LabelFilesByContent
+  description: |+
+    Determines whether the **Label files based on content** content scan job option is enabled or disabled.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: On, Off
+- type: <xref href="OnOffEnum" data-throw-if-not-resolved="False" />
+  name: PreserveFileDetails
+  description: |+
+    Determines whether the file details, including the date modified, last modified, and modified by settings are preserved while scanning and auto-labeling.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: On, Off
+- type: <xref href="OnOffEnum" data-throw-if-not-resolved="False" />
+  name: RecommendedAsAutomatic
+  description: |+
+    Determines whether recommended labels are used to automatically label your content.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: On, Off
+- type: <xref href="OnOffEnum" data-throw-if-not-resolved="False" />
+  name: RelabelFiles
+  description: |+
+    Determines whether the content scan job is allowed to relabel files.
+
+    > [!TIP]
+    > When using this parameter, use the following additional parameters as needed:
+    > - **EnforceDefaultLabel**
+    > - **AllowLabelDowngrade**
+    > 
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: On, Off
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: RepositoryOwner
+  description: |+
+    Specifies the SAMAccountname (**domain\user**), UPN (**user@domain**), or SID of a group that owns the repository.
+
+    The owners are granted full control permissions on the file if the permissions on the file are changed by a matched DLP rule.
+
+    Relevant only when the **EnableDlp** parameter is set to **on**.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="Schedule" data-throw-if-not-resolved="False" />
+  name: Schedule
+  description: |+
+    Determines whether the content scan job runs according to a specific schedule, or continuously.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: Manual, Always
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    Shows what would happen if the cmdlet runs.
+    The cmdlet is not run.
+
+  defaultValue: None
+  position: Named
+  aliases: wi
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Set-AIPScannerContentScanJob
+name: Set-AIPScannerContentScanJob
+description: |-
+  Defines the configuration for your content scan job, which scans the content in the defined repositories, according to the settings defined.
+  For more information about content scan jobs, see the [Azure Information Protection on-premises scanner documentation](/information-protection/deploy-aip-scanner-configure-install#create-a-content-scan-job).
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2144639
+  schema: 2.0.0

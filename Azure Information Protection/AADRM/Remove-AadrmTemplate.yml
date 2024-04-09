@@ -1,0 +1,65 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Deletes a Rights Management rights policy template.
+module: AADRM
+notes: ""
+links:
+- text: Add-AadrmTemplate
+  href: ./Add-AadrmTemplate.yml
+- text: Export-AadrmTemplate
+  href: ./Export-AadrmTemplate.yml
+- text: Get-AadrmTemplate
+  href: ./Get-AadrmTemplate.yml
+- text: Import-AadrmTemplate
+  href: ./Import-AadrmTemplate.yml
+syntaxes:
+- Remove-AadrmTemplate -TemplateId <Guid> [<CommonParameters>]
+examples:
+- title: 'Example 1: Delete a template'
+  code: |-
+    PS C:\>Remove-AadrmTemplate -TemplateId 36546649-4944-4462-a409-74373a67b6dd
+  description: |-
+    This command deletes the specified template.
+  summary: ""
+parameters:
+- type: <xref href="Guid" data-throw-if-not-resolved="False" />
+  name: TemplateId
+  isRequired: true
+  description: |+
+    Specifies the GUID of the Rights Management template.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AADRM.Remove-AadrmTemplate
+name: Remove-AadrmTemplate
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Remove-AadrmTemplate** cmdlet deletes an Azure Rights Management protection template.
+
+  You can delete only custom templates. You can set default templates to an archived state but you cannot delete them.
+
+  Although you can configure Rights Management templates in the Azure portal, you must use PowerShell to remove these templates.
+
+  To ensure that previously protected content can be opened and used as intended by administrators, we usually advise against deleting templates. As a best practice, delete templates only if you are sure they were not used to protect documents or emails in production. Users who are super users can continue to access content that was previously protected with a template that is now deleted. For more information about super users, see [Configuring super users for Azure Rights Management and discovery services or data recovery](/information-protection/deploy-use/configure-super-users).
+
+  This cmdlet requires the template ID, which you can get with the [Get-AadrmTemplate](./Get-AadrmTemplate.yml) cmdlet.
+
+  This cmdlet performs the following operations:
+
+  - Displays the template properties.
+
+  - Warns that all content protected with this template may become inaccessible.
+
+  - Asks to confirm whether to proceed.
+
+  - Calls the service to remove the template with the specified GUID.
+
+  For more information about custom templates, including how to configure them in the Azure portal, see [Configuring and managing templates for Azure Information Protection](/information-protection/deploy-use/configure-policy-templates).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: https://go.microsoft.com/fwlink/?LinkID=400630
+  schema: 2.0.0
+  ms.assetid: EAC26502-ECB3-43A0-B468-D166C1E4A9C4

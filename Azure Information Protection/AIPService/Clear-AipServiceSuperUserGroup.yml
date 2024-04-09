@@ -1,0 +1,35 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Removes the super user group for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Add-AipServiceSuperUser
+  href: ./Add-AipServiceSuperUser.yml
+- text: Get-AipServiceSuperUserGroup
+  href: ./Get-AipServiceSuperUserGroup.yml
+- text: Set-AipServiceSuperUserGroup
+  href: ./Set-AipServiceSuperUserGroup.yml
+syntaxes:
+- Clear-AipServiceSuperUserGroup [<CommonParameters>]
+examples:
+- title: 'Example 1: Remove the super user group'
+  code: |-
+    PS C:\>Clear-AipServiceSuperUserGroup
+  description: |-
+    This command removes the super user group, if one exists, for your tenant.
+  summary: ""
+uid: AIPService.Clear-AipServiceSuperUserGroup
+name: Clear-AipServiceSuperUserGroup
+description: |-
+  The **Clear-AipServiceSuperUserGroup** cmdlet removes the super user group for Azure Information Protection.
+
+  This cmdlet does not affect users that are individually assigned the super user privilege with the [Add-AipServiceSuperUser](./Add-AipServiceSuperUser.yml) cmdlet.
+
+  You must use PowerShell to configure super users; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: F4A1DD4B-C8B9-4FA8-A809-388F01C0A0F0
+  online version: https://go.microsoft.com/fwlink/?linkid=2045013
+  schema: 2.0.0

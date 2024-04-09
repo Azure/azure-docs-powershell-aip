@@ -1,0 +1,36 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Disables the usage log for Rights Management.
+module: AADRM
+notes: ""
+links:
+- text: Enable-AadrmUsageLogFeature
+  href: ./Enable-AadrmUsageLogFeature.yml
+- text: Get-AadrmUsageLogFeature
+  href: ./Get-AadrmUsageLogFeature.yml
+- text: Logging and analyzing usage of the Azure Rights Management service
+  href: /information-protection/deploy-use/log-analyze-usage
+syntaxes:
+- Disable-AadrmUsageLogFeature [<CommonParameters>]
+examples:
+- title: 'Example 1: Disable usage logging'
+  code: |-
+    PS C:\>Disable-AadrmUsageLogFeature
+  description: |-
+    This command disables the usage log for your organization.
+  summary: ""
+uid: AADRM.Disable-AadrmUsageLogFeature
+name: Disable-AadrmUsageLogFeature
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Disable-AadrmUsageLogFeature** cmdlet disables usage logging for the Azure Rights Management service. If you disable this logging, the cmdlet does not delete existing logs. If you enable usage logging again, logging begins at the point in the log where logging previously stopped.
+
+  Note: This cmdlet is not needed and will not run successfully after the usage logging change in February 2016. After this date, usage logging is automatically enabled and cannot be disabled; the only PowerShell cmdlet that you need for Azure Rights Management usage logging is [Get-AadrmUserLog](./Get-AadrmUserLog.yml).
+
+  For more information about usage logging, see [Logging and analyzing usage of the Azure Rights Management service](/information-protection/deploy-use/log-analyze-usage).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400600
+  schema: 2.0.0
+  ms.assetid: 469B8EE7-0EE9-4BD7-BC24-A3AD74111FB0

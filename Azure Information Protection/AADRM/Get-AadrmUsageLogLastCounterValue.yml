@@ -1,0 +1,35 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the last counter value for the usage log.
+module: AADRM
+notes: ""
+links:
+- text: Enable-AadrmUsageLogFeature
+  href: ./Enable-AadrmUsageLogFeature.yml
+- text: Logging and analyzing usage of the Azure Rights Management service
+  href: /information-protection/deploy-use/log-analyze-usage
+syntaxes:
+- Get-AadrmUsageLogLastCounterValue [<CommonParameters>]
+examples:
+- title: 'Example 1: Get the last counter value'
+  code: |-
+    PS C:\>Get-AadrmUsageLogLastCounterValue
+  description: |-
+    This command gets the last counter value for the usage log for your organization.
+  summary: ""
+uid: AADRM.Get-AadrmUsageLogLastCounterValue
+name: Get-AadrmUsageLogLastCounterValue
+description: |-
+  The **Get-AadrmUsageLogLastCounterValue** cmdlet gets the last counter value for the usage log.
+
+  You must use PowerShell to get this information; you cannot do this action by using a management portal.
+
+  This cmdlet should be used only if you have usage logs prior to the usage logging change in February 2016.
+  After this date, the only Windows PowerShell cmdlet that you need for Azure RMS usage logging is [Get-AadrmUserLog](./Get-AadrmUserLog.yml).
+
+  For more information about usage logging, see [Logging and analyzing usage of the Azure Rights Management service](/information-protection/deploy-use/log-analyze-usage).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400618
+  schema: 2.0.0
+  ms.assetid: BE5835E8-F97C-4F0E-8B2A-6698819D61CD

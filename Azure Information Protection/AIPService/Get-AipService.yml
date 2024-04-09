@@ -1,0 +1,31 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the activation status of the protection service from Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Disable-AipService
+  href: ./Disable-AipService.yml
+- text: Enable-AipService
+  href: ./Enable-AipService.yml
+syntaxes:
+- Get-AipService [<CommonParameters>]
+examples:
+- title: 'Example 1: Get the status of the protection service'
+  code: |-
+    PS C:\>Get-AipService
+  description: |-
+    This command gets your tenant's activation status of the protection service from Azure Information Protection.
+  summary: ""
+uid: AIPService.Get-AipService
+name: Get-AipService
+description: |-
+  The **Get-AipService** cmdlet gets the activation status of the protection service from Azure Information Protection for your tenant. The status of the protection service is enabled (activated) or disabled (deactivated).
+
+  You can also view this information in a management portal. For more information, see [Activating the protection service from Azure Information Protection](/information-protection/deploy-use/activate-service).
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: DF116EAD-6AC1-44CF-89E6-5E63D72FF58C
+  online version: https://go.microsoft.com/fwlink/?linkid=2044945
+  schema: 2.0.0

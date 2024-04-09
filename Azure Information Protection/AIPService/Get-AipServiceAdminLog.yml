@@ -1,0 +1,106 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Generates logs for all protection commands for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Get-Date
+  href: /powershell/module/Microsoft.PowerShell.Utility/Get-Date?viewFallbackFrom=powershell-4.0
+syntaxes:
+- >-
+  Get-AipServiceAdminLog -Path <String> [-FromTime <DateTime>] [-ToTime <DateTime>] [-Force] [-WhatIf] [-Confirm]
+
+   [<CommonParameters>]
+examples:
+- title: 'Example 1: Generate a log of all commands'
+  code: |-
+    PS C:\>Get-AipServiceAdminLog -Path "C:\Temp\AdminLog.log"
+  description: |-
+    This command generates a log that contains all the administrative protection commands that have been run for your tenant.
+  summary: ""
+- title: 'Example 2: Generate a log of commands for a specified time period'
+  code: |-
+    PS C:\>Get-AipServiceAdminLog -Path "C:\Temp\AdminLog.log" -FromTime "05/01/2015 00:00:00" -ToTime "05/31/2015 23:59:59"
+  description: |-
+    This command generates a log of administrative protection commands that have been run for your tenant, limited to items that fall within the specific time period by using the *FromTime* and *ToTime* parameters. In this example, the time period is all days in **May 2015**, using the US date format.
+  summary: ""
+- title: 'Example 3: Generate a log of commands for the last 45 days'
+  code: |-
+    PS C:\>$days = (Get-Date).AddDays(-45) 
+    PS C:\>Get-AipServiceAdminLog -Path "C:\Temp\AdminLog.log" -FromTime $days
+  description: |-
+    This command generates a log of administrative protection commands for your tenant, limited to items within the last 45 days (inclusive). The first command sets the variable for the *FromTime* parameter to be today's date minus 45 days. Then the second command gets the entries from the log for this time period, by using this variable.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Confirm
+  description: |+
+    Prompts you for confirmation before running the cmdlet.
+
+  defaultValue: "False"
+  position: Named
+  aliases: cf
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Indicates that the cmdlet overwrites, without prompting for confirmation, an existing log file that has the same path.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="DateTime" data-throw-if-not-resolved="False" />
+  name: FromTime
+  description: |+
+    Specifies the start time (inclusive) for the log file as a **DateTime** object. To obtain a **DateTime** object, use the [Get-Date](/powershell/module/Microsoft.PowerShell.Utility/Get-Date?viewFallbackFrom=powershell-4.0) cmdlet. Specify the date and time according to your system locale settings. 
+
+    For more information, type `Get-Help Get-Date`.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: Path
+  isRequired: true
+  description: |+
+    Specifies an existing path and a file name for the log.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="DateTime" data-throw-if-not-resolved="False" />
+  name: ToTime
+  description: |+
+    Specifies the stop time (inclusive) for the log file as a **DateTime** object. To obtain a **DateTime** object, use the **Get-Date** cmdlet. Specify the date and time according to your system locale settings. 
+
+    For more information, type `Get-Help Get-Date`.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+  defaultValue: "False"
+  position: Named
+  aliases: wi
+  parameterValueGroup: ""
+uid: AIPService.Get-AipServiceAdminLog
+name: Get-AipServiceAdminLog
+description: |-
+  The **Get-AipServiceAdminLog** cmdlet generates logs for all administrative protection commands for Azure Information Protection. You can specify a start time and stop time of entries to include.
+
+  You must use PowerShell to get these admin logs; you cannot do this action by using a management portal.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: D7136388-0197-4074-AC15-BA4DA07223C7
+  online version: https://go.microsoft.com/fwlink/?linkid=2045046
+  schema: 2.0.0

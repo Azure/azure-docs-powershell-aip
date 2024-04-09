@@ -1,0 +1,28 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Disconnects from Rights Management.
+module: AADRM
+notes: ""
+links:
+- text: Connect-AadrmService
+  href: ./Connect-AadrmService.yml
+syntaxes:
+- Disconnect-AadrmService [<CommonParameters>]
+examples:
+- title: 'Example 1: Disconnect from Rights Management'
+  code: |-
+    PS C:\>Disconnect-AadrmService
+  description: |-
+    This command disconnects from the Rights Management service.
+  summary: ""
+uid: AADRM.Disconnect-AadrmService
+name: Disconnect-AadrmService
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Disconnect-AadrmService** cmdlet disconnects you from the Azure Rights Management service. Use this cmdlet to end a connection that you previously established by using the [Connect-AadrmService](./Connect-AadrmService.yml) cmdlet.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400601
+  schema: 2.0.0
+  ms.assetid: 91DD14FF-0033-4A7F-9738-87BD2A989FED

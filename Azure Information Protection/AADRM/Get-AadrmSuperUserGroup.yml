@@ -1,0 +1,42 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the super user group for Rights Management.
+module: AADRM
+notes: ""
+outputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+  description: |-
+    This operation returns the super user group email address as a **String**. If no super user group exists, an empty **String** is returned.
+links:
+- text: Add-AadrmSuperUser
+  href: ./Add-AadrmSuperUser.yml
+- text: Clear-AadrmSuperUserGroup
+  href: ./Clear-AadrmSuperUserGroup.yml
+- text: Set-AadrmSuperUserGroup
+  href: ./Set-AadrmSuperUserGroup.yml
+- text: Configuring super users for Azure Rights Management and discovery services or data recovery
+  href: /information-protection/deploy-use/configure-super-users
+syntaxes:
+- Get-AadrmSuperUserGroup [<CommonParameters>]
+examples:
+- title: 'Example 1: Get the super user group'
+  code: |-
+    PS C:\>Get-AadrmSuperUserGroup
+  description: |-
+    This command gets the email address of the super user group for an organization.
+  summary: ""
+uid: AADRM.Get-AadrmSuperUserGroup
+name: Get-AadrmSuperUserGroup
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Get-AadrmSuperUserGroup** cmdlet gets the email address of the Azure Rights Management super user group for your organization. This cmdlet does not get users that are individually assigned as super users with the [Add-AadrmSuperUser](./Add-AadrmSuperUser.yml) cmdlet.
+
+  You must use PowerShell to configure super users; you cannot do this configuration by using a management portal.
+
+  For more information about super users, see [Configuring super users for Azure Rights Management and discovery services or data recovery](/information-protection/deploy-use/configure-super-users).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=722837
+  schema: 2.0.0
+  ms.assetid: 697EB0B3-9311-4F45-B1B7-489D7ABF911F

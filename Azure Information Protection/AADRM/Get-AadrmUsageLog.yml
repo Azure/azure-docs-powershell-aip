@@ -1,0 +1,76 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Downloads Rights Management logs to local storage.
+module: AADRM
+notes: ""
+links:
+- text: Get-AadrmUsageLogLastCounterValue
+  href: ./Get-AadrmUsageLogLastCounterValue.yml
+- text: Logging and analyzing usage of the Azure Rights Management service
+  href: /information-protection/deploy-use/log-analyze-usage
+syntaxes:
+- Get-AadrmUsageLog -Path <String> [-FromCounter <Int32>] [-ToCounter <Int32>] [<CommonParameters>]
+examples:
+- title: 'Example 1: Get all logs'
+  code: |-
+    PS C:\>Get-AadrmUsageLog -Path "E:\Logs\UsageLog.log"
+  description: |-
+    This command saves all usage logs to the E:\Logs\UsageLog.log file.
+  summary: ""
+- title: 'Example 2: Get a range of logs'
+  code: |-
+    PS C:\>Get-AadrmUsageLog -Path "E:\Logs\UsageLogRange.log " -FromCounter 1024 -ToCounter 2047
+  description: |-
+    This command saves the specified range of usage logs to the E:\Logs\UsageLogRange.log file.
+  summary: ""
+parameters:
+- type: <xref href="Int32" data-throw-if-not-resolved="False" />
+  name: FromCounter
+  description: |+
+    Specifies a counter value. 
+
+    The cmdlet gets entries as far back as this counter value. To obtain a counter value, use the [Get-AadrmUsageLogLastCounterValue](./Get-AadrmUsageLogLastCounterValue.yml) cmdlet.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: Path
+  isRequired: true
+  description: |+
+    Specifies a path for the log.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="Int32" data-throw-if-not-resolved="False" />
+  name: ToCounter
+  description: |+
+    Specifies a counter value.
+
+    The cmdlet gets entries as far forward as this counter value.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AADRM.Get-AadrmUsageLog
+name: Get-AadrmUsageLog
+description: |-
+  The **Get-AadrmUsageLog** cmdlet downloads Azure Rights Management usage logs to local storage.
+
+  You must use PowerShell to get these logs; you cannot do this action by using a management portal.
+
+  Note: This cmdlet should be used only if you have usage logs prior to the usage logging change in February 2016. After this date, the only Windows PowerShell cmdlet that you need for Azure RMS usage logging is [Get-AadrmUserLog](./Get-AadrmUserLog.yml).
+
+  For more information about usage logging, see [Logging and analyzing usage of the Azure Rights Management service](/information-protection/deploy-use/log-analyze-usage).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400616
+  schema: 2.0.0
+  ms.assetid: 2EEF1510-4A63-4D3D-A707-541FC294DA33

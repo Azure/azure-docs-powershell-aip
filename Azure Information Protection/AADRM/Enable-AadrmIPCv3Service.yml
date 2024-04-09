@@ -1,0 +1,32 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Enables the MSIPC v3 platform for Rights Management.
+module: AADRM
+notes: ""
+links:
+- text: Disable-AadrmIPCv3Service
+  href: ./Disable-AadrmIPCv3Service.yml
+- text: Get-AadrmIPCv3Service
+  href: ./Get-AadrmIPCv3Service.yml
+syntaxes:
+- Enable-AadrmIPCv3Service [<CommonParameters>]
+examples:
+- title: 'Example1: Enable the MSIPC v3 platform for iOS and Android devices'
+  code: |-
+    PS C:\>Enable-AadrmIPCv3Service
+  description: |-
+    This command enables the MSIPC v3 platform so that iOS and Android mobile devices can use Rights Management.
+  summary: ""
+uid: AADRM.Enable-AadrmIPCv3Service
+name: Enable-AadrmIPCv3Service
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Enable-AadrmIPCv3Service** cmdlets enables the MSIPC v3 platform on mobile devices such as iOS and Android. This platform must be enabled to support Rights Management.
+
+  You must use PowerShell to do this configuration; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: ""
+  schema: 2.0.0
+  ms.assetid: 847B715B-0951-40BC-A1CA-8BD6E8AD8148

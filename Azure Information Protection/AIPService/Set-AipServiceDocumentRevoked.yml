@@ -1,0 +1,75 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Revokes access for specified users, to a specified tracked and protected document.
+module: AIPService
+notes: ""
+links:
+- text: Get-AipServiceDocumentLog
+  href: Get-AipServiceDocumentLog.yml
+- text: Clear-AipServiceDocumentRevoked
+  href: Clear-AipServiceDocumentRevoked.yml
+- text: Get-AipServiceDocumentTrackingFeature
+  href: Get-AipServiceDocumentTrackingFeature.yml
+syntaxes:
+- Set-AipServiceDocumentRevoked [-Force] -ContentId <Guid> - IssuerName <String> [-WhatIf]  [-Confirm]  [<CommonParameters>]
+examples:
+- title: 'Example 1: Revoke access to a specific protected document'
+  code: |-
+    PS C:\>Set-AipServiceDocumentRevoked -ContentId c03bf90c-6e40-4f3f-9ba0-2bcd77524b87 - IssuerName  “alice@microsoft.com”
+  description: |-
+    This command revokes access to the document identified using the c03bf90c-6e40-4f3f-9ba0-2bcd77524b87 contentID and 
+    This command sets the document state as revoked for the document with contentId as c03bf90c-6e40-4f3f-9ba0-2bcd77524b87 & IssuerName as alice@microsoft.com.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Confirm
+  description: |+
+    Prompts you for confirmation before running the cmdlet.
+
+  defaultValue: None
+  position: Named
+  aliases: cf
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: ContentId
+  isRequired: true
+  description: |+
+    Specifies the email address of a user or group to have administrative rights for the protection service. If the user has no email address, specify the user's Universal Principal Name.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Forces the command to run without asking for user confirmation.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+  defaultValue: None
+  position: Named
+  aliases: wi
+  parameterValueGroup: ""
+uid: AIPService.Set-AipServiceDocumentRevoked
+name: Set-AipServiceDocumentRevoked
+description: |-
+  Relevant for the unified labeling client only
+
+  The **Set-AipServiceDocumentRevoked** cmdlet revokes access to a specified document, based on the document's contentID and Rights Management issuer.
+
+  To retrieve the contentID for a specific document, use the [Get-AipServiceDocumentLog](Get-AipServiceDocumentLog.yml) cmdlet.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 9802F554-834A-4BA0-A086-C7F8B2976939
+  online version: https://go.microsoft.com/fwlink/?linkid=2147076
+  schema: 2.0.0

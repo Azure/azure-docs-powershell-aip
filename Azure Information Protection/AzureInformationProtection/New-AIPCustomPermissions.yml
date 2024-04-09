@@ -1,0 +1,83 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  **Relevant for:** AIP unified labeling client only
+
+  Creates an ad-hoc protection policy for custom permissions.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Set-AIPFileLabel
+  href: Set-AIPFileLabel.yml
+syntaxes:
+- >-
+  New-AIPCustomPermissions -Users <String[]> -Permissions <Permissions> [-ExpirationDate <DateTime>]
+
+   [<CommonParameters>]
+examples:
+- title: Example 1 - Create an ad-hoc protection policy object for a single user
+  code: |-
+    PS C:\> $permissions = New-AIPCustomPermissions -Users user1@contoso.com -Permissions Viewer
+  description: |-
+    This command creates an ad-hoc protection policy object that grants **user1** from **contoso.com** usage rights from the Reviewer permissions and stores this policy in a variable named permissions. This ad-hoc protection policy can then be used to apply protection to a file or files.
+
+    There is no output displayed for this command.
+  summary: ""
+- title: Example 2 - Create an ad-hoc protection policy object for multiple users and that has an expiration date
+  code: |-
+    PS C:\> $permissions = New-AIPCustomPermissions -Users user1@contoso.com, user2@vanarsdel.com -Permissions Reviewer -ExpirationDate (Get-Date -Month 1 -Day 1 -Year 2020)
+  description: |-
+    This command creates an ad-hoc protection policy object that grants users from different organizations usage rights from the Reviewer permissions, and also applies an expiration date. The ad-hoc protection policy object is stored in a variable named permissions, which can then be used to apply this protection to a file or files.
+
+    There is no output displayed for this command.
+  summary: ""
+parameters:
+- type: <xref href="DateTime" data-throw-if-not-resolved="False" />
+  name: ExpirationDate
+  description: |+
+    Specifies an expiration date for the ad-hoc protection policy.
+
+    After this expiry date, the specified users will no longer be able to access the file or files. However, the owner and a super user can always access the file, even after the expiry period is reached.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="Permissions" data-throw-if-not-resolved="False" />
+  name: Permissions
+  isRequired: true
+  description: |+
+    Specifies a permissions level that groups usage rights that are typically used together. Use this parameter and the *Users* parameter to grant usage rights to specified users.
+
+    To see which individual usage rights are included in each of the permissions levels, see [Rights included in permission levels](/azure/information-protection/configure-usage-rights#rights-included-in-permissions-levels).
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: Viewer, Reviewer, CoAuthor, CoOwner
+- type: <xref href="String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+  name: Users
+  isRequired: true
+  description: |+
+    Specifies users who will have rights to use the file or files. Use this parameter and the *Permission* parameter to grant rights to specified users or groups. 
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AzureInformationProtection.New-AIPCustomPermissions
+name: New-AIPCustomPermissions
+description: |-
+  The **New-AIPCustomPermissions** cmdlet creates an ad-hoc protection policy object for custom permissions that you store as a variable and then use to protect a file or files when you run the labeling cmdlet, [Set-AIPFileLabel](./Set-AIPFileLabel.yml). 
+
+  If the label that is applied is configured for protection settings, the custom permissions from the ad-hoc protection policy replace the protection settings from the label.
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2092526
+  schema: 2.0.0

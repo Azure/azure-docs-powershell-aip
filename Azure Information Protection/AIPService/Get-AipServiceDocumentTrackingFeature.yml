@@ -1,0 +1,33 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Indicates whether document tracking is enabled or disabled for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Disable-AipServiceDocumentTrackingFeature
+  href: ./Disable-AipServiceDocumentTrackingFeature.yml
+- text: Enable-AipServiceDocumentTrackingFeature
+  href: ./Enable-AipServiceDocumentTrackingFeature.yml
+syntaxes:
+- Get-AipServiceDocumentTrackingFeature [<CommonParameters>]
+examples:
+- title: 'Example: Determine whether the document tracking site is enabled'
+  code: |-
+    PS C:\>Get-AipServiceDocumentTrackingFeature
+  description: |-
+    This command determines whether the Azure Information Protection document tracking feature is enabled.
+  summary: ""
+uid: AIPService.Get-AipServiceDocumentTrackingFeature
+name: Get-AipServiceDocumentTrackingFeature
+description: |-
+  The **Get-AipServiceDocumentTrackingFeature** cmdlet indicates whether the Azure Information Protection document tracking feature is enabled or disabled.
+
+  You must use PowerShell to get this information about document tracking; you cannot get this information by using a management portal.
+
+  For additional information about the document tracking site, see [Configuring and using document tracking for Azure Information Protection](/information-protection/rms-client/client-admin-guide-document-tracking) from the Azure Information Protection documentation.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 3F0BC472-41CC-41CA-A1B5-ACB84B1C2DA9
+  online version: https://go.microsoft.com/fwlink/?linkid=2045059
+  schema: 2.0.0

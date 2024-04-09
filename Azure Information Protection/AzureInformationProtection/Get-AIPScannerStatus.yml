@@ -1,0 +1,159 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the current status of the service for the Azure Information Protection scanner.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-AIPScannerConfiguration
+  href: ./Get-AIPScannerConfiguration.yml
+- text: Install-AIPScanner
+  href: ./Install-AIPScanner.yml
+- text: Set-AIPScanner
+  href: ./Set-AIPScanner.yml
+- text: Set-AIPScannerConfiguration
+  href: ./Set-AIPScannerConfiguration.yml
+- text: Start-AIPScan
+  href: ./Start-AIPScan.yml
+- text: Uninstall-AIPScanner
+  href: ./Uninstall-AIPScanner.yml
+- text: Update-AIPScanner
+  href: ./Update-AIPScanner.yml
+syntaxes:
+- Get-AIPScannerStatus [<CommonParameters>]
+examples:
+- title: 'Example 1: Get the current status of the scanner service (unified labeling client)'
+  code: |-
+    PS C:\> Get-AIPScannerStatus
+    Cluster        : contoso-test
+    ClusterStatus  : Scanning
+    StartTime      : 03/10/2021 9:05:02 AM
+    TimeFromStart  : 00:00:00:37
+    NodesInfo      : {t-contoso1-T298-corp.contoso.com,t-contoso2-T298-corp.contoso.com,t-contoso3-T298-corp.contoso.com}
+  description: |-
+    This output shows that a scan is currently running on the `contoso-test` cluster, and was started 37 seconds ago, at 03/10/2021 9:05:02 AM.
+
+    The output also shows that the `contoso-test` cluster has 3 nodes.
+  summary: ""
+- title: 'Example 2: Use the Verbose parameter to get data for the current scan (unified labeling client)'
+  code: |-
+    PS C:\> Get-AIPScannerStatus -Verbose
+
+    ScannedFiles    MBScanned    CurrentScanSummary                                         RepositoriesStatus
+    ------------    ---------    ------------------                                         ------------------
+            2280    78478187     Microsoft.InformationProtection.Scanner.ScanSummaryData    {​​​​​​{​​​​​​ Path = C:\temp, Status = Scanning }​​​​​​
+  description: |-
+    This output shows only a single repository. In cases of multiple repositories, each one will be listed separately.
+  summary: ""
+- title: 'Example 3: Use the NodesInfo variable to get details about the scanning status on each node (unified labeling client)'
+  code: |-
+    PS C:\> Get-AIPScannerStatus
+
+    Cluster        : contoso-test
+    ClusterStatus  : Scanning
+    StartTime      : 12/22/2020 9:05:02 AM
+    TimeFromStart  : 00:00:00:37
+    NodesInfo      : {t-contoso1-T298-corp.contoso.com,t-contoso2-T298-corp.contoso.com}
+
+    PS C:\WINDOWS\system32> $x=Get-AIPScannerStatus
+    PS C:\WINDOWS\system32> $x.NodesInfo
+
+    NodeName                            Status    IsScanning    Summary
+    --------                            --------  ----------    -------
+    t-contoso1-T298-corp.contoso.com    Scanning        True    Microsoft.InformationProtection.Scanner.ScanSummaryData
+    t-contoso2-T298-corp.contoso.com    Scanning     Pending    Microsoft.InformationProtection.Scanner.ScanSummaryData
+
+    PS C:\Windows\system32> $x.NodesInfo[0].Summary
+
+
+    ScannerID               : t-contoso1-T298-corp.contoso.com
+    ScannedFiles            : 2280
+    FailedFiles             : 0
+    ScannedBytes            : 78478187
+    Classified              : 0
+    Labeled                 : 0
+    ....
+  description: |-
+    This output first displays details about the current scan status as well as a list of nodes in the cluster, and then details for each node, in a table. 
+
+    Further drilldown using the node integer shows a long list of details about the scan on the selected node, such as the number of scanned, classified, and labeled files, as well as the number of bytes scanned. 
+
+    When using the **NodesInfo** variable to drill down to node details, node integers start with **0**.
+  summary: ""
+- title: 'Example 4: Use the Verbose parameter and the RepositoriesStatus variable (unified labeling client)'
+  code: |-
+    PS C:\Windows\system32> $x=Get-AIPScannerStatus - Verbose
+    PS C:\Windows\system32> $x.RepositoriesStatus
+
+    Path        Status
+    ----        ------
+    C:\temp     Scanning
+  description: |-
+    The output shows the scan status for each repository configured for the content scan job.
+  summary: ""
+- title: 'Example 5: Use the Verbose parameter and the CurrentScanSummary variable'
+  code: |-
+    PS C:\Windows\system32> $x.CurrentScanSummary
+
+
+    ScannerID               : 
+    ScannedFiles            : 2280
+    FailedFiles             : 0
+    ScannedBytes            : 78478187
+    Classified              : 0
+    Labeled                 : 0
+    ....
+  description: |-
+    The output shows further details about the scan currently running, including the number of scanned, failed, classified, and labeled files, as well as the number of bytes scanned.
+  summary: ""
+uid: AzureInformationProtection.Get-AIPScannerStatus
+name: Get-AIPScannerStatus
+description: |-
+  This cmdlet is supported by both the Azure Information Protection classic and unified labeling clients, with different usage, as described below.
+
+  **Unified labeling client**
+
+  The **Get-AIPScannerStatus** cmdlet returns the following details about the current scanner cluster status:
+
+  - **Cluster name**
+
+  - **Cluster status**, including:
+
+      - Offline: The service is not started
+      - Idle: The service is running but not currently scanning
+      - Scanning: The service is running and is currently scanning files
+      - Error. The scanner service is running but it has encountered an error that prevents it from scanning files. For example, the service cannot access the database for the scanner configuration.
+
+  - **Scan start time**: The time the last scan started, in UTC time format.
+  - **Time from start**: The scanning duration, in the following format: `Days.HH:MM:SS`
+  - **Node information**: A list of the nodes in the scanner cluster
+
+  To obtain further details, use one or both of the following methods:
+
+  - Use the **NodesInfo** variable to view details about the current scanning status for each node. For more information, see the examples below.
+
+  - Use the **Verbose** parameter to view details such as the number of scanned files, amount of data scanned, and details for each repository scanned.
+
+      When using the **Verbose** parameter, drill down further to find more details for the repositories by using the **RepositoriesStatus** or the **CurrentScanSummary** variables.
+
+      Possible repository statuses include:
+
+      - **Skipped**, if the repository was skipped
+      - **Pending**, if the current scan has not yet started scanning the repository
+      - **Scanning**, if the current scan is running on the repository
+      - **Finished**, if the current scan has completed running on the repository
+
+
+
+  For more information, see [Verify scanning details per scanner node and repository](/azure/information-protection/deploy-aip-scanner-tsg#verify-scanning-details-per-scanner-node-and-repository).
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2004363
+  schema: 2.0.0
+  author: batamig

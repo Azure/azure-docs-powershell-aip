@@ -1,0 +1,35 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Clears credentials for a user who is authenticated to the Azure RMS service.
+module: AzureInformationProtection
+notes: ""
+links:
+- text: Set-RMSServerAuthentication
+  href: ./Set-RMSServerAuthentication.yml
+syntaxes:
+- Clear-RMSAuthentication [<CommonParameters>]
+examples:
+- title: 'Example 1: Clear authentication credentials'
+  code: |-
+    PS C:\>Clear-RMSAuthentication                        
+    Authentication cleared
+  description: |-
+    This command clears the currently cached authentication credentials for a user who is authenticated to Azure RMS on a computer that is not joined to a domain.
+  summary: ""
+uid: AzureInformationProtection.Clear-RMSAuthentication
+name: Clear-RMSAuthentication
+description: |-
+  The **Clear-RMSAuthentication** cmdlet clears the credentials that are used when a user has previously entered their user name and password to authenticate to Azure Rights Management (Azure RMS).
+
+  When you enter a user name and password to sign in to Azure RMS, the credentials are cached on the computer. Because these cached credentials are used across PowerShell sessions, to sign in as a different user, you must first run **Clear-RMSAuthentication**. You are then prompted for new credentials.
+
+  This cmdlet applies to Azure RMS only and when you authenticate as a user rather than a service principal. It does not apply to AD RMS.
+
+  > [!TIP]
+  > If you want to clear the credentials for a service principal that you specified with [Set-RMSServerAuthentication](./Set-RMSServerAuthentication.yml), close your PowerShell session and start a new session that runs **Set-RMSServerAuthentication** with the new credentials.
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  ms.assetid: 2114B811-35D8-45E4-930B-52A636AC40E4
+  online version: https://go.microsoft.com/fwlink/?linkid=841542
+  schema: 2.0.0

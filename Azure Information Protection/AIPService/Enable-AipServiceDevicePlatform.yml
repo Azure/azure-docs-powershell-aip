@@ -1,0 +1,124 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Enables protection support from Azure Information Protection for device platforms.
+module: AIPService
+notes: ""
+links:
+- text: Disable-AipServiceDevicePlatform
+  href: ./Disable-AipServiceDevicePlatform.yml
+- text: Get-AipServiceDevicePlatform
+  href: ./Get-AipServiceDevicePlatform.yml
+syntaxes:
+- Enable-AipServiceDevicePlatform [-All] [<CommonParameters>]
+- >-
+  Enable-AipServiceDevicePlatform [-Windows] [-WindowsStore] [-WindowsPhone] [-Mac] [-iOS] [-Android] [-Web]
+
+   [<CommonParameters>]
+examples:
+- title: 'Example 1: Enable protection support for device platforms'
+  code: |-
+    PS C:\>Enable-AipServiceDevicePlatform -WindowsPhone -WindowStore
+  description: |-
+    This command enables protection support for device platforms for Windows Phone and Windows Store device platforms.
+  summary: ""
+- title: 'Example 2: Enable protection support for all device platforms'
+  code: |-
+    PS C:\>Enable-AipServiceDevicePlatform -All
+  description: |-
+    This command enables protection support for all device platforms.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: All
+  isRequired: true
+  description: |+
+    Indicates that the cmdlet specifies all device platforms. The cmdlet enables protection support for all device platforms.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Android
+  description: |+
+    Indicates that the cmdlet specifies the Android device platform. The cmdlet enables protection support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: iOS
+  description: |+
+    Indicates that the cmdlet specifies the iOS device platform. The cmdlet enables protection support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Mac
+  description: |+
+    Indicates that the cmdlet specifies the Macintosh operating system device platform. The cmdlet enables protection support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Web
+  description: |+
+    Indicates that the cmdlet specifies the web device platform. The cmdlet enables protection support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Windows
+  description: |+
+    Indicates that the cmdlet specifies the Windows operating system device platform. The cmdlet enables protection support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WindowsPhone
+  description: |+
+    Indicates that the cmdlet specifies the Windows Phone device platform. The cmdlet enables protection support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WindowsStore
+  description: |+
+    Indicates that the cmdlet specifies the Windows Store device platform. The cmdlet enables protection support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AIPService.Enable-AipServiceDevicePlatform
+name: Enable-AipServiceDevicePlatform
+description: |-
+  The **Enable-AipServiceDevicePlatform** cmdlet enables protection support from Azure Information Protection for device platforms. Your tenant can support any combination of the following device platforms:
+  - Android
+  - iOS
+  - Macintosh operating system
+  - Web
+  - Windows operating system
+  - Windows Phone
+  - Windows Store
+
+  To support all platforms, specify the **All** parameter.
+
+  You must use PowerShell to do this configuration; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 1D21A18B-1E3D-434C-A283-E65B810EF1B4
+  online version: https://go.microsoft.com/fwlink/?linkid=2044865
+  schema: 2.0.0

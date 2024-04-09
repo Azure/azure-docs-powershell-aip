@@ -1,0 +1,37 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the super users for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Add-AipServiceSuperUser
+  href: ./Add-AipServiceSuperUser.yml
+- text: Remove-AipServiceSuperUser
+  href: ./Remove-AipServiceSuperUser.yml
+- text: Enable-AipServiceSuperUserFeature
+  href: ./Enable-AipServiceSuperUserFeature.yml
+- text: Configuring super users for Azure Information Protection and discovery services or data recovery
+  href: /information-protection/deploy-use/configure-super-users
+syntaxes:
+- Get-AipServiceSuperUser [<CommonParameters>]
+examples:
+- title: 'Example 1: List super users'
+  code: |-
+    PS C:\>Get-AipServiceSuperUser
+  description: |-
+    This command lists the super users for Information Protection.
+  summary: ""
+uid: AIPService.Get-AipServiceSuperUser
+name: Get-AipServiceSuperUser
+description: |-
+  The **Get-AipServiceSuperUser** cmdlet gets the super users for Azure Information Protection, who can unprotect or protect files for your organization when the super user feature is enabled by using the [Enable-AipServiceSuperUserFeature](./Enable-AipServiceSuperUserFeature.yml) cmdlet.
+
+  You must use PowerShell to configure super users; you cannot do this configuration by using a management portal.
+
+  For more information about super users, see [Configuring super users for Azure Information Protection and discovery services or data recovery](/information-protection/deploy-use/configure-super-users).
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 508FBF5B-A405-4FCB-9EB3-39183F46F60A
+  online version: https://go.microsoft.com/fwlink/?linkid=2045209
+  schema: 2.0.0

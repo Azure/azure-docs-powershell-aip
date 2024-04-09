@@ -1,0 +1,37 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the status of the super user feature for Rights Management.
+module: AADRM
+notes: ""
+links:
+- text: Disable-AadrmSuperUserFeature
+  href: ./Disable-AadrmSuperUserFeature.yml
+- text: Enable-AadrmSuperUserFeature
+  href: ./Enable-AadrmSuperUserFeature.yml
+- text: Azure Rights Management and discovery services or data recovery
+  href: /information-protection/deploy-use/configure-super-users
+syntaxes:
+- Get-AadrmSuperUserFeature [<CommonParameters>]
+examples:
+- title: 'Example 1: Get the status of the super user feature'
+  code: |-
+    PS C:\>Get-AadrmSuperUserFeature
+    Enabled
+  description: |-
+    This command gets the status (Enabled or Disabled) of the super user feature in your organization.
+  summary: ""
+uid: AADRM.Get-AadrmSuperUserFeature
+name: Get-AadrmSuperUserFeature
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Get-AadrmSuperUserFeature** cmdlet gets the status of the super user feature for Azure Rights Management in your organization. The super user feature can be enabled or disabled. By default, it is disabled.
+
+  You must use PowerShell to configure super users; you cannot do this configuration by using a management portal.
+
+  For more information about super users, see [Configuring super users for Azure Rights Management and discovery services or data recovery](/information-protection/deploy-use/configure-super-users) on the Microsoft documentation site.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400615
+  schema: 2.0.0
+  ms.assetid: 4897E667-E8EE-47A0-9F43-2FA3A76D9D38

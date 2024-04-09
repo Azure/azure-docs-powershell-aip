@@ -1,0 +1,44 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the group for the users who must not be tracked by Azure Information Protection.
+module: AIPService
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+  description: |-
+    This operation returns the group email address as a **String**. If a group has not been configured, an empty **String** is returned.
+links:
+- text: Clear-AipServiceDoNotTrackUserGroup
+  href: ./Clear-AipServiceDoNotTrackUserGroup.yml
+- text: Disable-AipServiceSuperUserFeature
+  href: ./Disable-AipServiceSuperUserFeature.yml
+- text: Enable-AipServiceDocumentTrackingFeature
+  href: ./Enable-AipServiceDocumentTrackingFeature.yml
+- text: Set-AipServiceDoNotTrackUserGroup
+  href: ./Set-AipServiceDoNotTrackUserGroup.yml
+syntaxes:
+- Get-AipServiceDoNotTrackUserGroup [<CommonParameters>]
+examples:
+- title: Example 1
+  code: |-
+    PS C:\>Get-AipServiceDoNotTrackUserGroup
+  description: |-
+    This command gets the email address of the currently configured group for the users who will not be tracked with the document tracking feature.
+  summary: ""
+uid: AIPService.Get-AipServiceDoNotTrackUserGroup
+name: Get-AipServiceDoNotTrackUserGroup
+description: |-
+  The **Get-AipServiceDoNotTrackUserGroup** cmdlet gets the email address of the currently configured group for the users who must not be tracked by the Azure Information Protection document tracking feature. 
+
+  This configuration might be needed for privacy requirements. For more information, see [Privacy controls for your document tracking site](/information-protection/rms-client/client-admin-guide-document-tracking#privacy-controls-for-your-document-tracking-site).
+
+  You must use PowerShell to retrieve this information; you cannot see it by using a management portal.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 176a6f8e-258b-4bb9-8690-dd1bae05530c
+  online version: https://go.microsoft.com/fwlink/?linkid=2044894
+  schema: 2.0.0

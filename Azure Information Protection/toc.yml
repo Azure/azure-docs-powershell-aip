@@ -1,0 +1,330 @@
+items:
+- name: Reference
+  items:
+  - name: AADRM
+    uid: AADRM
+    items:
+    - name: Add-AadrmRoleBasedAdministrator
+      uid: AADRM.Add-AadrmRoleBasedAdministrator
+    - name: Add-AadrmSuperUser
+      uid: AADRM.Add-AadrmSuperUser
+    - name: Add-AadrmTemplate
+      uid: AADRM.Add-AadrmTemplate
+    - name: Clear-AadrmDoNotTrackUserGroup
+      uid: AADRM.Clear-AadrmDoNotTrackUserGroup
+    - name: Clear-AadrmSuperUserGroup
+      uid: AADRM.Clear-AadrmSuperUserGroup
+    - name: Connect-AadrmService
+      uid: AADRM.Connect-AadrmService
+    - name: Convert-AadrmKeyToKeyVault
+      uid: AADRM.Convert-AadrmKeyToKeyVault
+    - name: Disable-Aadrm
+      uid: AADRM.Disable-Aadrm
+    - name: Disable-AadrmDevicePlatform
+      uid: AADRM.Disable-AadrmDevicePlatform
+    - name: Disable-AadrmDocumentTrackingFeature
+      uid: AADRM.Disable-AadrmDocumentTrackingFeature
+    - name: Disable-AadrmIPCv3Service
+      uid: AADRM.Disable-AadrmIPCv3Service
+    - name: Disable-AadrmSuperUserFeature
+      uid: AADRM.Disable-AadrmSuperUserFeature
+    - name: Disable-AadrmUsageLogFeature
+      uid: AADRM.Disable-AadrmUsageLogFeature
+    - name: Disconnect-AadrmService
+      uid: AADRM.Disconnect-AadrmService
+    - name: Enable-Aadrm
+      uid: AADRM.Enable-Aadrm
+    - name: Enable-AadrmDevicePlatform
+      uid: AADRM.Enable-AadrmDevicePlatform
+    - name: Enable-AadrmDocumentTrackingFeature
+      uid: AADRM.Enable-AadrmDocumentTrackingFeature
+    - name: Enable-AadrmIPCv3Service
+      uid: AADRM.Enable-AadrmIPCv3Service
+    - name: Enable-AadrmSuperUserFeature
+      uid: AADRM.Enable-AadrmSuperUserFeature
+    - name: Enable-AadrmUsageLogFeature
+      uid: AADRM.Enable-AadrmUsageLogFeature
+    - name: Export-AadrmTemplate
+      uid: AADRM.Export-AadrmTemplate
+    - name: Get-Aadrm
+      uid: AADRM.Get-Aadrm
+    - name: Get-AadrmAdminLog
+      uid: AADRM.Get-AadrmAdminLog
+    - name: Get-AadrmConfiguration
+      uid: AADRM.Get-AadrmConfiguration
+    - name: Get-AadrmDevicePlatform
+      uid: AADRM.Get-AadrmDevicePlatform
+    - name: Get-AadrmDocumentLog
+      uid: AADRM.Get-AadrmDocumentLog
+    - name: Get-AadrmDocumentTrackingFeature
+      uid: AADRM.Get-AadrmDocumentTrackingFeature
+    - name: Get-AadrmDoNotTrackUserGroup
+      uid: AADRM.Get-AadrmDoNotTrackUserGroup
+    - name: Get-AadrmIPCv3Service
+      uid: AADRM.Get-AadrmIPCv3Service
+    - name: Get-AadrmKeys
+      uid: AADRM.Get-AadrmKeys
+    - name: Get-AadrmMaxUseLicenseValidityTime
+      uid: AADRM.Get-AadrmMaxUseLicenseValidityTime
+    - name: Get-AadrmMigrationUrl
+      uid: AADRM.Get-AadrmMigrationUrl
+    - name: Get-AadrmOnboardingControlPolicy
+      uid: AADRM.Get-AadrmOnboardingControlPolicy
+    - name: Get-AadrmRoleBasedAdministrator
+      uid: AADRM.Get-AadrmRoleBasedAdministrator
+    - name: Get-AadrmSuperUser
+      uid: AADRM.Get-AadrmSuperUser
+    - name: Get-AadrmSuperUserFeature
+      uid: AADRM.Get-AadrmSuperUserFeature
+    - name: Get-AadrmSuperUserGroup
+      uid: AADRM.Get-AadrmSuperUserGroup
+    - name: Get-AadrmTemplate
+      uid: AADRM.Get-AadrmTemplate
+    - name: Get-AadrmTemplateProperty
+      uid: AADRM.Get-AadrmTemplateProperty
+    - name: Get-AadrmTrackingLog
+      uid: AADRM.Get-AadrmTrackingLog
+    - name: Get-AadrmUsageLog
+      uid: AADRM.Get-AadrmUsageLog
+    - name: Get-AadrmUsageLogFeature
+      uid: AADRM.Get-AadrmUsageLogFeature
+    - name: Get-AadrmUsageLogLastCounterValue
+      uid: AADRM.Get-AadrmUsageLogLastCounterValue
+    - name: Get-AadrmUsageLogStorageAccount
+      uid: AADRM.Get-AadrmUsageLogStorageAccount
+    - name: Get-AadrmUserLog
+      uid: AADRM.Get-AadrmUserLog
+    - name: Import-AadrmTemplate
+      uid: AADRM.Import-AadrmTemplate
+    - name: Import-AadrmTpd
+      uid: AADRM.Import-AadrmTpd
+    - name: New-AadrmRightsDefinition
+      uid: AADRM.New-AadrmRightsDefinition
+    - name: Remove-AadrmRoleBasedAdministrator
+      uid: AADRM.Remove-AadrmRoleBasedAdministrator
+    - name: Remove-AadrmSuperUser
+      uid: AADRM.Remove-AadrmSuperUser
+    - name: Remove-AadrmTemplate
+      uid: AADRM.Remove-AadrmTemplate
+    - name: Set-AadrmDoNotTrackUserGroup
+      uid: AADRM.Set-AadrmDoNotTrackUserGroup
+    - name: Set-AadrmKeyProperties
+      uid: AADRM.Set-AadrmKeyProperties
+    - name: Set-AadrmMaxUseLicenseValidityTime
+      uid: AADRM.Set-AadrmMaxUseLicenseValidityTime
+    - name: Set-AadrmMigrationUrl
+      uid: AADRM.Set-AadrmMigrationUrl
+    - name: Set-AadrmOnboardingControlPolicy
+      uid: AADRM.Set-AadrmOnboardingControlPolicy
+    - name: Set-AadrmSuperUserGroup
+      uid: AADRM.Set-AadrmSuperUserGroup
+    - name: Set-AadrmTemplateProperty
+      uid: AADRM.Set-AadrmTemplateProperty
+    - name: Set-AadrmUsageLogStorageAccount
+      uid: AADRM.Set-AadrmUsageLogStorageAccount
+    - name: Use-AadrmKeyVaultKey
+      uid: AADRM.Use-AadrmKeyVaultKey
+  - name: AIPService
+    uid: AIPService
+    items:
+    - name: Add-AipServiceRoleBasedAdministrator
+      uid: AIPService.Add-AipServiceRoleBasedAdministrator
+    - name: Add-AipServiceSuperUser
+      uid: AIPService.Add-AipServiceSuperUser
+    - name: Add-AipServiceTemplate
+      uid: AIPService.Add-AipServiceTemplate
+    - name: Clear-AipServiceDocumentRevoked
+      uid: AIPService.Clear-AipServiceDocumentRevoked
+    - name: Clear-AipServiceDoNotTrackUserGroup
+      uid: AIPService.Clear-AipServiceDoNotTrackUserGroup
+    - name: Clear-AipServiceSuperUserGroup
+      uid: AIPService.Clear-AipServiceSuperUserGroup
+    - name: Connect-AipService
+      uid: AIPService.Connect-AipService
+    - name: Convert-AipServiceKeyToKeyVault
+      uid: AIPService.Convert-AipServiceKeyToKeyVault
+    - name: Disable-AipService
+      uid: AIPService.Disable-AipService
+    - name: Disable-AipServiceDevicePlatform
+      uid: AIPService.Disable-AipServiceDevicePlatform
+    - name: Disable-AipServiceDocumentTrackingFeature
+      uid: AIPService.Disable-AipServiceDocumentTrackingFeature
+    - name: Disable-AipServiceIPCv3
+      uid: AIPService.Disable-AipServiceIPCv3
+    - name: Disable-AipServiceSuperUserFeature
+      uid: AIPService.Disable-AipServiceSuperUserFeature
+    - name: Disconnect-AipService
+      uid: AIPService.Disconnect-AipService
+    - name: Enable-AipService
+      uid: AIPService.Enable-AipService
+    - name: Enable-AipServiceDevicePlatform
+      uid: AIPService.Enable-AipServiceDevicePlatform
+    - name: Enable-AipServiceDocumentTrackingFeature
+      uid: AIPService.Enable-AipServiceDocumentTrackingFeature
+    - name: Enable-AipServiceIPCv3
+      uid: AIPService.Enable-AipServiceIPCv3
+    - name: Enable-AipServiceSuperUserFeature
+      uid: AIPService.Enable-AipServiceSuperUserFeature
+    - name: Export-AipServiceTemplate
+      uid: AIPService.Export-AipServiceTemplate
+    - name: Get-AipService
+      uid: AIPService.Get-AipService
+    - name: Get-AipServiceAdminLog
+      uid: AIPService.Get-AipServiceAdminLog
+    - name: Get-AipServiceConfiguration
+      uid: AIPService.Get-AipServiceConfiguration
+    - name: Get-AipServiceDevicePlatform
+      uid: AIPService.Get-AipServiceDevicePlatform
+    - name: Get-AipServiceDocumentLog
+      uid: AIPService.Get-AipServiceDocumentLog
+    - name: Get-AipServiceDocumentTrackingFeature
+      uid: AIPService.Get-AipServiceDocumentTrackingFeature
+    - name: Get-AipServiceDoNotTrackUserGroup
+      uid: AIPService.Get-AipServiceDoNotTrackUserGroup
+    - name: Get-AipServiceIPCv3
+      uid: AIPService.Get-AipServiceIPCv3
+    - name: Get-AipServiceKeys
+      uid: AIPService.Get-AipServiceKeys
+    - name: Get-AipServiceMaxUseLicenseValidityTime
+      uid: AIPService.Get-AipServiceMaxUseLicenseValidityTime
+    - name: Get-AipServiceMigrationUrl
+      uid: AIPService.Get-AipServiceMigrationUrl
+    - name: Get-AipServiceOnboardingControlPolicy
+      uid: AIPService.Get-AipServiceOnboardingControlPolicy
+    - name: Get-AipServiceRoleBasedAdministrator
+      uid: AIPService.Get-AipServiceRoleBasedAdministrator
+    - name: Get-AipServiceSuperUser
+      uid: AIPService.Get-AipServiceSuperUser
+    - name: Get-AipServiceSuperUserFeature
+      uid: AIPService.Get-AipServiceSuperUserFeature
+    - name: Get-AipServiceSuperUserGroup
+      uid: AIPService.Get-AipServiceSuperUserGroup
+    - name: Get-AipServiceTemplate
+      uid: AIPService.Get-AipServiceTemplate
+    - name: Get-AipServiceTemplateProperty
+      uid: AIPService.Get-AipServiceTemplateProperty
+    - name: Get-AipServiceTrackingLog
+      uid: AIPService.Get-AipServiceTrackingLog
+    - name: Get-AipServiceUserLog
+      uid: AIPService.Get-AipServiceUserLog
+    - name: Import-AipServiceTemplate
+      uid: AIPService.Import-AipServiceTemplate
+    - name: Import-AipServiceTpd
+      uid: AIPService.Import-AipServiceTpd
+    - name: New-AipServiceRightsDefinition
+      uid: AIPService.New-AipServiceRightsDefinition
+    - name: Remove-AipServiceRoleBasedAdministrator
+      uid: AIPService.Remove-AipServiceRoleBasedAdministrator
+    - name: Remove-AipServiceSuperUser
+      uid: AIPService.Remove-AipServiceSuperUser
+    - name: Remove-AipServiceTemplate
+      uid: AIPService.Remove-AipServiceTemplate
+    - name: Set-AipServiceDocumentRevoked
+      uid: AIPService.Set-AipServiceDocumentRevoked
+    - name: Set-AipServiceDoNotTrackUserGroup
+      uid: AIPService.Set-AipServiceDoNotTrackUserGroup
+    - name: Set-AipServiceKeyProperties
+      uid: AIPService.Set-AipServiceKeyProperties
+    - name: Set-AipServiceMaxUseLicenseValidityTime
+      uid: AIPService.Set-AipServiceMaxUseLicenseValidityTime
+    - name: Set-AipServiceMigrationUrl
+      uid: AIPService.Set-AipServiceMigrationUrl
+    - name: Set-AipServiceOnboardingControlPolicy
+      uid: AIPService.Set-AipServiceOnboardingControlPolicy
+    - name: Set-AipServiceSuperUserGroup
+      uid: AIPService.Set-AipServiceSuperUserGroup
+    - name: Set-AipServiceTemplateProperty
+      uid: AIPService.Set-AipServiceTemplateProperty
+    - name: Use-AipServiceKeyVaultKey
+      uid: AIPService.Use-AipServiceKeyVaultKey
+  - name: AzureInformationProtection
+    uid: AzureInformationProtection
+    items:
+    - name: Add-AIPScannerRepository
+      uid: AzureInformationProtection.Add-AIPScannerRepository
+    - name: Clear-AIPAuthentication
+      uid: AzureInformationProtection.Clear-AIPAuthentication
+    - name: Clear-RMSAuthentication
+      uid: AzureInformationProtection.Clear-RMSAuthentication
+    - name: Export-AIPLogs
+      uid: AzureInformationProtection.Export-AIPLogs
+    - name: Get-AIPFileStatus
+      uid: AzureInformationProtection.Get-AIPFileStatus
+    - name: Get-AIPScannerConfiguration
+      uid: AzureInformationProtection.Get-AIPScannerConfiguration
+    - name: Get-AIPScannerContentScanJob
+      uid: AzureInformationProtection.Get-AIPScannerContentScanJob
+    - name: Get-AIPScannerRepository
+      uid: AzureInformationProtection.Get-AIPScannerRepository
+    - name: Get-AIPScannerStatus
+      uid: AzureInformationProtection.Get-AIPScannerStatus
+    - name: Get-MIPNetworkDiscoveryConfiguration
+      uid: AzureInformationProtection.Get-MIPNetworkDiscoveryConfiguration
+    - name: Get-MIPNetworkDiscoveryJobs
+      uid: AzureInformationProtection.Get-MIPNetworkDiscoveryJobs
+    - name: Get-MIPNetworkDiscoveryStatus
+      uid: AzureInformationProtection.Get-MIPNetworkDiscoveryStatus
+    - name: Get-RMSFileStatus
+      uid: AzureInformationProtection.Get-RMSFileStatus
+    - name: Get-RMSServer
+      uid: AzureInformationProtection.Get-RMSServer
+    - name: Get-RMSServerAuthentication
+      uid: AzureInformationProtection.Get-RMSServerAuthentication
+    - name: Get-RMSTemplate
+      uid: AzureInformationProtection.Get-RMSTemplate
+    - name: Import-AIPScannerConfiguration
+      uid: AzureInformationProtection.Import-AIPScannerConfiguration
+    - name: Import-MIPNetworkDiscoveryConfiguration
+      uid: AzureInformationProtection.Import-MIPNetworkDiscoveryConfiguration
+    - name: Install-AIPScanner
+      uid: AzureInformationProtection.Install-AIPScanner
+    - name: Install-MIPNetworkDiscovery
+      uid: AzureInformationProtection.Install-MIPNetworkDiscovery
+    - name: New-AIPCustomPermissions
+      uid: AzureInformationProtection.New-AIPCustomPermissions
+    - name: New-RMSProtectionLicense
+      uid: AzureInformationProtection.New-RMSProtectionLicense
+    - name: Protect-RMSFile
+      uid: AzureInformationProtection.Protect-RMSFile
+    - name: Remove-AIPScannerContentScanJob
+      uid: AzureInformationProtection.Remove-AIPScannerContentScanJob
+    - name: Remove-AIPScannerRepository
+      uid: AzureInformationProtection.Remove-AIPScannerRepository
+    - name: Set-AIPAuthentication
+      uid: AzureInformationProtection.Set-AIPAuthentication
+    - name: Set-AIPFileClassification
+      uid: AzureInformationProtection.Set-AIPFileClassification
+    - name: Set-AIPFileLabel
+      uid: AzureInformationProtection.Set-AIPFileLabel
+    - name: Set-AIPScanner
+      uid: AzureInformationProtection.Set-AIPScanner
+    - name: Set-AIPScannerConfiguration
+      uid: AzureInformationProtection.Set-AIPScannerConfiguration
+    - name: Set-AIPScannerContentScanJob
+      uid: AzureInformationProtection.Set-AIPScannerContentScanJob
+    - name: Set-AIPScannerRepository
+      uid: AzureInformationProtection.Set-AIPScannerRepository
+    - name: Set-MIPNetworkDiscovery
+      uid: AzureInformationProtection.Set-MIPNetworkDiscovery
+    - name: Set-MIPNetworkDiscoveryConfiguration
+      uid: AzureInformationProtection.Set-MIPNetworkDiscoveryConfiguration
+    - name: Set-RMSServerAuthentication
+      uid: AzureInformationProtection.Set-RMSServerAuthentication
+    - name: Start-AIPScan
+      uid: AzureInformationProtection.Start-AIPScan
+    - name: Start-AIPScannerDiagnostics
+      uid: AzureInformationProtection.Start-AIPScannerDiagnostics
+    - name: Start-MIPNetworkDiscovery
+      uid: AzureInformationProtection.Start-MIPNetworkDiscovery
+    - name: Stop-AIPScan
+      uid: AzureInformationProtection.Stop-AIPScan
+    - name: Uninstall-AIPScanner
+      uid: AzureInformationProtection.Uninstall-AIPScanner
+    - name: Uninstall-MIPNetworkDiscovery
+      uid: AzureInformationProtection.Uninstall-MIPNetworkDiscovery
+    - name: Unprotect-RMSFile
+      uid: AzureInformationProtection.Unprotect-RMSFile
+    - name: Update-AIPScanner
+      uid: AzureInformationProtection.Update-AIPScanner
+metadata:
+  universal_conceptual_toc: /powershell/azure/aip/toc.json

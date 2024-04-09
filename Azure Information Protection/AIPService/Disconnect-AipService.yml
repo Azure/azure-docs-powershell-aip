@@ -1,0 +1,27 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Disconnects from Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Connect-AipService
+  href: ./Connect-AipService.yml
+syntaxes:
+- Disconnect-AipService [<CommonParameters>]
+examples:
+- title: 'Example 1: Disconnect from Azure Information Protection'
+  code: |-
+    PS C:\>Disconnect-AipService
+  description: |-
+    This command disconnects you from the protection service from Azure Information Protection.
+  summary: ""
+uid: AIPService.Disconnect-AipService
+name: Disconnect-AipService
+description: |-
+  The **Disconnect-AipService** cmdlet disconnects you from the protection service from Azure Information Protection. Use this cmdlet to end a connection that you previously established by using the [Connect-AipService](./Connect-AipService.yml) cmdlet.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 91DD14FF-0033-4A7F-9738-87BD2A989FED
+  online version: https://go.microsoft.com/fwlink/?linkid=2044860
+  schema: 2.0.0

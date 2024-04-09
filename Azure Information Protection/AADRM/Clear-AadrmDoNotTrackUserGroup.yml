@@ -1,0 +1,44 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Clears the group for the users who must not be tracked by Rights Management.
+module: AADRM
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Disable-AadrmSuperUserFeature
+  href: ./Disable-AadrmSuperUserFeature.yml
+- text: Enable-AadrmDocumentTrackingFeature
+  href: ./Enable-AadrmDocumentTrackingFeature.yml
+- text: Get-AadrmDoNotTrackUserGroup
+  href: ./Get-AadrmDoNotTrackUserGroup.yml
+- text: Set-AadrmDoNotTrackUserGroup
+  href: ./Set-AadrmDoNotTrackUserGroup.yml
+syntaxes:
+- Clear-AadrmDoNotTrackUserGroup
+examples:
+- title: Example 1
+  code: |-
+    PS C:\>Clear-AadrmDoNotTrackUserGroup
+  description: |-
+    This command removes the currently configured group (if set) that exempts users from being tracked by the document tracking feature. As a result, all users in your organization can be tracked when you use the document tracking feature.
+  summary: ""
+uid: AADRM.Clear-AadrmDoNotTrackUserGroup
+name: Clear-AadrmDoNotTrackUserGroup
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Clear-AadrmDoNotTrackUserGroup** cmdlet removes the currently configured group for the users who must not be tracked by the Azure Rights Management document tracking feature. This configuration might be needed for privacy requirements. For more information, see [Privacy controls for your document tracking site](/information-protection/rms-client/client-admin-guide-document-tracking#privacy-controls-for-your-document-tracking-site).
+
+  This cmdlet does not delete the specified group from Azure Active Directory. Instead, a group will no longer be used to exempt users from tracking. As a result, all users in your organization will now be tracked when you use the document tracking feature. 
+
+  You must use PowerShell to remove this group from the Azure Rights Management service; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=846353
+  schema: 2.0.0
+  ms.assetid: 5b4a72f5-2df1-4ae1-b020-a3d30f759a8b

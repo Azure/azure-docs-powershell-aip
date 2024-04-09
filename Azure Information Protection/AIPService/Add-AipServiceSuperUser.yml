@@ -1,0 +1,75 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Adds a super user to Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Enable-AipServiceSuperUserFeature
+  href: ./Enable-AipServiceSuperUserFeature.yml
+- text: Get-AipServiceSuperUser
+  href: ./Get-AipServiceSuperUser.yml
+- text: New-MsolServicePrincipalCredential
+  href: /powershell/module/msonline/new-msolserviceprincipalcredential?view=azureadps-1.0
+- text: Remove-AipServiceSuperUser
+  href: ./Remove-AipServiceSuperUser.yml
+- text: Set-AipServiceSuperUserGroup
+  href: ./Set-AipServiceSuperUserGroup.yml
+syntaxes:
+- Add-AipServiceSuperUser -EmailAddress <String> [<CommonParameters>]
+- Add-AipServiceSuperUser -ServicePrincipalId <String> [<CommonParameters>]
+examples:
+- title: 'Example 1: Add a user as a super user'
+  code: |-
+    PS C:\>Add-AipServiceSuperUser -EmailAddress "EvanNarvaez@Contoso.com"
+  description: |-
+    This command adds an individual user to your organization's super user list for Azure Information Protection, by specifying the user's email address.
+  summary: ""
+- title: 'Example 2: Add a service principal as a super user'
+  code: |-
+    PS C:\>Add-AipServiceSuperUser -ServicePrincipalId "3C367900-44D1-4865-9379-9A3227042C25"
+  description: |-
+    This command adds a service principal to your organization's super user list for Azure Information Protection, by specifying the service principal's **AppPrincipalId**.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: EmailAddress
+  isRequired: true
+  description: |+
+    Specifies the email address of a user in your organization to grant this user super user privileges.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: ServicePrincipalId
+  isRequired: true
+  description: |+
+    Specifies the **AppPrincipalId** of the service principal in your organization to grant this account super user privileges. Use the **Get-MsolServicePrincipal** cmdlet to get an existing service principal, or the [New-MsolServicePrincipalCredential](/powershell/module/msonline/new-msolserviceprincipalcredential?view=azureadps-1.0) cmdlet to create a new service principal.
+
+    The service principal ID is converted to a pseudo-email address and added to the super user list for the organization. For example, `Add-AipServiceSuperUser -ServicePrincipalId "3C367900-44D1-4865-9379-9A3227042C25"` adds *3C367900-44D1-4865-9379-9A3227042C25@\<AIPService tenant ID\>.aipservice.na.aadrm.com* to the super user list.
+
+    You can remove the service principal from the super user list by using the [Remove-AipServiceSuperUser](./Remove-AipServiceSuperUser.yml) cmdlet and this pseudo-email address. You can use the [Get-AipServiceSuperUser](./Get-AipServiceSuperUser.yml) cmdlet to verify the email address.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AIPService.Add-AipServiceSuperUser
+name: Add-AipServiceSuperUser
+description: |-
+  The **Add-AipServiceSuperUser** cmdlet adds an individual account to the super user list for your organization. This operation makes the account an owner for all content that is protected by your organization. This means that these super users can decrypt this rights-protected content and remove rights-protection from it, even if an expiration date has been set and expired. Typically, this level of access is required for legal eDiscovery and by auditing teams.
+
+  However, before a super user can do these operations, the super user feature for Azure Information Protection must be enabled by using the [Enable-AipServiceSuperUserFeature](./Enable-AipServiceSuperUserFeature.yml) cmdlet. By default, the super user feature is not enabled.
+
+  Specify the account by email address or service principal ID. To specify a user who does not have an email address, specify their User Principal Name instead. For more information, see [Preparing users and groups for Azure Information Protection](/information-protection/plan-design/prepare). 
+
+  To specify a group rather than individual users, use the [Set-AipServiceSuperUserGroup](./Set-AipServiceSuperUserGroup.yml) cmdlet instead of this **Add-AipServiceSuperUser** cmdlet.
+
+  You must use PowerShell to configure super users; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 5B7E7380-C8F4-4113-84D9-B9825F9F2240
+  online version: https://go.microsoft.com/fwlink/?linkid=2044912
+  schema: 2.0.0

@@ -1,0 +1,81 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets tracking information for protected documents.
+module: AADRM
+notes: ""
+links:
+- text: Get-AadrmDocumentLog
+  href: ./Get-AadrmDocumentLog.yml
+syntaxes:
+- Get-AadrmTrackingLog -UserEmail <String> [-FromTime <DateTime>] [-ToTime <DateTime>]
+examples:
+- title: 'Example 1: Get all tracking information for a user'
+  code: |-
+    PS C:\>Get-AadrmTrackingLog -UserEmail "test@contoso.com"
+  description: |-
+    This command generates a log of all the tracking information for documents that were protected by or accessed by the user with the email address "test@contoso.com".
+  summary: ""
+- title: 'Example 2: Get tracking information for a user, for a specific time period'
+  code: |-
+    PS C:\>Get-AadrmTrackingLog -UserEmail "test@contoso.com" -FromTime "01/01/2018 00:00:00" -ToTime "01/31/2018 23:59:59"
+  description: |-
+    This command is the same as the previous example except that the results are limited to documents that were tracked within a specific time period by using the *FromTime* and *ToTime* parameters. In this example, the time period is all days in January 2018, using the US date format.
+  summary: ""
+- title: 'Example 3: Get all tracking information for a user and save the results to a .csv file'
+  code: |-
+    PS C:\>$trackingLogs = Get-AadrmTrackingLog -UserEmail "test@contoso.com"
+    PS C:\>$trackingLogs | Export-Csv 'C:\Temp\TrackingLog.csv' -NoTypeInformation
+  description: |-
+    The first command generates a log of all the tracking information for documents that were protected by or accessed by the user with the email address "test@contoso.com", and saves the result in a variable.
+
+    The second command then uses the [Export-Csv](/powershell/module/microsoft.powershell.utility/export-csv?view=powershell-4.0) cmdlet to convert the tracking information into .csv format, and saves it to the C:\Temp\TrackingLog.csv file.
+  summary: ""
+parameters:
+- type: <xref href="DateTime" data-throw-if-not-resolved="False" />
+  name: FromTime
+  description: |+
+    Specifies the start time (inclusive) for the log file as a **DateTime** object. To obtain a **DateTime** object, use the [Get-Date](/powershell/module/Microsoft.PowerShell.Utility/Get-Date?viewFallbackFrom=powershell-4.0) cmdlet. Specify the date and time according to your system locale settings. For more information, type `Get-Help Get-Date`.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="DateTime" data-throw-if-not-resolved="False" />
+  name: ToTime
+  description: |+
+    Specifies the stop time (inclusive) for the log file as a **DateTime** object. To obtain a **DateTime** object, use the [Get-Date](/powershell/module/Microsoft.PowerShell.Utility/Get-Date?viewFallbackFrom=powershell-4.0) cmdlet. Specify the date and time according to your system locale settings. For more information, type `Get-Help Get-Date`.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: UserEmail
+  isRequired: true
+  description: |+
+    Specifies the email address of the user. The cmdlet gets the tracking information for documents that were protected by, or accessed by the user who has this email address. 
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AADRM.Get-AadrmTrackingLog
+name: Get-AadrmTrackingLog
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Get-AadrmTrackingLog** cmdlet returns tracking information about protected documents for a specified user who protected documents (the Rights Management issuer) or who accessed protected documents. This cmdlet helps to answer the question "Which protected documents did a specified user track or access?" Information returned includes:
+
+  - The document content ID, with the document name if available.
+  - The Rights Management issuer.
+  - The users who accessed the document, when, and from what location. 
+  - What protection template ID or specific usage rights were used to protect the document and whether access was granted or denied.
+
+  You can specify a start time and stop time of entries to include. The output is returned as a list of PowerShell objects in the PowerShell console.
+
+  You can alternatively use the document tracking site to get the protection information about the tracked documents. For more information, see the [Tracking and revoking documents for users](/information-protection/rms-client/client-admin-guide-document-tracking#tracking-and-revoking-documents-for-users) section in the admin guide.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=869788
+  schema: 2.0.0
+  ms.assetid: B81D7053-016A-44C2-896A-040F6510C7ED

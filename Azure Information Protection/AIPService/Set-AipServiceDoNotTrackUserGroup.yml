@@ -1,0 +1,60 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Sets a group for the users who must not be tracked by Azure Information Protection.
+module: AIPService
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Clear-AipServiceDoNotTrackUserGroup
+  href: ./Clear-AipServiceDoNotTrackUserGroup.yml
+- text: Disable-AipServiceSuperUserFeature
+  href: ./Disable-AipServiceSuperUserFeature.yml
+- text: Enable-AipServiceDocumentTrackingFeature
+  href: ./Enable-AipServiceDocumentTrackingFeature.yml
+- text: Get-AipServiceDoNotTrackUserGroup
+  href: ./Get-AipServiceDoNotTrackUserGroup.yml
+syntaxes:
+- Set-AipServiceDoNotTrackUserGroup -GroupEmailAddress <String> [<CommonParameters>]
+examples:
+- title: Example 1
+  code: |-
+    PS C:\>Set-AipServiceDoNotTrackUserGroup -GroupEmailAddress "DoNotTrackUserGroup@contoso.com"
+  description: |-
+    This command sets a group that has the email address of DoNotTrackUserGroup@contoso.com for the Contoso organization so that users in that group will not be tracked with the document tracking feature.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: GroupEmailAddress
+  isRequired: true
+  description: |+
+    Specifies the email address of the group whose members will be exempt from being tracked with the document tracking feature.
+
+    You can specify a group that contains individual users, or nested groups. The email address must be a valid group email address that already exists in the organization.
+
+    > [!NOTE]
+    > Global administrators can always track the activities of these members.
+    > 
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AIPService.Set-AipServiceDoNotTrackUserGroup
+name: Set-AipServiceDoNotTrackUserGroup
+description: |-
+  The **Set-AipServiceDoNotTrackUserGroup** cmdlet sets a group for Azure Information Protection when you use document tracking and you have users who must not be tracked. This configuration might be needed for privacy requirements. For more information, see [Privacy controls for your document tracking site](/information-protection/rms-client/client-admin-guide-document-tracking#privacy-controls-for-your-document-tracking-site).
+
+  If this cmdlet has been run before, running it again overwrites the group that was set previously. You can set only one group, but it can contain nested groups.
+
+  You must use PowerShell to set this group so that users are not tracked; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: a168cc5e-4e90-4a6d-8241-2f6d9dc27d7e
+  online version: https://go.microsoft.com/fwlink/?linkid=2045407
+  schema: 2.0.0

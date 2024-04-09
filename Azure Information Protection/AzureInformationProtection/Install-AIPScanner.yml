@@ -1,0 +1,239 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Installs the Azure Information Protection scanner.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-AIPScannerConfiguration
+  href: ./Get-AIPScannerConfiguration.yml
+- text: Get-AIPScannerStatus
+  href: ./Get-AIPScannerStatus.yml
+- text: Set-AIPScanner
+  href: ./Set-AIPScanner.yml
+- text: Set-AIPScannerConfiguration
+  href: ./Set-AIPScannerConfiguration.yml
+- text: Start-AIPScan
+  href: ./Start-AIPScan.yml
+- text: Uninstall-AIPScanner
+  href: ./Uninstall-AIPScanner.yml
+- text: Update-AIPScanner
+  href: ./Update-AIPScanner.yml
+syntaxes:
+- >-
+  Install-AIPScanner [-ServiceUserCredentials] <PSCredential> [-StandardDomainsUserAccount <PSCredential>]
+
+   [-ShareAdminUserAccount <PSCredential>] [-SqlServerInstance] [-Cluster | -Profile <String>] [-WhatIf] [-Confirm]
+
+   [<CommonParameters>]
+examples:
+- title: 'Example 1: Install the Azure Information Protection Scanner service by using a SQL Server instance and a cluster'
+  code: |-
+    PS C:\> Install-AIPScanner -SqlServerInstance SQLSERVER1\AIPSCANNER -Cluster EU
+  description: |-
+    This command installs the Azure Information Protection Scanner service by using a SQL Server instance named **AIPSCANNER**, which runs on the server named **SQLSERVER1**. 
+
+    In addition, the installation creates the **AIPScannerUL_\<cluster name>** database name to store the scanner configuration, unless an existing database with the same name is already found.
+
+    You are prompted to provide the Active Directory account details for the scanner service account. 
+
+    The command displays the installation progress, where the install log is located, and the creation of the new Windows Application event log named Azure Information Protection Scanner
+
+    At the end of the output, you see **The transacted install has completed**.
+
+    > [!NOTE]
+    > The cluster parameter is only supported in the unified labeling client, version 2.7.0.0 and above. For other versions, use the **Profile** parameter instead.
+  summary: ""
+- title: 'Example 2: Install the Azure Information Protection Scanner service by using the SQL Server default instance'
+  code: |-
+    PS C:\> Install-AIPScanner -SqlServerInstance SQLSERVER1 -Cluster EU
+  description: |-
+    This command installs the Azure Information Protection Scanner service by using the SQL Server default instance that runs on the server named **SQLSERVER1**. 
+
+    As with the previous example, you are prompted for credentials, and then the command displays the progress, where the install log is located, and the creation of the new Windows Application event log.
+
+    > [!NOTE]
+    > The cluster parameter is only supported in the unified labeling client, version 2.7.0.0 and above. For other versions, use the **Profile** parameter instead.
+  summary: ""
+- title: 'Example 3: Install the Azure Information Protection Scanner service by using SQL Server Express'
+  code: |-
+    PS C:\> Install-AIPScanner -SqlServerInstance SQLSERVER1\SQLEXPRESS -Cluster EU
+  description: |-
+    This command installs the Azure Information Protection Scanner service by using SQL Server Express that runs on the server named **SQLSERVER1**. 
+
+    As with the previous examples, you are prompted for credentials, and then the command displays the progress, where the install log is located, and the creation of the new Windows Application event log.
+
+    > [!NOTE]
+    > The cluster parameter is only supported in the unified labeling client, version 2.7.0.0 and above. For other versions, use the **Profile** parameter instead.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: Cluster
+  isRequired: true
+  description: |+
+    **Relevant for:** Unified labeling client only.
+
+    Specifies the name of the scanner's database for the scanner configuration, using the following syntax: **AIPScannerUL_<cluster_name>**. 
+
+    If the database that you name doesn't exist when the scanner is installed, this command creates it.
+
+    Using either this parameter or the **Profile** parameter is mandatory. Starting in version 2.7.0.0 of the unified labeling client, we recommend using this parameter instead of the **Profile** parameter.
+
+
+  defaultValue: None
+  position: Named
+  aliases: Profile
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Confirm
+  description: |+
+    Prompts you for confirmation before running the cmdlet.
+
+  defaultValue: None
+  position: Named
+  aliases: cf
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: Profile
+  description: |+
+    Specifies the name of the scanner's database for the scanner configuration.
+
+    Using either this parameter or the **Cluster** parameter is mandatory. Starting in version 2.7.0.0 of the unified labeling client, we recommend using the **Cluster** parameter instead of the this parameter.
+
+    The database name for the scanner is **AIPScannerUL_\<profile_name>**. 
+
+    If the database that you name doesn't exist when the scanner is installed, this command creates it.
+
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="PSCredential" data-throw-if-not-resolved="False" />
+  name: ServiceUserCredentials
+  isRequired: true
+  description: |+
+    Specifies the account credentials used to run the Azure Information Protection service. 
+
+    - The credentials used must be an Active Directory account. 
+
+    - Set the value of this parameter using the following syntax: `Domain\Username`. 
+
+        For example: `contoso\scanneraccount`
+
+    - If you do not specify this parameter, you are prompted for the username and password.
+
+    For more information, see [Prerequisites for the Azure Information Protection scanner](/information-protection/deploy-aip-scanner#prerequisites-for-the-azure-information-protection-scanner). 
+
+    > [!TIP]
+    > Use a **PSCredential** object by using the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet. In this case, you are prompted for the password only.
+    >
+    > For more information, type `Get-Help Get-Cmdlet`. 
+
+  defaultValue: None
+  position: "0"
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="PSCredential" data-throw-if-not-resolved="False" />
+  name: ShareAdminUserAccount
+  description: |+
+    Specifies the credentials for a strong account in an on-premises network, used to get a full list of file share and NTFS permissions.
+
+    - The credentials used must be an Active Directory account with Administrator/FC rights on your network shares. This will usually be a Server Admin or Domain Admin.
+
+    - Set the value of this parameter using the following syntax: `Domain\Username`
+
+        For example: `contoso\admin`
+
+    - If you do not specify this parameter, you are prompted for both the username and password.
+
+    > [!TIP]
+    > Use a **PSCredential** object by using the [**Get-Credential**](/powershell/module/microsoft.powershell.security/get-credential) cmdlet. In this case, you are prompted for the password only.
+    > 
+    >For more information, type `Get-Help Get-Cmdlet`.
+
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: SqlServerInstance
+  isRequired: true
+  description: |+
+    Specifies the SQL Server instance on which to create a database for the Azure Information Protection scanner. 
+
+    For information about the SQL Server requirements, see [Prerequisites for the Azure Information Protection scanner](/information-protection/deploy-aip-scanner#prerequisites-for-the-azure-information-protection-scanner).
+
+    - **For the default instance**, specify the server name. For example: **SQLSERVER1**. 
+
+    - **For a named instance**, specify the server name and instance name. For example: **SQLSERVER1\AIPSCANNER**. 
+
+    - **For SQL Server Express**, specify the server name and **SQLEXPRESS**. For example: **SQLSERVER1\SQLEXPRESS**.
+
+
+  defaultValue: None
+  position: "2"
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="PSCredential" data-throw-if-not-resolved="False" />
+  name: StandardDomainsUserAccount
+  description: |+
+    Specifies the credentials for a weak account in an on-premises network, used to check access for weak users on the network and expose discovered network shares.
+
+    - The credentials used must be an Active Directory account, and a user of the **Domain Users** group only.
+
+    - Set the value of this parameter using the following syntax: `Domain\Username`
+
+        For example: `contoso\stduser`
+
+    - If you do not specify this parameter, you are prompted for both the username and password.
+
+    > [!TIP]
+    > Use a **PSCredential** object by using the [**Get-Credential**](/powershell/module/microsoft.powershell.security/get-credential) cmdlet. In this case, you are prompted for the password only.
+    > 
+    >For more information, type `Get-Help Get-Cmdlet`.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+  defaultValue: None
+  position: Named
+  aliases: wi
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Install-AIPScanner
+name: Install-AIPScanner
+description: |-
+  The **Install-AIPScanner** cmdlet installs and configures the Azure Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2. 
+
+  The Azure Information Protection scanner uses this service to scan files on data stores that use the Server Message Block (SMB) protocol, and on SharePoint on premises. Files that this scanner discovers can then be labeled to apply classification, and optionally, apply protection or remove protection.
+
+  For more information about how to configure the labels and policy settings, see: [Overview of sensitivity labels](/microsoft-365/compliance/sensitivity-labels)
+
+
+  > [!IMPORTANT]
+  > You must run this cmdlet before you run any other cmdlet for the Azure Information Protection scanner.
+  > 
+  The command creates a Windows service named Azure Information Protection Scanner. It also creates and configures a database on SQL Server to store configuration and operational information for the scanner. The service that you specify to run the scanner is automatically granted the required rights to read and write to the database that is created.
+
+  To run this command, you must have local administrator rights for the Windows Server computer, and Sysadmin rights on the instance of SQL Server that you will use for the scanner.
+
+  After you have run this command, use the Azure portal to configure the settings in the scanner cluster and specify the data repositories to scan. Before you run the scanner, you must run the [Set-AIPAuthentication](./Set-AIPAuthentication.yml) cmdlet one time to sign in to Azure AD for authentication and authorization. 
+
+  For step-by-step instructions to install, configure, and use the scanner, see [Unified labeling client instructions for deploying the AIP scanner](/information-protection/deploy-aip-scanner).
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=858203
+  schema: 2.0.0

@@ -1,0 +1,94 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  **Relevant for:** AIP unified labeling client only
+
+  Imports a local configuration for Network Discovery network scan jobs.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-MIPNetworkDiscoveryConfiguration
+  href: Get-MIPNetworkDiscoveryConfiguration.yml
+- text: Get-MIPNetworkDiscoveryJobs
+  href: Get-MIPNetworkDiscoveryJobs.yml
+- text: Get-MIPNetworkDiscoveryStatus
+  href: Get-MIPNetworkDiscoveryStatus.yml
+- text: Install-MIPNetworkDiscovery
+  href: Install-MIPNetworkDiscovery.yml
+- text: Set-MIPNetworkDiscovery
+  href: Set-MIPNetworkDiscovery.yml
+- text: Set-MIPNetworkDiscoveryConfiguration
+  href: Set-MIPNetworkDiscoveryConfiguration.yml
+- text: Start-MIPNetworkDiscovery
+  href: Start-MIPNetworkDiscovery.yml
+- text: Uninstall-MIPNetworkDiscovery
+  href: Uninstall-MIPNetworkDiscovery.yml
+syntaxes:
+- Import-MIPNetworkDiscoveryConfiguration -FileName <String> [-WhatIf] [-Confirm] [<CommonParameters>]
+examples:
+- title: 'Example 1: Import a locally configured Azure Information Protection network scan job'
+  code: |-
+    PS C:\> Import-MIPNetworkDiscoveryConfiguration -FileName "C:/configuration.json"
+
+    Configuration was imported successfully.
+  description: |-
+    In this example, the scanner is configured to prevent getting network scan job settings directly from the Azure portal. Instead, the network scan job is imported from a file named C:/configuration.json.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Confirm
+  description: |+
+    Prompts you for confirmation before running the cmdlet.
+
+  defaultValue: None
+  position: Named
+  aliases: cf
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: FileName
+  isRequired: true
+  description: |+
+    Specifies a file that contains network scan job configuration settings. To create this file, export your network scan job from the Azure portal.
+
+    The file is used to do a one-time import of network scan job settings into the scanner configuration database.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    Shows what would happen if the cmdlet runs.
+    The cmdlet is not run.
+
+  defaultValue: None
+  position: Named
+  aliases: wi
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Import-MIPNetworkDiscoveryConfiguration
+name: Import-MIPNetworkDiscoveryConfiguration
+description: |-
+  The **Import-MIPNetworkDiscoveryConfiguration** cmdlet imports local configuration settings for the Azure Information Protection network scan jobs, and automatically configures the scanner to use the offline configuration. 
+
+  Network Discovery network scan jobs enable Azure Information Protection administrators to scan specific IP addresses or ranges for risky repositories to add to scan further with content scan jobs.
+
+  - Use this cmdlet only after you have configured a cluster and a network scan job in the Azure portal, and exported those settings to a file. 
+
+  - If you need to make configuration changes to the network scan jobs after you have run this cmdlet, make those changes in the Azure portal, export the network scan job again, and rerun this cmdlet.
+
+  If you want to change the scanner to use the online configuration directly after you have run this cmdlet, use the [Set-MIPNetworkDiscoveryConfiguration](./Set-MIPNetworkDiscoveryConfiguration.yml) and set the *OnlineConfiguration* parameter to **On**.
+
+  Any changes will be used the next time the scanner runs. If you need the changes to take effect immediately, restart the Azure Information Protection Scanner service on the Windows server computer.
+
+  [!INCLUDE [audit-logs-sunset](../includes/audit-logs-sunset.md)]
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2137918
+  schema: 2.0.0

@@ -1,0 +1,101 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Changes the location of a legacy customer-managed key in Azure Information Protection with the location of a customer-managed key in Azure Key Vault.
+module: AIPService
+notes: ""
+links:
+- text: Get-AipServiceKeys
+  href: ./Get-AipServiceKeys.yml
+- text: Use-AipServiceKeyVaultKey
+  href: ./Use-AipServiceKeyVaultKey.yml
+- text: Planning and implementing your Azure Information Protection tenant key
+  href: /information-protection/plan-design/plan-implement-tenant-key
+syntaxes:
+- >-
+  Convert-AipServiceKeyToKeyVault -KeyVaultKeyUrl <String> -KeyIdentifier <String> [-Force] [-WhatIf] [-Confirm]
+
+   [<CommonParameters>]
+examples:
+- title: 'Example 1: Change the location of a legacy tenant key with a key in Azure Key Vault'
+  code: |-
+    PS C:\>Convert-AipServiceKeyToKeyVault -KeyIdentifier aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb -KeyVaultKeyUrl "https://contoso.vault.azure.net/keys/contoso-aipservice-key/aaaabbbbcccc111122223333"
+  description: |-
+    Changes the location of the original customer-managed key that has the key identifier of **aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb** with the location of a customer-managed key in Azure Key Vault, which is named **contoso-aipservice-key** and has the version number **aaaabbbbcccc111122223333** in the Contoso key vault.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Confirm
+  description: |+
+    Prompts you for confirmation before running the cmdlet.
+
+  defaultValue: "False"
+  position: Named
+  aliases: cf
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Forces the command to run without asking for user confirmation.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: KeyIdentifier
+  isRequired: true
+  description: |+
+    Specifies the key identifier value of the original customer-managed tenant key that you now want to manage from Azure Key Vault.
+
+    To get the key identifier value, use the **Get-AipServiceKeys** cmdlet.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: KeyVaultKeyUrl
+  isRequired: true
+  description: |+
+    Specifies the URL of the key in Azure Key Vault that you want to use for your tenant key. This key will be used by Azure Information Protection as the root key for all cryptographic operations for your tenant.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+  defaultValue: "False"
+  position: Named
+  aliases: wi
+  parameterValueGroup: ""
+uid: AIPService.Convert-AipServiceKeyToKeyVault
+name: Convert-AipServiceKeyToKeyVault
+description: |-
+  The **Convert-AipServiceKeyToKeyVault** cmdlet is only for customers who have previously created a customer-managed key for Azure Rights Management and have received an invitation from Microsoft to migrate their Azure Information Protection tenant key to Azure Key Vault.
+
+  > [!IMPORTANT]
+  > Do not run this cmdlet if you have not received this invitation from Microsoft and do not run this cmdlet without assistance from Microsoft.
+  > 
+  You must use PowerShell to configure your tenant key; you cannot do this configuration by using a management portal.
+
+  Azure Information Protection now uses Azure Key Vault to manage and monitor a customer-managed tenant key. To create a customer-managed tenant key for the first time, run [Use-AipServiceKeyVaultKey](./Use-AipServiceKeyVaultKey.yml) instead of this cmdlet.
+
+  For more information about how to manage your Azure Information Protection tenant key, see [Planning and implementing your Azure Information Protection tenant key](/information-protection/plan-design/plan-implement-tenant-key).
+
+  Before you run this cmdlet, you will need to identify your original customer-managed tenant key. To do that, use the [Get-AipServiceKeys](./Get-AipServiceKeys.yml) cmdlet. From the output and identified key, you will need the KeyIdentifier value for the *KeyIdentifier* parameter when you run this cmdlet.
+
+  Also, your organization's administrator for Azure Key Vault must create a new key for Azure Information Protection and supply you with a URL for this key. You will need to specify the URL for the *KeyVaultKeyUrl* parameter when you run this cmdlet. This Azure Key Vault administrator must also grant the Azure Rights Management service from Azure Information Protection access to the key vault that contains the key.
+
+  For security reasons, this cmdlet does not let you change the access control for the key; this must be done from Key Vault.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 58EEEE8D-9C0E-4879-8F04-3F56589B1238
+  online version: https://go.microsoft.com/fwlink/?linkid=2045022
+  schema: 2.0.0

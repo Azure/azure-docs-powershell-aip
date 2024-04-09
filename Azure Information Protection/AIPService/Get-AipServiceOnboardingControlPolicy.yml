@@ -1,0 +1,31 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the user on-boarding control policy for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Set-AipServiceOnboardingControlPolicy
+  href: ./Set-AipServiceOnboardingControlPolicy.yml
+syntaxes:
+- Get-AipServiceOnboardingControlPolicy [<CommonParameters>]
+examples:
+- title: 'Example 1: Get the user on-boarding control policy'
+  code: |-
+    PS C:\> Get-AipServiceOnboardingControlPolicy
+  description: |-
+    This command displays the user on-boarding control policy for Azure Information Protection for your organization.
+  summary: ""
+uid: AIPService.Get-AipServiceOnboardingControlPolicy
+name: Get-AipServiceOnboardingControlPolicy
+description: |-
+  The **Get-AipServiceOnboardingControlPolicy** cmdlet obtains your Azure Information Protection user on-boarding control policy to support a gradual deployment by controlling which users in your organization can protect content by using Azure Information Protection.
+
+  You must use PowerShell to view this configuration; you cannot view this configuration by using a management portal.
+
+  This control can be based on assigned user licenses for the Azure Rights Management service or membership in a designated security group. You can also define whether the policy applies to just mobile devices, just Windows clients, or mobile devices and Windows clients. For more information, see [Set-AipServiceOnboardingControlPolicy](./Set-AipServiceOnboardingControlPolicy.yml).
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: A5384868-65D1-46A8-A1E0-7050F607131C
+  online version: https://go.microsoft.com/fwlink/?linkid=2045203
+  schema: 2.0.0

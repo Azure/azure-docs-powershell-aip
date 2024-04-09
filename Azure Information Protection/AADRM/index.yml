@@ -1,0 +1,91 @@
+### YamlMime:PowershellModule
+children:
+- title: AADRM
+  cmdlets:
+  - AADRM.Add-AadrmRoleBasedAdministrator
+  - AADRM.Add-AadrmSuperUser
+  - AADRM.Add-AadrmTemplate
+  - AADRM.Clear-AadrmDoNotTrackUserGroup
+  - AADRM.Clear-AadrmSuperUserGroup
+  - AADRM.Connect-AadrmService
+  - AADRM.Convert-AadrmKeyToKeyVault
+  - AADRM.Disable-Aadrm
+  - AADRM.Disable-AadrmDevicePlatform
+  - AADRM.Disable-AadrmDocumentTrackingFeature
+  - AADRM.Disable-AadrmIPCv3Service
+  - AADRM.Disable-AadrmSuperUserFeature
+  - AADRM.Disable-AadrmUsageLogFeature
+  - AADRM.Disconnect-AadrmService
+  - AADRM.Enable-Aadrm
+  - AADRM.Enable-AadrmDevicePlatform
+  - AADRM.Enable-AadrmDocumentTrackingFeature
+  - AADRM.Enable-AadrmIPCv3Service
+  - AADRM.Enable-AadrmSuperUserFeature
+  - AADRM.Enable-AadrmUsageLogFeature
+  - AADRM.Export-AadrmTemplate
+  - AADRM.Get-Aadrm
+  - AADRM.Get-AadrmAdminLog
+  - AADRM.Get-AadrmConfiguration
+  - AADRM.Get-AadrmDevicePlatform
+  - AADRM.Get-AadrmDocumentLog
+  - AADRM.Get-AadrmDocumentTrackingFeature
+  - AADRM.Get-AadrmDoNotTrackUserGroup
+  - AADRM.Get-AadrmIPCv3Service
+  - AADRM.Get-AadrmKeys
+  - AADRM.Get-AadrmMaxUseLicenseValidityTime
+  - AADRM.Get-AadrmMigrationUrl
+  - AADRM.Get-AadrmOnboardingControlPolicy
+  - AADRM.Get-AadrmRoleBasedAdministrator
+  - AADRM.Get-AadrmSuperUser
+  - AADRM.Get-AadrmSuperUserFeature
+  - AADRM.Get-AadrmSuperUserGroup
+  - AADRM.Get-AadrmTemplate
+  - AADRM.Get-AadrmTemplateProperty
+  - AADRM.Get-AadrmTrackingLog
+  - AADRM.Get-AadrmUsageLog
+  - AADRM.Get-AadrmUsageLogFeature
+  - AADRM.Get-AadrmUsageLogLastCounterValue
+  - AADRM.Get-AadrmUsageLogStorageAccount
+  - AADRM.Get-AadrmUserLog
+  - AADRM.Import-AadrmTemplate
+  - AADRM.Import-AadrmTpd
+  - AADRM.New-AadrmRightsDefinition
+  - AADRM.Remove-AadrmRoleBasedAdministrator
+  - AADRM.Remove-AadrmSuperUser
+  - AADRM.Remove-AadrmTemplate
+  - AADRM.Set-AadrmDoNotTrackUserGroup
+  - AADRM.Set-AadrmKeyProperties
+  - AADRM.Set-AadrmMaxUseLicenseValidityTime
+  - AADRM.Set-AadrmMigrationUrl
+  - AADRM.Set-AadrmOnboardingControlPolicy
+  - AADRM.Set-AadrmSuperUserGroup
+  - AADRM.Set-AadrmTemplateProperty
+  - AADRM.Set-AadrmUsageLogStorageAccount
+  - AADRM.Use-AadrmKeyVaultKey
+uid: AADRM
+name: AADRM
+description: |-
+  This page displays help links for the AADRM cmdlets that administer the protection service (Azure Rights Management) for Azure Information Protection.
+
+  > [!NOTE]
+  > This module is now deprecated and replaced with the **[AIPService](../AIPService/index.yml)** module. Support for the AADRM module ended July 15, 2020.
+  > 
+  > If you have this older version of the module installed, [install the AIPService module](/information-protection/deploy-use/install-powershell). Although the new cmdlets have aliases to the old cmdlets, also update any scripts that reference the AADRM cmdlets. 
+
+  These PowerShell cmdlets let you administer the Azure Rights Management service from the command line. Although this administration method enables automation, it also supports reliable and repeated processes to help reduce administrative overheads. In addition, advanced configurations and some operations require this PowerShell module.
+
+  For more information about when you must use PowerShell cmdlets and to see groupings of cmdlets by administration tasks, see [Administering protection from Azure Information Protection by using PowerShell](/information-protection/deploy-use/administer-powershell).
+
+  >[!TIP]
+  >
+  >The current version of this module is **2.13.1.0**. To check the version you have installed, run: `(Get-Module aadrm -ListAvailable).Version` If this command or any cmdlet from this module fails to run, first run **Import-Module AADRM**.
+
+
+  The .dll file for this module is *Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll*.
+metadata:
+  Module Name: AADRM
+  Module Guid: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+  Download Help Link: N/A
+  Help Version: 2.13.1.0
+  Locale: en-US
+  ms.assetid: 0B91D740-D2BD-4D57-9E21-C582C9BE2CCA
