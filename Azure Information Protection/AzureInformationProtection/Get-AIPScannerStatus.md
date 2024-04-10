@@ -9,7 +9,7 @@ author: batamig
 # Get-AIPScannerStatus
 
 ## SYNOPSIS
-Gets the current status of the service for the Azure Information Protection scanner.
+Gets the current service status for the Azure Information Protection scanner.
 
 ## SYNTAX
 
