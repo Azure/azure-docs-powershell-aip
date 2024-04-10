@@ -3,6 +3,7 @@ Module Name: PurviewInformationProtection
 Module Guid: NA
 Download Help Link: NA
 Help Version: NA
+ms.topic: reference
 Locale: en-US
 ---
 

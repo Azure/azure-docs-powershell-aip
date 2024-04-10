@@ -2,6 +2,7 @@
 external help file: AIP.dll-Help.xml
 Module Name: PurviewInformationProtection
 online version: 
+ms.topic: reference
 schema: 1.0.0
 ---
 

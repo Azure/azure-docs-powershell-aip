@@ -2,6 +2,7 @@
 external help file: AIP.dll-Help.xml
 Module Name: PurviewInformationProtection
 online version: https://go.microsoft.com/fwlink/?linkid=2258951
+ms.topic: reference
 schema: 1.0.0
 ---
 
