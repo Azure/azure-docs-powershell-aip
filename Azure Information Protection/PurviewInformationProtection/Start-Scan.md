@@ -46,6 +46,7 @@ The scanner initiates a full scan of all the files, even if they have been scann
 ## PARAMETERS
 
 ### -Force
+
 Forces the command to run without asking for user confirmation.
 
 ```yaml
@@ -59,7 +60,9 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
 ### -Reset
+
 Resets the scanner cache so that the scanner initiates a full scan of all the files, even if they have been scanned before and the Microsoft Purview Information Protection policy has not changed.
 
 ```yaml
@@ -74,12 +77,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
-
 ## INPUTS
 
 ### None
-
 
 ## OUTPUTS
 
