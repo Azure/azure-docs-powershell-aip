@@ -97,8 +97,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 - [Get-ScannerRepository](Get-ScannerRepository.md)
 
-- [Remove-AIPScannerContentScanJob](Remove-AIPScannerContentScanJob.md)
-
 - [Remove-ScannerRepository](Remove-ScannerRepository.md)
 
 - [Set-ScannerContentScan](Set-ScannerContentScan.md)

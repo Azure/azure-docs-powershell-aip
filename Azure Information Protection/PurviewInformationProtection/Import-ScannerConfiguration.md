@@ -18,7 +18,7 @@ Import-ScannerConfiguration -FileName <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The **Import-ScannerConfiguration** cmdlet imports local configuration settings for the Microsoft Purview Information Protection scanner, and automatically configures the scanner to use offline configuration. 
+The **Import-ScannerConfiguration** cmdlet imports local configuration settings for the Microsoft Purview Information Protection scanner, and automatically configures the scanner to use offline configuration.
 
 Use this cmdlet after you've configured the following in the Microsoft Purview compliance portal:
 
