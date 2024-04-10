@@ -32,7 +32,7 @@ The PurviewInformationProtection module enables you to manage the client by runn
 
 The PurviewInformationProtection PowerShell module installs automatically when you install the full version of the information protection client. Alternatively, you can install the module only by using the *PowerShellOnly=true* parameter.
 
-Thep module is installed in the **\ProgramFiles (x86)\PurviewInformationProtection**  folder, and then adds this folder to the `PSModulePath` system variable. The .dll file for this module is *purviewinfoprotect.dll*.
+The module is installed in the **\ProgramFiles (x86)\PurviewInformationProtection**  folder, and then adds this folder to the `PSModulePath` system variable. The .dll file for this module is *purviewinfoprotect.dll*.
 
 > [!IMPORTANT]
 > The PurviewInformationProtection module doesn't support configuring advanced settings for labels or label policies. For more information on configuring these advanced settings, see [Custom configurations for the Microsoft Purview Information Protection client](#custom-configurations-for-the-microsoft-purview-information-protection-client).
