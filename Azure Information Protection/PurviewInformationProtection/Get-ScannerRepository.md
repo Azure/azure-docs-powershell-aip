@@ -9,7 +9,7 @@ schema: 1.0.0
 # Get-ScannerRepository
 
 ## SYNOPSIS
-Gets repository data for an Microsoft Purview Information Protection scanner content scan job.
+Gets repository data for a Microsoft Purview Information Protection scanner content scan job.
 
 ## SYNTAX
 
@@ -85,7 +85,7 @@ IncludeFileTypes:
 ExcludeFileTypes        : .lnk,.exe.,.com,.cmd,.bat,.dll,.ini,.sca,.drm,.sys,.cpl,.inf,.drv,.dat,.tmp,.msp,.msi,.pdb,.jar,.ocx,.rtf,.rar,.msg
 ```
 
-This example shows the a response that includes all repositories configured for the content scan job.
+This example shows a response that includes all repositories configured for the content scan job.
 
 ## PARAMETERS
 

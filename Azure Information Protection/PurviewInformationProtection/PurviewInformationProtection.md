@@ -172,9 +172,9 @@ To run Purview Information Protection labeling cmdlets unattended, use the follo
 
     |Requirement  |Details  |
     |---------|---------|
-    |**Label policy**     |  Make sure that you have a label policy assigned to this account and that the policy contains the published labels you want to use.   <br><br>If you use label policies for different users, you might need to create a new label policy that publishes all your labels, and publish the policy to just this delegated user account.    |
-    |**Decrypting content**     |    If this account needs to decrypt content, for example, to reprotect files and inspect files that others have protected, make it a [super user](../configure-super-users.md) for Azure Information Protection and make sure the super user feature is enabled.     |
-    |**Onboarding controls**     |    If you have implemented [onboarding controls](../activate-service.md#configuring-onboarding-controls-for-a-phased-deployment) for a phased deployment, make sure that this account is included in your onboarding controls you've configured.     |
+    |**Label policy**     |  Make sure that you have a label policy assigned to this account and that the policy contains the published labels you want to use. <br><br>If you use label policies for different users, you might need to create a new label policy that publishes all your labels, and publish the policy to just this delegated user account.    |
+    |**Decrypting content**     |    If this account needs to decrypt content, for example, to reprotect files and inspect files that others have protected, make it a super user for Azure Information Protection and make sure the super user feature is enabled.     |
+    |**Onboarding controls**     |    If you have implemented onboarding controls for a phased deployment, make sure that this account is included in your onboarding controls you've configured.     |
 
 - **a Microsoft Entra access token**, which sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token. 
 
