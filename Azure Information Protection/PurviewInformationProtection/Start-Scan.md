@@ -35,14 +35,14 @@ By default, all files are scanned the first time the scanner runs and then, unle
 PS C:\> Start-Scan
 ```
 
-Because this is not the first time that the scanner has run and the Microsoft Purview Information Protection policy has not changed since the last scanning cycle, the scanner initiates an incremental scan for all new or changed files since the last scanning cycle.
+Because the scanner ran before, and the Microsoft Purview Information Protection policy wasn't changed since the last scanning cycle, the scanner initiates an incremental scan for all new or changed files since the last scanning cycle.
 
 ### Example 2: Initiate immediate one time scan for all files
 ```powershell
 PS C:\> Start-Scan -Reset
 ```
 
-The scanner initiates a full scan of all the files, even if they have been scanned before and the Microsoft Purview Information Protection policy has not changed.
+The scanner initiates a full scan of all the files, even if they were scanned before and the Microsoft Purview Information Protection policy wasn't changed.
 
 ## PARAMETERS
 
@@ -64,7 +64,7 @@ Accept wildcard characters: False
 
 ### -Reset
 
-Resets the scanner cache so that the scanner initiates a full scan of all the files, even if they have been scanned before and the Microsoft Purview Information Protection policy has not changed.
+Resets the scanner cache so that the scanner initiates a full scan of all the files, even if they were scanned before and the Microsoft Purview Information Protection policy wasn't changed.
 
 ```yaml
 Type: SwitchParameter

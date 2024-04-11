@@ -214,4 +214,4 @@ Accept wildcard characters: False
 
 [Uninstall-Scanner](./Uninstall-Scanner.md)
 
-[Update-Scanner](./Update-Scanner.md)
+[Update-ScannerDatabase](./Update-ScannerDatabase.md)

@@ -121,6 +121,6 @@ Accept wildcard characters: False
 
 [Set-ScannerConfiguration](Set-ScannerConfiguration.md)
 
-[Start-Scan](Start-PScan.md)
+[Start-Scan](Start-Scan.md)
 
 [Uninstall-Scanner](Uninstall-Scanner.md)
