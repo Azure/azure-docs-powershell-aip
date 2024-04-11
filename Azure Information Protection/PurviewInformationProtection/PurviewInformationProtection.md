@@ -9,7 +9,11 @@ Locale: en-US
 
 # PurviewInformationProtection Module
 
-## Using PowerShell with the Microsoft Purview Information Protection client
+## Description
+
+Contains documentation for the Microsoft Purview Information Protection cmdlets.
+
+### Using PowerShell with the Microsoft Purview Information Protection client
 The Microsoft Purview Information Protection module is installed with the Microsoft Purview Information Protection client. The associated PowerShell module is *PurviewInformationProtection*.
 
 The PurviewInformationProtection module enables you to manage the client by running commands for automation scripts; for example:
@@ -19,14 +23,14 @@ The PurviewInformationProtection module enables you to manage the client by runn
 - [Start-Scan](https://go.microsoft.com/fwlink/?linkid=2258855): Instructs the Information Protection scanner to start a one-time scan cycle.
 - [Set-FileLabel -Autolabel](https://go.microsoft.com/fwlink/?linkid=2259827): Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
 
-## Install the PurviewInformationProtection PowerShell module
+### Install the PurviewInformationProtection PowerShell module
 
-### Installation prerequisites
+#### Installation prerequisites
 
 - This module requires Windows PowerShell 4.0. This prerequisite is not checked during installation. Make sure that you have the correct version of PowerShell installed.
 - Make sure that you have the most recent version of the PurviewInformationProtection PowerShell module (purviewinfoprotect.dll*) by running `Import-Module purviewinfoprotect`.
 
-### Installation details
+#### Installation details
 
 [Install and configure](/purview/deploy-scanner-configure-install.md) the full version of the Microsoft Purview Information Protection client.
 
@@ -45,7 +49,7 @@ Thep module is installed in the **\ProgramFiles (x86)\PurviewInformationProtecti
 >
 >For more information, see the [Maximum Path Length Limitation](https://learn.microsoft.com/windows/desktop/FileIO/naming-a-file#maximum-path-length-limitation) section from the Windows 10 developer documentation.
 
-## Prerequisites for using the PurviewInformationProtection PowerShell module
+### Prerequisites for using the PurviewInformationProtection PowerShell module
 
 In addition to the prerequisites for installing the PurviewInformationProtection module, you must also activate the [Azure Rights Management service](https://learn.microsoft.com/azure/information-protection/what-is-azure-rms).
 
@@ -56,7 +60,7 @@ For cases like this, the following requirements must also be met:
 - The [super user](/azure/information-protection/configure-super-users) feature must be enabled for your organization.
 - Your account must be configured an an Azure Rights Management super user.
 
-## Running information protection labeling cmdlets unattended
+### Running information protection labeling cmdlets unattended
 
 By default, when you run the cmdlets for labeling, the commands run in your own user context in an interactive PowerShell session. To automate running sensitivity labeling cmdlets, read the following sections:
 
@@ -64,7 +68,7 @@ By default, when you run the cmdlets for labeling, the commands run in your own 
 - [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-microsoft-entra-applications-for-set-authentication)
 - [Running the Set-Authentication cmdlet](#run-the-set-authentication-cmdlet)
 
-### Prerequisites for automating labeling cmdlets
+#### Prerequisites for automating labeling cmdlets
 
 To run information protection labeling cmdlets unattended, use the following access details:
 
@@ -85,7 +89,7 @@ The parameters for [Set-Authentication](https://go.microsoft.com/fwlink/?linkid=
 
 Run the labeling cmdlets non-interactively by first running the `Set-Authentication` cmdlet. The computer running the cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview portal.
 
-### Create and configure Microsoft Entra applications for Set-Authentication
+#### Create and configure Microsoft Entra applications for Set-Authentication
 
 The `Set-Authentication` cmdlet requires an app registration for the *AppId* and *AppSecret* parameters.
 
@@ -144,7 +148,7 @@ To create a new app registration for the `Set-Authentication` cmdlet:
 
 1. Back on the **AIP-DelegatedUser - API permissions page**, select **Grant admin consent for *<your tenant name>*** and select **Yes** at the confirmation prompt.
 
-### Run the Set-Authentication cmdlet
+#### Run the Set-Authentication cmdlet
 
 Once you have configured your Microsoft Entra applications, run the `Set-Authentication`.
 
@@ -155,7 +159,7 @@ Once you have configured your Microsoft Entra applications, run the `Set-Authent
 
 1. In your PowerShell session, create a variable to store the credentials of the Windows user account that will run non-interactively. For example, if you created a service account for the scanner.
 
-### Prerequisites for running labeling cmdlets unattended
+#### Prerequisites for running labeling cmdlets unattended
 
 To run Purview Information Protection labeling cmdlets unattended, use the following access details:
 
@@ -181,7 +185,7 @@ The computer running the **Authentication** cmdlet downloads the labeling policy
 
 <a name='create-and-configure-azure-ad-applications-for-set-authentication'></a>
 
-### Create and configure Microsoft Entra applications for Set-Authentication
+#### Create and configure Microsoft Entra applications for Set-Authentication
 
 The **Set-Authentication** cmdlet requires an app registration for the *AppId* and *AppSecret* parameters.
 
@@ -273,14 +277,10 @@ Now you've completed the registration of this app with a secret, you're ready to
 1. Run the **Set-Authentication** cmdlet, with the *OnBeHalfOf* parameter, specifying as its value the variable that you created. 
 
     Also specify your app registration values, your tenant ID, and the name of the delegated user account in Microsoft Entra ID. For example:
-    
+
     ```PowerShell
     Set-Authentication -AppId "77c3c1c3-abf9-404e-8b2b-4652836c8c66" -AppSecret "OAkk+rnuYc/u+]ah2kNxVbtrDGbS47L4" -TenantId "9c11c87a-ac8b-46a3-8d5c-f4d0b72ee29a" -DelegatedUser scanner@contoso.com -OnBehalfOf $pscreds
     ```
-    
-## Common parameters for PowerShell cmdlets
-
-For information about common parameters, see [About common parameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 
 ## PurviewInformationProtection Cmdlets
 
