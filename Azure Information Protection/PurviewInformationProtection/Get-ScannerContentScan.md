@@ -9,7 +9,7 @@ schema: 1.0.0
 # Get-ScannerContentScan
 
 ## SYNOPSIS
-Gets details about an Microsoft Purview Information Protection scanner content scan job.
+Gets details about a Microsoft Purview Information Protection scanner content scan job.
 
 ## SYNTAX
 
@@ -49,7 +49,7 @@ c:\repoToScan1
 c:\repoToScan2
 ```
 
-This example shows a sample command and response when the content scan job has been configured via PowerShell.
+This example shows a sample command and response when the content scan job was configured via PowerShell.
 
 ### Example 2 Content scan job settings defined by PowerShell
 ```powershell
@@ -75,7 +75,7 @@ Repositories:
 c:\repoToScan1
 ```
 
-This example shows a sample command and response when the content scan job has been configured by importing a file, or using the Microsoft Purview compliance portal. In this case, the individual content scan job parameters are not applicable, and do not return values.
+This example shows a sample command and response when the content scan job was configured by importing a file, or using the Microsoft Purview compliance portal. In this case, the individual content scan job parameters aren't applicable, and don't return values.
 
 ## PARAMETERS
 

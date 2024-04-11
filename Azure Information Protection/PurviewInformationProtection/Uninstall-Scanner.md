@@ -18,7 +18,7 @@ Uninstall-Scanner [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The **Uninstall-Scanner** cmdlet uninstalls the Microsoft Purview Information Protection scanner Windows Server service. 
+The **Uninstall-Scanner** cmdlet uninstalls the Microsoft Purview Information Protection scanner Windows Server service.
 
 To run this command, you must have local Administrator rights for the Windows Server computer and you must restart the computer after running the command to complete the removal process.
 
@@ -26,10 +26,9 @@ This command does *not* remove the following:
 
 - **Scanner reports**, located in **%localappdata%\Microsoft\MSIP\Scanner\Reports**.
 
-- **The SQL Server database** that was created by running the [Install-AIPScanner](nstall-AIPScanner.md) cmdlet when the Microsoft Purview Information Protection scanner was installed. If this database is no longer required, you must manually remove it. 
+- **The SQL Server database** that was created by running the [Install-Scanner](Install-Scanner.md) cmdlet when the Microsoft Purview Information Protection scanner was installed. If this database is no longer required, you must manually remove it.
 
     The database name for the scanner is **AIPScannerUL_\<cluster_name>**.
-
 
 ## EXAMPLES
 

@@ -36,10 +36,10 @@ The PurviewInformationProtection module enables you to manage the client by runn
 
 The PurviewInformationProtection PowerShell module installs automatically when you install the full version of the information protection client. Alternatively, you can install the module only by using the *PowerShellOnly=true* parameter.
 
-Thep module is installed in the **\ProgramFiles (x86)\PurviewInformationProtection**  folder, and then adds this folder to the `PSModulePath` system variable. The .dll file for this module is *purviewinfoprotect.dll*.
+The module is installed in the **\ProgramFiles (x86)\PurviewInformationProtection**  folder, and then adds this folder to the `PSModulePath` system variable. The .dll file for this module is *purviewinfoprotect.dll*.
 
 > [!IMPORTANT]
-> The PurviewInformationProtection module doesn't support configuring advanced settings for labels or label policies. For more information on configuring these advanced settings, see [Custom configurations for the Microsoft Purview Information Protection client](#custom-configurations-for-the-microsoft-purview-information-protection-client).
+> The PurviewInformationProtection module doesn't support configuring advanced settings for labels or label policies.
 
 > [!TIP]
 > To use cmdlets with path lengths greater than 260 characters, use the following [group policy setting](https://learn.microsoft.com/archive/blogs/jeremykuhne/net-4-6-2-and-long-paths-on-windows-10) that is available starting Windows 10, version 1607:
@@ -57,7 +57,7 @@ In some cases, you may want to [remove protection](https://go.microsoft.com/fwli
 
 For cases like this, the following requirements must also be met:
 
-- The [super user](/azure/information-protection/configure-super-users) feature must be enabled for your organization.
+- The super user feature must be enabled for your organization.
 - Your account must be configured an an Azure Rights Management super user.
 
 ### Running information protection labeling cmdlets unattended
@@ -81,7 +81,7 @@ For the delegated user account, configure the following requirements:
 | ----------- | ------- |
 | Label policy | Make sure that you have a label policy assigned to this account and that the policy contains the published labels you want to use. <br><br> If you use label policies for different users, you might need to create a new label policy that publishes all your labels, and publish the policy to just this delegated user account. |
 | Decrypting content | If this account needs to decrypt content, for example, to re-protect files and inspect files that others have protected, make this account an Azure Rights Management super user and make sure the super user feature is enabled. |
-| Onboarding controls | If you have implemented onboarding controls(/MicrosoftDocs/information-protection/activate-service#configuring-onboarding-controls-for-a-phased-deployment) for a phased deployment, make sure that this account is included in the onboarding controls you've configured. |
+| Onboarding controls | If you have implemented onboarding controls for a phased deployment, make sure that this account is included in the onboarding controls you've configured. |
 
 - **A Microsoft Entra access token** that sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
 
@@ -107,7 +107,7 @@ To create a new app registration for the `Set-Authentication` cmdlet:
 | Supported account types | Select **Accounts** in this organizational directory only   |
 | Redirect URI (optional) | Select **Web**, and then enter `https://localhost`.   |
 
-4. In the **DelegatedUser** pane, copy the value for the **Application (client) ID**. The value looks similar to this example: `77c3c1c3-abf9-404e-8b2b-4652836c8c66`. <br><br> This value is used for the *AppId* parameter when you run the `Set-Authentication` cmdlet. Paste and save the value for later reference.
+1. In the **DelegatedUser** pane, copy the value for the **Application (client) ID**. The value looks similar to this example: `77c3c1c3-abf9-404e-8b2b-4652836c8c66`. This value is used for the *AppId* parameter when you run the `Set-Authentication` cmdlet. Paste and save the value for later reference.
 
 1. From the sidebar, select **Manage** > **Certificates & secrets**.
 
@@ -115,18 +115,19 @@ To create a new app registration for the `Set-Authentication` cmdlet:
 
 1. For **Add a client secret**, specify the following, and then select **New client secret**.
 
-| Field | Value |
-| ----- | ----- |
-| Description | `Purview Information Protection client` |
-| Expires     | Specify your choice of duration (*1 year*, *2 years*, or *Never expires*) |
+   | Field | Value |
+   | ----- | ----- |
+   | Description | `Purview Information Protection client` |
+   | Expires     | Specify your choice of duration (*1 year*, *2 years*, or *Never expires*) |
 
-8. Back on the **AIP-DelegatedUser - Certificates & secrets** pane, in the **Client secrets* section**, copy the **VALUE** string. This string will resemble the following example: <br><br>
-`OAkk+rnuYc/u+]ah2kNxVbtrDGbS47L4`
+1. Back on the **AIP-DelegatedUser - Certificates & secrets** pane, in the **Client secrets* section**, copy the **VALUE** string. This string will resemble the following example: <br><br>
 
-> [!IMPORTANT]
-> **Save this string.** it is not displayed again and **cannot be retrieved later**.  As with any sensitive information that you use, store the saved string value securely and restrict access to it.
+   `OAkk+rnuYc/u+]ah2kNxVbtrDGbS47L4`
 
-9. From the sidebar, select **Manage** > **API permissions**.
+   > [!IMPORTANT]
+   > **Save this string.** it is not displayed again and **cannot be retrieved later**.  As with any sensitive information that you use, store the saved string value securely and restrict access to it.
+
+1. From the sidebar, select **Manage** > **API permissions**.
 
 1. On the the **DelegatedUser --API permissions** page, select **Add a permission**.
 
