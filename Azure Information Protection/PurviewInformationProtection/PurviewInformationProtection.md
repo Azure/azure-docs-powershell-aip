@@ -147,7 +147,7 @@ To create a new app registration for the `Set-Authentication` cmdlet:
 
 1. For **Select permissions**, expand **UnifiedPolicy**, select **UnifiedPolicy.Tenant.Read**, and then choose **Add permissions**.
 
-1. Back on the **AIP-DelegatedUser - API permissions page**, select **Grant admin consent for *<your tenant name>*** and select **Yes** at the confirmation prompt.
+1. Back on the **AIP-DelegatedUser - API permissions page**, select **Grant admin consent for *<your tenant name>* and select **Yes** at the confirmation prompt.
 
 #### Run the Set-Authentication cmdlet
 
