@@ -18,10 +18,10 @@ The Microsoft Purview Information Protection module is installed with the inform
 
 The PurviewInformationProtection module enables you to manage the client by running commands for automation scripts; for example:
 
-- [Install-Scanner](https://go.microsoft.com/fwlink/?linkid=2258955): Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
-- [Get-FileStatus](https://go.microsoft.com/fwlink/?linkid=2258952): Gets the Information Protection label and protection information for a specified file or files.
-- [Start-Scan](https://go.microsoft.com/fwlink/?linkid=2258855): Instructs the information protection scanner to start a one-time scan cycle.
-- [Set-FileLabel -Autolabel](https://go.microsoft.com/fwlink/?linkid=2259827): Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
+- [Install-Scanner](Install-Scanner.md): Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
+- [Get-FileStatus](Get-FileStatus.md): Gets the Information Protection label and protection information for a specified file or files.
+- [Start-Scan](Start-Scan.md): Instructs the information protection scanner to start a one-time scan cycle.
+- [Set-FileLabel -Autolabel](Set-FileLabel.md): Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
 
 ### Install the PurviewInformationProtection PowerShell module
 
@@ -32,7 +32,7 @@ The PurviewInformationProtection module enables you to manage the client by runn
 
 #### Installation details
 
-[Install and configure](/purview/deploy-scanner-configure-install.md) the full version of the information protection client.
+Install and configure the information protection client.
 
 The PurviewInformationProtection PowerShell module installs automatically when you install the full version of the information protection client. Alternatively, you can install the module only by using the *PowerShellOnly=true* parameter.
 
@@ -53,7 +53,7 @@ For more information, see the [Maximum Path Length Limitation](https://learn.mic
 
 In addition to the prerequisites for installing the PurviewInformationProtection module, you must also activate the [Azure Rights Management service](https://learn.microsoft.com/azure/information-protection/what-is-azure-rms).
 
-In some cases, you may want to [remove protection](https://go.microsoft.com/fwlink/?linkid=2259827) from files for others using your own account. For example, you may want to remove protection for others for the sake of data discovery or recovery. If you are using labels to apply protection, you can remove that protection by setting a new label that doesn't apply protection, or you can remove the label.
+In some cases, you may want to remove protection from files for others using your own account. For example, you may want to remove protection for others for the sake of data discovery or recovery. If you are using labels to apply protection, you can remove that protection by setting a new label that doesn't apply protection, or you can remove the label.
 
 For cases like this, the following requirements must also be met:
 
@@ -85,7 +85,7 @@ For the delegated user account, configure the following requirements:
 
 - **A Microsoft Entra access token** that sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
 
-The parameters for [Set-Authentication](https://go.microsoft.com/fwlink/?linkid=2258854) use values from an app registration process in Microsoft Entra ID.
+The parameters for [Set-Authentication](Set-Authentication.md) use values from an app registration process in Microsoft Entra ID.
 
 Run the labeling cmdlets non-interactively by first running the `Set-Authentication` cmdlet. The computer running the cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview portal.
 
@@ -181,7 +181,7 @@ To run Purview Information Protection labeling cmdlets unattended, use the follo
 
     The parameters for **Set-Authentication** use values from an app registration process in Microsoft Entra ID. For more information, see [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-azure-ad-applications-for-set-authentication).
 
-Run the labeling cmdlets non-interactively by first running the [Set-Authentication](https://go.microsoft.com/fwlink/?linkid=2258854) cmdlet.
+Run the labeling cmdlets non-interactively by first running the [Set-Authentication](Set-Authentication.md) cmdlet.
 
 The computer running the **Authentication** cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview compliance portal.
 
@@ -255,7 +255,7 @@ The **Set-Authentication** cmdlet requires an app registration for the *AppId* a
 
 1. Back on the **AIP-DelegatedUser - API permissions** pane, select **Grant admin consent for _your tenant_** and select **Yes** for the confirmation prompt.
 
-After this step, the registration of this app with a secret completes. You're ready to run [Set-Authentication](https://go.microsoft.com/p/fwlink/?linkid=2258854) with the parameters *AppId*, and *AppSecret*. Additionally, you need your tenant ID.
+After this step, the registration of this app with a secret completes. You're ready to run [Set-Authentication](Set-Authentication.md) with the parameters *AppId*, and *AppSecret*. Additionally, you need your tenant ID.
 
 > [!TIP]
 >You can quickly copy your tenant ID by using Azure portal: **Microsoft Entra ID** > **Manage** > **Properties** > **Directory ID**.
@@ -282,77 +282,77 @@ After this step, the registration of this app with a secret completes. You're re
 
 ## PurviewInformationProtection Cmdlets
 
-- [Add-ScannerRepository](https://go.microsoft.com/fwlink/?linkid=2258951)
+- [Add-ScannerRepository](Add-ScannerRepository.md)
 Adds a repository to an information protection scanner content scan job.
 
-- [Clear-Authentication](https://go.microsoft.com/fwlink/?linkid=2258497)
+- [Clear-Authentication](Clear-Authentication.md)
 Clears the user settings and Rights Management Service (RMS) templates for the current user.
 
-- [Export-DebugLogs](https://go.microsoft.com/fwlink/?linkid=2258759)
+- [Export-DebugLogs](Export-DebugLogs.md)
 Gathers and exports information protection client and scanner log files to a compressed file.
 
-- [Get-FileStatus](https://go.microsoft.com/fwlink/?linkid=2258952)
+- [Get-FileStatus](Get-FileStatus.md)
 Gets the sensitivity label and protection information for a specified file or files.
 
-- [Get-ScannerConfiguration](https://go.microsoft.com/fwlink/?linkid=2259002)
+- [Get-ScannerConfiguration](Get-ScannerConfiguration.md)
 Gets the configuration settings for the information protection scanner.
 
-- [Get-ScannerContentScan](https://go.microsoft.com/fwlink/?linkid=2258675)
+- [Get-ScannerContentScan](Get-ScannerContentScan.md)
 Gets details about your content scan job.
 
-- [Get-ScannerDiagnostics](https://go.microsoft.com/fwlink/?linkid=2258765)
+- [Get-ScannerDiagnostics](Get-ScannerDiagnostics.md)
 Starts a series of health checks for a locally installed information protection scanner service.
 
-- [Get-ScannerRepository](https://go.microsoft.com/fwlink/?linkid=2258676)
+- [Get-ScannerRepository](Get-ScannerRepository.md)
 Gets repository data for an information protection scanner content scan job.
 
-- [Get-ScanStatus](https://go.microsoft.com/fwlink/?linkid=2258954)
+- [Get-ScanStatus](Get-ScanStatus.md)
 Gets the current status of the service for the information protection scanner.
 
-- [Import-ScannerConfiguration](https://go.microsoft.com/fwlink/?linkid=2258761)
+- [Import-ScannerConfiguration](Import-ScannerConfiguration.md)
 Imports a local configuration for the information protection scanner.
 
-- [Install-Scanner](https://go.microsoft.com/fwlink/?linkid=2258955)
+- [Install-Scanner](Install-Scanner.md)
 Installs the information protection scanner.
 
-- [New-CustomPermissions](https://go.microsoft.com/fwlink/?linkid=2258853)
+- [New-CustomPermissions](New-CustomPermissions.md)
 Creates an ad-hoc protection policy for custom permissions.
 
-- [Remove-FileLabel](https://go.microsoft.com/fwlink/?linkid=2259828)
+- [Remove-FileLabel](Remove-FileLabel.md)
 Removes the sensitivity label from a file.
 
-- [Remove-ScannerContentScan](https://go.microsoft.com/fwlink/?linkid=2258762)
+- [Remove-ScannerContentScan](Remove-ScannerContentScan.md)
 Deletes the entire information protection scanner content scan job.
 
-- [Remove-ScannerRepository](https://go.microsoft.com/fwlink/?linkid=2258956)
+- [Remove-ScannerRepository](Remove-ScannerRepository.md)
 Removes a repository from an information protection scanner content scan job.
 
-- [Set-Authentication](https://go.microsoft.com/fwlink/?linkid=2258854)
+- [Set-Authentication](Set-Authentication.md)
 Sets the authentication credentials for the information protection client.
 
-- [Set-FileLabel](https://go.microsoft.com/fwlink/?linkid=2259827)
+- [Set-FileLabel](Set-FileLabel.md)
 Sets or removes an Azure Information Protection label for a file manually or automatically, and sets or removes the protection according to the label configuration or custom permissions.
 
-- [Set-ScannerDatabase](https://go.microsoft.com/fwlink/?linkid=2258763)
+- [Set-ScannerDatabase](Set-ScannerDatabase.md)
 Sets the service account and database for the information protection scanner.
 
-- [Set-ScannerConfiguration](https://go.microsoft.com/fwlink/?linkid=2258957)
+- [Set-ScannerConfiguration](Set-ScannerConfiguration.md)
 Sets optional configuration for the information protection scanner.
 
-- [Set-ScannerContentScan](https://go.microsoft.com/fwlink/?linkid=2258958)
+- [Set-ScannerContentScan](Set-ScannerContentScan.md)
 Defines settings for an Information Protection content scan job.
 
-- [Set-ScannerRepository](https://go.microsoft.com/fwlink/?linkid=2258764)
+- [Set-ScannerRepository](Set-ScannerRepository.md)
 Updates an existing repository in an information protection scanner content scan job.
 
-- [Start-Scan](https://go.microsoft.com/fwlink/?linkid=2258855)
+- [Start-Scan](Start-Scan.md)
 Instructs the information protection scanner to start a one time scan cycle.
 
-- [Stop-Scan](https://go.microsoft.com/fwlink/?linkid=2258959)
+- [Stop-Scan](Stop-Scan.md)
 Instructs the information protection scanner to immediately stop the currently running scan cycle.
 
-- [Uninstall-Scanner](https://go.microsoft.com/fwlink/?linkid=2258856)
+- [Uninstall-Scanner](Uninstall-Scanner.md)
 Uninstalls the Windows Server service for the information protection scanner.
 
-- [Update-ScannerDatabase](https://go.microsoft.com/fwlink/?linkid=2258857)
+- [Update-ScannerDatabase](Update-ScannerDatabase.md)
 Updates the database schema for the information protection scanner.
