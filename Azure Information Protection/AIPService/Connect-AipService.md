@@ -36,7 +36,7 @@ You must run this cmdlet before you can run the other cmdlets in this module.
 To connect to Azure Information Protection, use an account that is one of the following:
 - A global admin for your Office 365 tenant.
 - A global administrator for your Azure AD tenant. However, this account cannot be a Microsoft account (MSA) or from another Azure tenant.
-- A user account from your tenant that has been granted administrative rights to Azure Information Protection by using the [Add-AipServiceRoleBasedAdministrator](./Add-AipServiceRoleBasedAdministrator.md) cmdlet.
+- A user account from your tenant that has been granted administrative rights to Azure Information Protection by using the [Add-AipServiceRoleBasedAdministrator](./Add-AipServiceRoleBasedAdministrator.md) cmdlet. 
 - An Azure AD admin role of Azure Information Protection administrator, Compliance administrator, or Compliance data administrator.
 
 > [!TIP]

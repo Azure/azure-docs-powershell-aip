@@ -2,6 +2,7 @@
 external help file: AIP.dll-Help.xml
 Module Name: AzureInformationProtection
 online version: https://go.microsoft.com/fwlink/?linkid=2004363
+ms.topic: purview
 schema: 2.0.0
 author: batamig
 ---
@@ -9,7 +10,7 @@ author: batamig
 # Get-AIPScannerStatus
 
 ## SYNOPSIS
-Gets the current status of the service for the Azure Information Protection scanner.
+Gets the current service status for the Azure Information Protection scanner.
 
 ## SYNTAX
 
@@ -127,7 +128,7 @@ When using the **NodesInfo** variable to drill down to node details, node intege
 ### Example 4: Use the Verbose parameter and the RepositoriesStatus variable (unified labeling client)
 
 ```powershell
-PS C:\Windows\system32> $x=Get-AIPScannerStatus - Verbose
+PS C:\Windows\system32> $x=Get-AIPScannerStatus -Verbose
 PS C:\Windows\system32> $x.RepositoriesStatus
 
 Path        Status
