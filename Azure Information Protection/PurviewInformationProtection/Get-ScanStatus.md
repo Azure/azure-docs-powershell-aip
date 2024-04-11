@@ -13,7 +13,7 @@ Gets the current status of the service for the Microsoft Purview Information Pro
 
 ## SYNTAX
 
-```
+```powershell
 Get-ScanStatus [<CommonParameters>]
 ```
 
@@ -25,10 +25,10 @@ The **Get-ScanStatus** cmdlet returns the following details about the current sc
 
 - **Cluster status**, including:
 
-    - Offline: The service isn't started
-    - Idle: The service is running but not currently scanning
-    - Scanning: The service is running and is currently scanning files
-    - Error. The scanner service is running but it encountered an error that prevents it from scanning files. For example, the service can't access the database for the scanner configuration.
+  - Offline: The service isn't started
+  - Idle: The service is running but not currently scanning
+  - Scanning: The service is running and is currently scanning files
+  - Error. The scanner service is running but it encountered an error that prevents it from scanning files. For example, the service can't access the database for the scanner configuration.
 
 - **Scan start time**: The time the last scan started, in UTC time format.
 - **Time from start**: The scanning duration, in the following format: `Days.HH:MM:SS`
@@ -48,8 +48,6 @@ To obtain further details, use one or both of the following methods:
     - **Pending**, if the current scan isn't started scanning the repository
     - **Scanning**, if the current scan is running on the repository
     - **Finished**, if the current scan finished running on the repository
-
-
 
 For more information, see [Verify scanning details per scanner node and repository](/azure/information-protection/deploy-aip-scanner-tsg#verify-scanning-details-per-scanner-node-and-repository).
 
