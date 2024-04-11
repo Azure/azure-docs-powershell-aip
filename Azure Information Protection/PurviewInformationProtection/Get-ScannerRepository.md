@@ -13,7 +13,7 @@ Gets repository data for a Microsoft Purview Information Protection scanner cont
 
 ## SYNTAX
 
-```
+```powershell
 Get-ScannerRepository [-Path <String>] [<CommonParameters>]
 ```
 
@@ -29,7 +29,7 @@ For more information about content scan jobs, see the [Microsoft Purview Informa
 PS C:\WINDOWS\system32> Get-ScannerRepository
 
 Path: c:\repoToScan1
-OverrideContentScanJob:                : Off
+OverrideContentScanJob: Off
 EnableDlp: Off
 Enforce: On
 LabelFilesByContent: On
@@ -42,10 +42,10 @@ DefaultOwner: Scanner
 RepositoryOwner:
 PreserveFileDetails: On
 IncludeFileTypes: 
-ExcludeFileTypes        : .lnk,.exe.,.com,.cmd,.bat,.dll,.ini,.sca,.drm,.sys,.cpl,.inf,.drv,.dat,.tmp,.msp,.msi,.pdb,.jar,.ocx,.rtf,.rar,.msg
+ExcludeFileTypes: .lnk,.exe.,.com,.cmd,.bat,.dll,.ini,.sca,.drm,.sys,.cpl,.inf,.drv,.dat,.tmp,.msp,.msi,.pdb,.jar,.ocx,.rtf,.rar,.msg
 
 Path: c:\repoToScan2
-OverrideContentScanJob:                : On
+OverrideContentScanJob: On
 EnableDlp: Off
 Enforce: Off
 LabelFilesByContent: On
@@ -58,18 +58,18 @@ DefaultOwner: Scanner
 RepositoryOwner:
 PreserveFileDetails: On
 IncludeFileTypes: 
-ExcludeFileTypes        : .lnk,.exe.,.com,.cmd,.bat,.dll,.ini,.sca,.drm,.sys,.cpl,.inf,.drv,.dat,.tmp,.msp,.msi,.pdb,.jar,.ocx,.rtf,.rar,.msg
-
+ExcludeFileTypes: .lnk,.exe.,.com,.cmd,.bat,.dll,.ini,.sca,.drm,.sys,.cpl,.inf,.drv,.dat,.tmp,.msp,.msi,.pdb,.jar,.ocx,.rtf,.rar,.msg
 ```
 
 This example shows a response that includes all repositories configured for the content scan job.
 
 ### Example 2 Get details for a specific repository in the content scan job
+
 ```powershell
 PS C:\WINDOWS\system32> Get-ScannerRepository -Path 'c:\repoToScan1'
 
 Path: c:\repoToScan1
-OverrideContentScanJob:                : Off
+OverrideContentScanJob: Off
 EnableDlp: Off
 Enforce: On
 LabelFilesByContent: On
@@ -82,7 +82,7 @@ DefaultOwner: Scanner
 RepositoryOwner:
 PreserveFileDetails: On
 IncludeFileTypes: 
-ExcludeFileTypes        : .lnk,.exe.,.com,.cmd,.bat,.dll,.ini,.sca,.drm,.sys,.cpl,.inf,.drv,.dat,.tmp,.msp,.msi,.pdb,.jar,.ocx,.rtf,.rar,.msg
+ExcludeFileTypes: .lnk,.exe.,.com,.cmd,.bat,.dll,.ini,.sca,.drm,.sys,.cpl,.inf,.drv,.dat,.tmp,.msp,.msi,.pdb,.jar,.ocx,.rtf,.rar,.msg
 ```
 
 This example shows a response that includes all repositories configured for the content scan job.
@@ -94,7 +94,7 @@ Defines the path to a specific repository you want to return data for.
 
 This parameter value must be the exact path or path pattern as is defined in the content scan job.
 
-However, this parameter also supports the ***** and **?** wildcards:
+However, this parameter also supports the asterisk `*` and question mark `?` wildcards:
 
 For example:
 
@@ -113,6 +113,7 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: True
 ```
+
 ## INPUTS
 
 ### None
