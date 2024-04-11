@@ -53,7 +53,7 @@ For more information, see the [Maximum Path Length Limitation](https://learn.mic
 
 In addition to the prerequisites for installing the PurviewInformationProtection module, you must also activate the [Azure Rights Management service](https://learn.microsoft.com/azure/information-protection/what-is-azure-rms).
 
-In some cases, you may want to [remove protection](https://go.microsoft.com/fwlink/?linkid=2259827) from files for others using your own account. For example, you may want to remove protection for others for the sake of data discovery or recovery. If you are using labels to apply protection, you can remove that protection by setting a new label that doesn't apply protection, or you can remove the label.
+In some cases, you may want to remove protection from files for others using your own account. For example, you may want to remove protection for others for the sake of data discovery or recovery. If you are using labels to apply protection, you can remove that protection by setting a new label that doesn't apply protection, or you can remove the label.
 
 For cases like this, the following requirements must also be met:
 
@@ -85,7 +85,7 @@ For the delegated user account, configure the following requirements:
 
 - **A Microsoft Entra access token** that sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
 
-The parameters for [Set-Authentication](https://go.microsoft.com/fwlink/?linkid=2258854) use values from an app registration process in Microsoft Entra ID.
+The parameters for [Set-Authentication](Set-Authentication.md) use values from an app registration process in Microsoft Entra ID.
 
 Run the labeling cmdlets non-interactively by first running the `Set-Authentication` cmdlet. The computer running the cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview portal.
 
@@ -181,7 +181,7 @@ To run Purview Information Protection labeling cmdlets unattended, use the follo
 
     The parameters for **Set-Authentication** use values from an app registration process in Microsoft Entra ID. For more information, see [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-azure-ad-applications-for-set-authentication).
 
-Run the labeling cmdlets non-interactively by first running the [Set-Authentication](https://go.microsoft.com/fwlink/?linkid=2258854) cmdlet.
+Run the labeling cmdlets non-interactively by first running the [Set-Authentication](Set-Authentication.md) cmdlet.
 
 The computer running the **Authentication** cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview compliance portal.
 
@@ -255,7 +255,7 @@ The **Set-Authentication** cmdlet requires an app registration for the *AppId* a
 
 1. Back on the **AIP-DelegatedUser - API permissions** pane, select **Grant admin consent for _your tenant_** and select **Yes** for the confirmation prompt.
 
-After this step, the registration of this app with a secret completes. You're ready to run [Set-Authentication](https://go.microsoft.com/p/fwlink/?linkid=2258854) with the parameters *AppId*, and *AppSecret*. Additionally, you need your tenant ID.
+After this step, the registration of this app with a secret completes. You're ready to run [Set-Authentication](Set-Authentication.md) with the parameters *AppId*, and *AppSecret*. Additionally, you need your tenant ID.
 
 > [!TIP]
 >You can quickly copy your tenant ID by using Azure portal: **Microsoft Entra ID** > **Manage** > **Properties** > **Directory ID**.
