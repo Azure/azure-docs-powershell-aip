@@ -206,7 +206,7 @@ Accept wildcard characters: False
 
 [Get-FileStatus](Get-FileStatus.md)
 
-[New-AIPCustomPermissions](NewCustomPermissions.md)
+[New-CustomPermissions](New-CustomPermissions.md)
 
 [Set-FileLabel](Set-FileLabel.md)
 

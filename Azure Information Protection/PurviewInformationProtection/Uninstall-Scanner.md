@@ -66,4 +66,4 @@ This command removes the service for the Microsoft Purview Information Protectio
 
 [Start-Scan](Start-Scan.md)
 
-[Update-ScannerDatabase](Update-ScannerDatabse.md)
+[Update-ScannerDatabase](Update-ScannerDatabase.md)

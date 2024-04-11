@@ -20,12 +20,11 @@ Set-ScannerDatabase [[-SqlServerInstance] <String>] [-ServiceUserCredentials] <P
 ```
 
 ## DESCRIPTION
-The **Set-ScannerDatabase** cmdlet updates the service account and SQL Server database instance for the Microsoft Purview Information Protection scanner. 
+The **Set-ScannerDatabase** cmdlet updates the service account and SQL Server database instance for the Microsoft Purview Information Protection scanner.
 
 Use this command when you want to change the account or database details that was previously specified, for example, when you installed the scanner by running the [Install-Scanner](./Install-Scanner.md) cmdlet.
 
 The new configuration takes effects when the Microsoft Purview Information Protection scanner is next started. This cmdlet does not automatically restart this service.
-
 
 ## EXAMPLES
 
@@ -205,16 +204,14 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
-[Get-AIPScannerConfiguration](./Get-AIPScannerConfiguration.md)
+[Get-ScannerConfiguration](./Get-ScannerConfiguration.md)
 
-[Get-AIPScannerStatus](./Get-AIPScannerStatus.md)
+[Get-ScanStatus](./Get-ScanStatus.md)
 
-[Install-AIPScanner](./Install-AIPScanner.md)
+[Install-Scanner](./Install-Scanner.md)
 
-[Set-ScannerDatabaseConfiguration](./Set-ScannerDatabaseConfiguration.md)
+[Start-Scan](./Start-Scan.md)
 
-[Start-AIPScan](./Start-AIPScan.md)
+[Uninstall-Scanner](./Uninstall-Scanner.md)
 
-[Uninstall-AIPScanner](./Uninstall-AIPScanner.md)
-
-[Update-AIPScanner](./Update-AIPScanner.md)
+[Update-Scanner](./Update-Scanner.md)

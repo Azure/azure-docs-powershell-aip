@@ -118,7 +118,7 @@ Accept wildcard characters: False
 
 - [Get-ScannerContentScan](Get-ScannerContentScan.md)
 
-- [Get-ScannerRepository](Get-cannerRepository.md)
+- [Get-ScannerRepository](Get-ScannerRepository.md)
 
 - [Remove-ScannerContentScan](Remove-ScannerContentScan.md)
 

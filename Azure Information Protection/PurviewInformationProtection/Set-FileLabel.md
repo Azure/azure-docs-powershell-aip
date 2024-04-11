@@ -9,7 +9,7 @@ schema: 1.0.0
 # Set-AIPFileLabel
 
 ## SYNOPSIS
-Sets the sensitivity label and protection for a file through manual labeling or autolabeling according to the label configuration or custom permissions. 
+Sets the sensitivity label and protection for a file through manual labeling or autolabeling according to the label configuration or custom permissions.
 
 ## SYNTAX
 
@@ -46,7 +46,7 @@ Set-FileLabel [-Path] <String[]> [-PreserveFileDetails] [-WhatIf] [-DiscoveryInf
 ## DESCRIPTION
 For the Microsoft Purview Information Protection client, the **Set-FileLabel** cmdlet sets a sensitivity label for one or more files. This action can automatically apply protection when labels are configured to apply encryption. 
 
-Additionally, you can use this cmdlet to apply custom permissions when they are created as an ad-hoc protection policy object with the [New-AIPCustomPermissions](New-AIPCustomPermissions.md) cmdlet. 
+Additionally, you can use this cmdlet to apply custom permissions when they are created as an ad-hoc protection policy object with the [New-CustomPermissions](New-CustomPermissions.md) cmdlet.
 
 When the command runs successfully, any existing label or protection can be replaced.
 

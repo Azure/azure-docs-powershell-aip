@@ -252,10 +252,6 @@ The **Set-Authentication** cmdlet requires an app registration for the *AppId* a
     For **Select permissions**, expand **UnifiedPolicy**, select **UnifiedPolicy.Tenant.Read**, and then select **Add permissions**.
 
 1. Back on the **AIP-DelegatedUser - API permissions** pane, select **Grant admin consent for \<*your tenant name*>** and select **Yes** for the confirmation prompt.
-    
-    Your API permissions should look like the following image:
-
-    :::image type="content" source="./media/api-permissions-app.png" alt-text="API permissions for the registered app in Microsoft Entra ID":::
 
 Now you've completed the registration of this app with a secret, you're ready to run [Set-Authentication](https://go.microsoft.com/p/fwlink/?linkid=2258854) with the parameters *AppId*, and *AppSecret*. Additionally, you'll need your tenant ID.
 
