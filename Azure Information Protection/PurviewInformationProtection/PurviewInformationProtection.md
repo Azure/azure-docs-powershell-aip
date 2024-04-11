@@ -11,16 +11,16 @@ Locale: en-US
 
 ## Description
 
-Contains documentation for the Microsoft Purview Information Protection cmdlets.
+Contains documentation for Microsoft Purview Information Protection cmdlets.
 
 ### Using PowerShell with the Microsoft Purview Information Protection client
-The Microsoft Purview Information Protection module is installed with the Microsoft Purview Information Protection client. The associated PowerShell module is *PurviewInformationProtection*.
+The Microsoft Purview Information Protection module is installed with the information protection client. The associated PowerShell module is *PurviewInformationProtection*.
 
 The PurviewInformationProtection module enables you to manage the client by running commands for automation scripts; for example:
 
 - [Install-Scanner](https://go.microsoft.com/fwlink/?linkid=2258955): Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
 - [Get-FileStatus](https://go.microsoft.com/fwlink/?linkid=2258952): Gets the Information Protection label and protection information for a specified file or files.
-- [Start-Scan](https://go.microsoft.com/fwlink/?linkid=2258855): Instructs the Information Protection scanner to start a one-time scan cycle.
+- [Start-Scan](https://go.microsoft.com/fwlink/?linkid=2258855): Instructs the information protection scanner to start a one-time scan cycle.
 - [Set-FileLabel -Autolabel](https://go.microsoft.com/fwlink/?linkid=2259827): Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
 
 ### Install the PurviewInformationProtection PowerShell module
@@ -28,26 +28,26 @@ The PurviewInformationProtection module enables you to manage the client by runn
 #### Installation prerequisites
 
 - This module requires Windows PowerShell 4.0. This prerequisite is not checked during installation. Make sure that you have the correct version of PowerShell installed.
-- Make sure that you have the most recent version of the PurviewInformationProtection PowerShell module (purviewinfoprotect.dll*) by running `Import-Module purviewinfoprotect`.
+- Make sure that you have the most recent version of the PurviewInformationProtection PowerShell module by running `Import-Module PurviewInformationProtection`.
 
 #### Installation details
 
-[Install and configure](/purview/deploy-scanner-configure-install.md) the full version of the Microsoft Purview Information Protection client.
+[Install and configure](/purview/deploy-scanner-configure-install.md) the full version of the information protection client.
 
 The PurviewInformationProtection PowerShell module installs automatically when you install the full version of the information protection client. Alternatively, you can install the module only by using the *PowerShellOnly=true* parameter.
 
-The module is installed in the **\ProgramFiles (x86)\PurviewInformationProtection**  folder, and then adds this folder to the `PSModulePath` system variable. The .dll file for this module is *purviewinfoprotect.dll*.
+The module is installed in the **\ProgramFiles (x86)\PurviewInformationProtection** folder, and then adds this folder to the `PSModulePath` system variable.
 
 > [!IMPORTANT]
 > The PurviewInformationProtection module doesn't support configuring advanced settings for labels or label policies.
 
-> [!TIP]
-> To use cmdlets with path lengths greater than 260 characters, use the following [group policy setting](https://learn.microsoft.com/archive/blogs/jeremykuhne/net-4-6-2-and-long-paths-on-windows-10) that is available starting Windows 10, version 1607:
+To use cmdlets with path lengths greater than 260 characters, use the following [group policy setting](https://learn.microsoft.com/archive/blogs/jeremykuhne/net-4-6-2-and-long-paths-on-windows-10) that is available starting Windows 10, version 1607:
+
 **Local Computer Policy** > **Computer Configuration** > **Administrative Templates** > **All Settings** > **Enable Win32 long paths**
->
->For Windows Server 2016, you can use the same group policy setting when you install the latest Administrative Templates (.admx) for Windows 10.
->
->For more information, see the [Maximum Path Length Limitation](https://learn.microsoft.com/windows/desktop/FileIO/naming-a-file#maximum-path-length-limitation) section from the Windows 10 developer documentation.
+
+For Windows Server 2016, you can use the same group policy setting when you install the latest Administrative Templates (.admx) for Windows 10.
+
+For more information, see the [Maximum Path Length Limitation](https://learn.microsoft.com/windows/desktop/FileIO/naming-a-file#maximum-path-length-limitation) section from the Windows 10 developer documentation.
 
 ### Prerequisites for using the PurviewInformationProtection PowerShell module
 
@@ -58,7 +58,7 @@ In some cases, you may want to [remove protection](https://go.microsoft.com/fwli
 For cases like this, the following requirements must also be met:
 
 - The super user feature must be enabled for your organization.
-- Your account must be configured an an Azure Rights Management super user.
+- Your account must be configured as an Azure Rights Management super user.
 
 ### Running information protection labeling cmdlets unattended
 
@@ -79,8 +79,8 @@ For the delegated user account, configure the following requirements:
 
 | Requirement | Details |
 | ----------- | ------- |
-| Label policy | Make sure that you have a label policy assigned to this account and that the policy contains the published labels you want to use. <br><br> If you use label policies for different users, you might need to create a new label policy that publishes all your labels, and publish the policy to just this delegated user account. |
-| Decrypting content | If this account needs to decrypt content, for example, to re-protect files and inspect files that others have protected, make this account an Azure Rights Management super user and make sure the super user feature is enabled. |
+| Label policy | Make sure that you have a label policy assigned to this account and that the policy contains the published labels you want to use. If you use label policies for different users, you might need to create a new label policy that publishes all your labels, and publish the policy to just this delegated user account. |
+| Decrypting content | If this account needs to decrypt content, for example, to reprotect files and inspect files that others have protected, make this account an Azure Rights Management super user and make sure the super user feature is enabled. |
 | Onboarding controls | If you have implemented onboarding controls for a phased deployment, make sure that this account is included in the onboarding controls you've configured. |
 
 - **A Microsoft Entra access token** that sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
@@ -99,13 +99,13 @@ To create a new app registration for the `Set-Authentication` cmdlet:
 
 1. Navigate to **Microsoft Entra ID** > **Manage** > **App registrations**, and select **New registration**.
 
-1. In the **Register an application** pane, specify the following values, and then click Register:
+1. In the **Register an application** pane, specify the following values, and then select **Register**:
 
-| Option | Value    |
-| ------ | -----    |
-| Name | `DelegatedUser` <br> Specify a different name as needed. The name must be unique per tenant.  |
-| Supported account types | Select **Accounts** in this organizational directory only   |
-| Redirect URI (optional) | Select **Web**, and then enter `https://localhost`.   |
+   | Option | Value    |
+   | ------ | -----    |
+   | Name | `DelegatedUser` <br> Specify a different name as needed. The name must be unique per tenant.  |
+   | Supported account types | Select **Accounts** in this organizational directory only   |
+   | Redirect URI (optional) | Select **Web**, and then enter `https://localhost`.   |
 
 1. In the **DelegatedUser** pane, copy the value for the **Application (client) ID**. The value looks similar to this example: `77c3c1c3-abf9-404e-8b2b-4652836c8c66`. This value is used for the *AppId* parameter when you run the `Set-Authentication` cmdlet. Paste and save the value for later reference.
 
@@ -120,7 +120,7 @@ To create a new app registration for the `Set-Authentication` cmdlet:
    | Description | `Purview Information Protection client` |
    | Expires     | Specify your choice of duration (*1 year*, *2 years*, or *Never expires*) |
 
-1. Back on the **AIP-DelegatedUser - Certificates & secrets** pane, in the **Client secrets* section**, copy the **VALUE** string. This string will resemble the following example: <br><br>
+1. Back on the **AIP-DelegatedUser - Certificates & secrets** pane, in the **Client secrets* section**, copy the **VALUE** string. This string resembles the following example:
 
    `OAkk+rnuYc/u+]ah2kNxVbtrDGbS47L4`
 
@@ -129,13 +129,14 @@ To create a new app registration for the `Set-Authentication` cmdlet:
 
 1. From the sidebar, select **Manage** > **API permissions**.
 
-1. On the the **DelegatedUser --API permissions** page, select **Add a permission**.
+1. On the **DelegatedUser--API permissions** page, select **Add a permission**.
 
-1. On the the **Request API permissions** pane, make sure that you're on the **Microsoft APIs** tab, and select **Azure Rights Management Services**. <br><br> When you're prompted for the type of permissions that your application requires, select **Application permissions**.
+1. On the **Request API permissions** pane, make sure that you're on the **Microsoft APIs** tab, and select **Azure Rights Management Services**. <br><br> When you're prompted for the type of permissions that your application requires, select **Application permissions**.
 
 1. For **Select permissions**, expand **Content** and select the following
-    - **Content.DelegatedReader**
-    - **Content.DelegatedWriter**
+
+   - **Content.DelegatedReader**
+   - **Content.DelegatedWriter**
 
 1. Choose **Add permissions**.
 
@@ -166,14 +167,14 @@ To run Purview Information Protection labeling cmdlets unattended, use the follo
 
 - **A Windows account** that can sign in interactively.
 
-- **a Microsoft Entra account**, for delegated access. For ease of administration, use a single account that's synchronized from Active Directory to Microsoft Entra ID.
+- **a Microsoft Entra account**, for delegated access. For ease of administration, use a single account that synchronizes from Active Directory to Microsoft Entra ID.
 
     For the delegated user account:
 
     |Requirement  |Details  |
     |---------|---------|
     |**Label policy**     |  Make sure that you have a label policy assigned to this account and that the policy contains the published labels you want to use. <br><br>If you use label policies for different users, you might need to create a new label policy that publishes all your labels, and publish the policy to just this delegated user account.    |
-    |**Decrypting content**     |    If this account needs to decrypt content, for example, to reprotect files and inspect files that others have protected, make it a super user for Azure Information Protection and make sure the super user feature is enabled.     |
+    |**Decrypting content**     |    If this account needs to decrypt content, for example, to reprotect files and inspect files that others have protected, make it a super user for Information Protection and make sure the super user feature is enabled.     |
     |**Onboarding controls**     |    If you have implemented onboarding controls for a phased deployment, make sure that this account is included in your onboarding controls you've configured.     |
 
 - **a Microsoft Entra access token**, which sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token. 
@@ -194,9 +195,9 @@ The **Set-Authentication** cmdlet requires an app registration for the *AppId* a
 
 1. In a new browser window, sign in the [Azure portal](https://portal.azure.com/) to the Microsoft Entra tenant that you use with Microsoft Purview Information Protection.
 
-1. Navigate to **Microsoft Entra ID** > **Manage** > **App registrations**, and select **New registration**. 
+1. Navigate to **Microsoft Entra ID** > **Manage** > **App registrations**, and select **New registration**.
 
-1. On the **Register an application** pane, specify the following values, and then click **Register**:
+1. On the **Register an application** pane, specify the following values, and then select **Register**:
 
     |Option  |Value  |
     |---------|---------|
@@ -204,9 +205,9 @@ The **Set-Authentication** cmdlet requires an app registration for the *AppId* a
     |**Supported account types**     |   Select **Accounts in this organizational directory only**.      |
     |**Redirect URI (optional)**     |   Select **Web**, and then enter `https://localhost`.    |
 
-1. On the **AIP-DelegatedUser** pane, copy the value for the **Application (client) ID**. 
+1. On the **AIP-DelegatedUser** pane, copy the value for the **Application (client) ID**.
 
-    The value looks similar to the following example: `77c3c1c3-abf9-404e-8b2b-4652836c8c66`. 
+    The value looks similar to the following example: `77c3c1c3-abf9-404e-8b2b-4652836c8c66`.
 
     This value is used for the *AppId* parameter when you run the **Set-Authentication cmdlet**. Paste and save the value for later reference.
 
@@ -221,40 +222,40 @@ The **Set-Authentication** cmdlet requires an app registration for the *AppId* a
     |**Description**     |  `Microsoft Purview Information Protection client`       |
     |**Expires**     |   Specify your choice of duration (1 year, 2 years, or never expires)     |
 
-1. Back on the **AIP-DelegatedUser - Certificates & secrets** pane, in the **Client secrets** section, copy the string for the **VALUE**. 
+1. Back on the **AIP-DelegatedUser - Certificates & secrets** pane, in the **Client secrets** section, copy the string for the **VALUE**.
 
-    This string looks similar to the following example: `OAkk+rnuYc/u+]ah2kNxVbtrDGbS47L4`. 
+    This string looks similar to the following example: `OAkk+rnuYc/u+]ah2kNxVbtrDGbS47L4`.
 
-    To make sure you copy all the characters, select the icon to **Copy to clipboard**. 
-    
+    To make sure you copy all the characters, select the icon to **Copy to clipboard**.
+
     > [!IMPORTANT]
     > It's important that you save this string because it is not displayed again and it cannot be retrieved. As with any sensitive information that you use, store the saved value securely and restrict access to it.
-    > 
+    >
 
 1. From the sidebar, select **Manage** > **API permissions**.
 
     On the **AIP-DelegatedUser - API permissions** pane, select **Add a permission**.
 
-1. On the **Request API permissions** pane, make sure that you're on the **Microsoft APIs** tab, and select **Azure Rights Management Services**. 
+1. On the **Request API permissions** pane, make sure that you're on the **Microsoft APIs** tab, and select **Azure Rights Management Services**.
 
     When you're prompted for the type of permissions that your application requires, select **Application permissions**.
 
 1. For **Select permissions**, expand **Content** and select the following, and then select **Add permissions**.
-    
-    -  **Content.DelegatedReader** 
-    -  **Content.DelegatedWriter**
+
+    - **Content.DelegatedReader**
+    - **Content.DelegatedWriter**
 
 1. Back on the **AIP-DelegatedUser - API permissions** pane, select **Add a permission** again.
 
     On the **Request AIP permissions** pane, select **APIs my organization uses**, and search for **Microsoft Information Protection Sync Service**.
 
 1. On the **Request API permissions** pane, select **Application permissions**.
-    
+
     For **Select permissions**, expand **UnifiedPolicy**, select **UnifiedPolicy.Tenant.Read**, and then select **Add permissions**.
 
 1. Back on the **AIP-DelegatedUser - API permissions** pane, select **Grant admin consent for _your tenant_** and select **Yes** for the confirmation prompt.
 
-Now you've completed the registration of this app with a secret, you're ready to run [Set-Authentication](https://go.microsoft.com/p/fwlink/?linkid=2258854) with the parameters *AppId*, and *AppSecret*. Additionally, you'll need your tenant ID.
+After this step, the registration of this app with a secret completes. You're ready to run [Set-Authentication](https://go.microsoft.com/p/fwlink/?linkid=2258854) with the parameters *AppId*, and *AppSecret*. Additionally, you need your tenant ID.
 
 > [!TIP]
 >You can quickly copy your tenant ID by using Azure portal: **Microsoft Entra ID** > **Manage** > **Properties** > **Directory ID**.
@@ -263,7 +264,7 @@ Now you've completed the registration of this app with a secret, you're ready to
 
 1. Open Windows PowerShell with the **Run as administrator option**.
 
-1. In your PowerShell session, create a variable to store the credentials of the Windows user account that will run non-interactively. For example, if you created a service account for the scanner:
+1. In your PowerShell session, create a variable to store the credentials of the Windows user account that runs non-interactively. For example, if you created a service account for the scanner:
 
     ```PowerShell
     $pscreds = Get-Credential "CONTOSO\srv-scanner"
@@ -282,76 +283,76 @@ Now you've completed the registration of this app with a secret, you're ready to
 ## PurviewInformationProtection Cmdlets
 
 - [Add-ScannerRepository](https://go.microsoft.com/fwlink/?linkid=2258951)
-Adds a repository to an Information Protection scanner content scan job.
+Adds a repository to an information protection scanner content scan job.
 
 - [Clear-Authentication](https://go.microsoft.com/fwlink/?linkid=2258497)
-Clears the user settings and RMS templates for the current user.
+Clears the user settings and Rights Management Service (RMS) templates for the current user.
 
 - [Export-DebugLogs](https://go.microsoft.com/fwlink/?linkid=2258759)
-Gathers and exports Information Protection client and scanner log files to a compressed file.
+Gathers and exports information protection client and scanner log files to a compressed file.
 
 - [Get-FileStatus](https://go.microsoft.com/fwlink/?linkid=2258952)
 Gets the sensitivity label and protection information for a specified file or files.
 
 - [Get-ScannerConfiguration](https://go.microsoft.com/fwlink/?linkid=2259002)
-Gets the configuration settings for the Information Protection scanner.
+Gets the configuration settings for the information protection scanner.
 
 - [Get-ScannerContentScan](https://go.microsoft.com/fwlink/?linkid=2258675)
 Gets details about your content scan job.
 
-- [Get-ScannerDiagnostics](https://go.microsoft.com/fwlink/?linkid=2258765  )
-Starts a series of health checks for a locally installed Information Protection scanner service.
+- [Get-ScannerDiagnostics](https://go.microsoft.com/fwlink/?linkid=2258765)
+Starts a series of health checks for a locally installed information protection scanner service.
 
 - [Get-ScannerRepository](https://go.microsoft.com/fwlink/?linkid=2258676)
-Gets repository data for an Information Protection scanner content scan job.
+Gets repository data for an information protection scanner content scan job.
 
 - [Get-ScanStatus](https://go.microsoft.com/fwlink/?linkid=2258954)
-Gets the current status of the service for the Azure Information Protection scanner.
+Gets the current status of the service for the information protection scanner.
 
 - [Import-ScannerConfiguration](https://go.microsoft.com/fwlink/?linkid=2258761)
-Imports a local configuration for the Information Protection scanner.
+Imports a local configuration for the information protection scanner.
 
 - [Install-Scanner](https://go.microsoft.com/fwlink/?linkid=2258955)
-Installs the Information Protection scanner.
+Installs the information protection scanner.
 
 - [New-CustomPermissions](https://go.microsoft.com/fwlink/?linkid=2258853)
 Creates an ad-hoc protection policy for custom permissions.
 
 - [Remove-FileLabel](https://go.microsoft.com/fwlink/?linkid=2259828)
-Removes the sensitivity label from a file. 
+Removes the sensitivity label from a file.
 
 - [Remove-ScannerContentScan](https://go.microsoft.com/fwlink/?linkid=2258762)
-Deletes the entire Information Protection scanner content scan job.
+Deletes the entire information protection scanner content scan job.
 
 - [Remove-ScannerRepository](https://go.microsoft.com/fwlink/?linkid=2258956)
-Removes a repository from an Information Protection scanner content scan job.
+Removes a repository from an information protection scanner content scan job.
 
 - [Set-Authentication](https://go.microsoft.com/fwlink/?linkid=2258854)
-Sets the authentication credentials for the Information Protection client.
+Sets the authentication credentials for the information protection client.
 
-- [Set-FileLabel](https://go.microsoft.com/fwlink/?linkid=2259827 )
-Sets or removes an Azure Information Protection label for a file mnaually or automatically, and sets or removes the protection according to the label configuration or custom permissions.
+- [Set-FileLabel](https://go.microsoft.com/fwlink/?linkid=2259827)
+Sets or removes an Azure Information Protection label for a file manually or automatically, and sets or removes the protection according to the label configuration or custom permissions.
 
 - [Set-ScannerDatabase](https://go.microsoft.com/fwlink/?linkid=2258763)
-Sets the service account and database for the Information Protection scanner.
+Sets the service account and database for the information protection scanner.
 
 - [Set-ScannerConfiguration](https://go.microsoft.com/fwlink/?linkid=2258957)
-Sets optional configuration for the Information Protection scanner.
+Sets optional configuration for the information protection scanner.
 
 - [Set-ScannerContentScan](https://go.microsoft.com/fwlink/?linkid=2258958)
 Defines settings for an Information Protection content scan job.
 
 - [Set-ScannerRepository](https://go.microsoft.com/fwlink/?linkid=2258764)
-Updates an existing repository in an Information Protection scanner content scan job.
+Updates an existing repository in an information protection scanner content scan job.
 
 - [Start-Scan](https://go.microsoft.com/fwlink/?linkid=2258855)
-Instructs the Information Protection scanner to start a one time scan cycle. 
+Instructs the information protection scanner to start a one time scan cycle.
 
 - [Stop-Scan](https://go.microsoft.com/fwlink/?linkid=2258959)
-Instructs the Information Protection scanner to immediately stop the currently running scan cycle.
+Instructs the information protection scanner to immediately stop the currently running scan cycle.
 
 - [Uninstall-Scanner](https://go.microsoft.com/fwlink/?linkid=2258856)
-Uninstalls the Windows Server service for the Information Protection scanner.
+Uninstalls the Windows Server service for the information protection scanner.
 
 - [Update-ScannerDatabase](https://go.microsoft.com/fwlink/?linkid=2258857)
-Updates the database schema for the Information Protection scanner.
+Updates the database schema for the information protection scanner.
