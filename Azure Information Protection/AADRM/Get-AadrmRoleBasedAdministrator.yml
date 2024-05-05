@@ -1,0 +1,49 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the role-based administrators for Rights Management.
+module: AADRM
+notes: ""
+links:
+- text: Add-AadrmRoleBasedAdministrator
+  href: ./Add-AadrmRoleBasedAdministrator.yml
+- text: Remove-AadrmRoleBasedAdministrator
+  href: ./Remove-AadrmRoleBasedAdministrator.yml
+syntaxes:
+- Get-AadrmRoleBasedAdministrator [-Role <Role>] [<CommonParameters>]
+examples:
+- title: 'Example 1: List administrators'
+  code: |-
+    PS C:\>Get-AadrmRoleBasedAdministrator
+  description: |-
+    This command lists the role-based administrators for Rights Management.
+  summary: ""
+parameters:
+- type: <xref href="Role" data-throw-if-not-resolved="False" />
+  name: Role
+  description: |+
+    Specifies a role. The cmdlet gets the administrators that belong to the role that you specify.
+
+    The acceptable values for this parameter are:
+
+    - ConnectorAdministrator
+
+    - GlobalAdministrator
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AADRM.Get-AadrmRoleBasedAdministrator
+name: Get-AadrmRoleBasedAdministrator
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Get-AadrmRoleBasedAdministrator** cmdlet gets the role-based administrators for Azure Rights Management. You can get the administrators for a specified role.
+
+  You must use PowerShell to configure delegated administrative control for the Azure Rights Management service; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400613
+  schema: 2.0.0
+  ms.assetid: 528FCC5D-F653-4B40-8D82-F036BAB66E5C

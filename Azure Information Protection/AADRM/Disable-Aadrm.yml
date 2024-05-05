@@ -1,0 +1,38 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Deactivates Rights Management.
+module: AADRM
+notes: ""
+links:
+- text: Enable-Aadrm
+  href: ./Enable-Aadrm.yml
+- text: Get-Aadrm
+  href: ./Get-Aadrm.yml
+- text: Azure Rights Management
+  href: /rights-management/deploy-use/decommission-deactivate
+syntaxes:
+- Disable-Aadrm [<CommonParameters>]
+examples:
+- title: 'Example 1: Disable Rights Management'
+  code: |-
+    PS C:\>Disable-Aadrm
+  description: |-
+    This command deactivates Rights Management for your organization.
+  summary: ""
+uid: AADRM.Disable-Aadrm
+name: Disable-Aadrm
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Disable-Aadrm** cmdlet disables the capabilities of Azure Rights Management for your organization.
+
+  You can also do this action in a management portal. For more information, see [Decommissioning and deactivating Azure Rights Management](/rights-management/deploy-use/decommission-deactivate) on the Microsoft documentation site. 
+
+  Deactivate Rights Management only if you no longer want to protect documents and emails by using Azure Rights Management  and you no longer need access to content that was previously protected by using Rights Management.
+
+  If you accidentally deactivate Azure Rights Management or change your mind, you can simply activate it again by using the [Enable-Aadrm](./Enable-Aadrm.yml) cmdlet to resume using the service. However, if you are deactivating Azure Rights Management because you no longer want to use the service, you might need to take additional steps. For more information, see [Decommissioning and deactivating Azure Rights Management](/rights-management/deploy-use/decommission-deactivate).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400596
+  schema: 2.0.0
+  ms.assetid: B0B5958B-F190-469F-8528-EDB9926792CF

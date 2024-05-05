@@ -1,0 +1,99 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Removes a repository from an Azure Information Protection content scan job.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="System.Collections.Generic.List`1" data-throw-if-not-resolved="False" /><span>[</span><xref href="" data-throw-if-not-resolved="False" /><span>[</span><xref href="Microsoft.InformationProtection.Powershell.AIP.Commandlets.Scanner.MoonCake.RepositoryInfo, AIP, Version=2.9.0.0, Culture=neutral, PublicKeyToken=null" data-throw-if-not-resolved="False" /><span>]</span><span>]</span>
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Add-AIPScannerRepository
+  href: Add-AIPScannerRepository.yml
+- text: Get-AIPScannerContentScanJob
+  href: Get-AIPScannerContentScanJob.yml
+- text: Get-AIPScannerRepository
+  href: Get-AIPScannerRepository.yml
+- text: Remove-AIPScannerContentScanJob
+  href: Remove-AIPScannerContentScanJob.yml
+- text: Set-AIPScannerContentScanJob
+  href: Set-AIPScannerContentScanJob.yml
+- text: Set-AIPScannerRepository
+  href: Set-AIPScannerRepository.yml
+syntaxes:
+- >-
+  Remove-AIPScannerRepository
+
+   [-Repositories] <System.Collections.Generic.List`1[Microsoft.InformationProtection.Powershell.AIP.Commandlets.Scanner.MoonCake.RepositoryInfo]>
+
+   [-WhatIf] [-Confirm] [<CommonParameters>]
+examples:
+- title: Example 1 Remove all repositories configured for your content scan job
+  code: |-
+    PS C:\WINDOWS\system32> Get-AIPScannerRepository | Remove-AIPScannerRepository
+  description: |-
+    This example shows a fully piped cmdlet, where the repositories are first returned, and then deleted.
+  summary: ""
+- title: Example 2 Remove a specific repository from your content scan job
+  code: |-
+    PS C:\WINDOWS\system32> Get-AIPScannerRepository -Path 'c:\repoToScan1' | Remove-AIPScannerRepository
+  description: |-
+    This example shows a fully piped cmdlet, where the repository is first returned, and then deleted.
+  summary: ""
+- title: Example 3 Remove any repositories that match a specific wildcard pattern from your content scan job
+  code: |-
+    PS C:\WINDOWS\system32> Get-AIPScannerRepository -Path 'c:\repo*' | Remove-AIPScannerRepository
+  description: |-
+    This example shows a fully piped cmdlet, where the repositories are first returned, and then deleted.
+  summary: ""
+- title: Example 4 Remove a specific repository from your content scan job without piping
+  code: |-
+    PS C:\WINDOWS\system32> $repos = Get-AIPScannerRepository -Path 'c:\repoToScan1'
+    PS C:\WINDOWS\system32> Remove-AIPScannerRepository $repos
+  description: |-
+    This example shows a fully piped cmdlet, where the repositories are first returned, and then deleted.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Confirm
+  description: |+
+    Prompts you for confirmation before running the cmdlet.
+
+  defaultValue: None
+  position: Named
+  aliases: cf
+  parameterValueGroup: ""
+- type: <xref href="System.Collections.Generic.List`1" data-throw-if-not-resolved="False" /><span>[</span><xref href="Microsoft.InformationProtection.Powershell.AIP.Commandlets.Scanner.MoonCake.RepositoryInfo" data-throw-if-not-resolved="False" /><span>]</span>
+  name: Repositories
+  isRequired: true
+  description: |+
+    Describes the repositories you want to delete.
+
+  defaultValue: None
+  pipelineInput: true
+  position: "0"
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    Shows what would happen if the cmdlet runs.
+    The cmdlet is not run.
+
+  defaultValue: None
+  position: Named
+  aliases: wi
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Remove-AIPScannerRepository
+name: Remove-AIPScannerRepository
+description: |-
+  Deletes any repositories described by the **Repositories** parameter, or returned by a piped [Get-AIPScannerRepository](Get-AIPScannerRepository.yml) cmdlet.
+
+  For more information about content scan jobs, see the [Azure Information Protection on-premises scanner documentation](/information-protection/deploy-aip-scanner-configure-install#create-a-content-scan-job).
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2144637
+  schema: 2.0.0

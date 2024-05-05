@@ -1,0 +1,75 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Imports local configuration for the Azure Information Protection scanner.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-AIPScannerConfiguration
+  href: ./Get-AIPScannerConfiguration.yml
+- text: Get-AIPScannerStatus
+  href: ./Get-AIPScannerStatus.yml
+- text: Install-AIPScanner
+  href: ./Install-AIPScanner.yml
+- text: Set-AIPScanner
+  href: ./Set-AIPScanner.yml
+- text: Set-AIPScannerConfiguration
+  href: ./Set-AIPScannerConfiguration.yml
+- text: Start-AIPScan
+  href: ./Start-AIPScan.yml
+- text: Uninstall-AIPScanner
+  href: ./Uninstall-AIPScanner.yml
+- text: Update-AIPScanner
+  href: ./Update-AIPScanner.yml
+syntaxes:
+- Import-AIPScannerConfiguration -FileName <String> [<CommonParameters>]
+examples:
+- title: 'Example 1: Import local configuration settings for the Azure Information Protection scanner'
+  code: |-
+    PS C:\> Import-AIPScannerConfiguration -FileName "C:\Scannerconfig\Eu-set.json"
+    Configuration was imported successfully.
+  description: |-
+    The scanner is configured to prevent getting its configuration directly from the Azure Information Protection service, and the configuration settings are imported from a file named **C:\Scannerconfig\Eu-set.json**.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: FileName
+  isRequired: true
+  description: |+
+    Specifies a file that contains scanner configuration settings. To create this file, export your content scan job from the Azure portal.
+
+    The file is used to do a one-time import of configuration settings into the scanner configuration database.
+
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Import-AIPScannerConfiguration
+name: Import-AIPScannerConfiguration
+description: |-
+  The **Import-AIPScannerConfiguration** cmdlet imports local configuration settings for the Azure Information Protection scanner, and automatically configures the scanner to use offline configuration. 
+
+  Use this cmdlet after you've configured the following in the Azure portal:
+
+  - Configured a cluster (unified labeling client only) or a profile
+  - Configured a content scan job for the scanner
+  - Exported the settings to a file instead of having the scanner connect to the Azure Information Protection service.
+
+  For example, use this cmdlet when the computer running the scanner doesn't have Internet connectivity.
+
+  If you need to make configuration changes to the scanner after you have run this cmdlet, make those changes in the Azure portal, export the content scan job again, and rerun this cmdlet.
+
+  If you want to change the scanner to use online configuration after you have run this cmdlet, use the [Set-AIPScannerConfiguration](./Set-AIPScannerConfiguration.yml) and set the *OnlineConfiguration* parameter to **On**.
+
+  Any changes will be used the next time the scanner runs. If you need the changes to take effect immediately, restart the Azure Information Protection Scanner service on the Windows server computer.
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2053104
+  schema: 2.0.0

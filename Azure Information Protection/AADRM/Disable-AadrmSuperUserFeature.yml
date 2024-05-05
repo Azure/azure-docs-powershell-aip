@@ -1,0 +1,44 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Disables the super user feature.
+module: AADRM
+notes: ""
+links:
+- text: Clear-AadrmSuperUserGroup
+  href: ./Clear-AadrmSuperUserGroup.yml
+- text: Enable-AadrmSuperUserFeature
+  href: ./Enable-AadrmSuperUserFeature.yml
+- text: Get-AadrmSuperUserFeature
+  href: ./Get-AadrmSuperUserFeature.yml
+- text: Get-AadrmSuperUser
+  href: ./Get-AadrmSuperUser.yml
+- text: Get-AadrmSuperUserGroup
+  href: ./Get-AadrmSuperUserGroup.yml
+- text: Remove-AadrmSuperUser
+  href: ./Remove-AadrmSuperUser.yml
+syntaxes:
+- Disable-AadrmSuperUserFeature [<CommonParameters>]
+examples:
+- title: 'Example 1: Disable super user feature'
+  code: |-
+    PS C:\>Disable-AadrmSuperUserFeature
+  description: |-
+    This command disables the super user feature for your organization.
+  summary: ""
+uid: AADRM.Disable-AadrmSuperUserFeature
+name: Disable-AadrmSuperUserFeature
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Disable-AadrmSuperUserFeature** cmdlet disables the super user feature. This action does not automatically remove the previously added users or group from the super user list, and they continue to be displayed when you run the [Get-AadrmSuperUser](./Get-AadrmSuperUser.yml) or [Get-AadrmSuperUserGroup](./Get-AadrmSuperUserGroup.yml) cmdlets. Therefore, if you enable the super user feature again, these users are automatically super users again, until you manually remove them.
+
+  If there are users in the current super list who must not be a super user if this feature is enabled again, remove them from the super user list before you disable the super user feature. If these users are individually specified, remove them with the [Remove-AadrmSuperUser](./Remove-AadrmSuperUser.yml) cmdlet. If they are a member of a group that you have specified to be a super user group, either remove those users from the specified super user group, or remove the super user group by using the [Clear-AadrmSuperUserGroup](./Clear-AadrmSuperUserGroup.yml) cmdlet.
+
+  You must use PowerShell to configure super users; you cannot do this configuration by using a management portal.
+
+  For information about the super user feature in Azure Rights Management, see [Enable-AadrmSuperUserFeature](./Enable-AadrmSuperUserFeature.yml).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400599
+  schema: 2.0.0
+  ms.assetid: E6136B57-7B45-4F74-8069-E23FB5D41E17

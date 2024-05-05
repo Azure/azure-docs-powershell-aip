@@ -1,0 +1,89 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets details about an Azure Information Protection content scan job.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Add-AIPScannerRepository
+  href: Add-AIPScannerRepository.yml
+- text: Get-AIPScannerRepository
+  href: Get-AIPScannerRepository.yml
+- text: Remove-AIPScannerContentScanJob
+  href: Remove-AIPScannerContentScanJob.yml
+- text: Remove-AIPScannerRepository
+  href: Remove-AIPScannerRepository.yml
+- text: Set-AIPScannerContentScanJob
+  href: Set-AIPScannerContentScanJob.yml
+- text: Set-AIPScannerRepository
+  href: Set-AIPScannerRepository.yml
+syntaxes:
+- Get-AIPScannerContentScanJob [<CommonParameters>]
+examples:
+- title: Example 1 Content scan job settings defined by PowerShell
+  code: |-
+    PS C:\WINDOWS\system32> Get-AIPScannerContentScanJob
+
+    Schedule                : Manual
+    DiscoverInformationTypes: All
+    RecommendedAsAutomatic  : False
+    EnableDlp               : Off
+    Enforce                 : On
+    LabelFilesByContent     : On
+    RelabelFiles            : Off
+    AllowLabelDowngrade     : Off
+    EnforceDefaultLabel     : Off
+    DefaultLabelType        : PolicyDefault
+    DefaultLabelId          :
+    DefaultOwner            : Scanner
+    RepositoryOwner         :
+    PreserveFileDetails     : On
+    IncludeFileTypes        :
+    ExcludeFileTypes        : .lnk,.exe.,.com,.cmd,.bat,.dll,.ini,.sca,.drm,.sys,.cpl,.inf,.drv,.dat,.tmp,.msp,.msi,.pdb,.jar,.ocx,.rtf,.rar,.msg
+    Repositories:
+    c:\repoToScan1
+    c:\repoToScan2
+  description: |-
+    This example shows a sample command and response when the content scan job has been configured via PowerShell.
+  summary: ""
+- title: Example 2 Content scan job settings defined by PowerShell
+  code: |-
+    PS C:\WINDOWS\system32> Get-AIPScannerContentScanJob
+
+    Schedule                : Manual
+    DiscoverInformationTypes: PolicyOnly
+    RecommendedAsAutomatic  : False
+    EnableDlp               : 
+    Enforce                 : 
+    LabelFilesByContent     : 
+    RelabelFiles            : 
+    AllowLabelDowngrade     : 
+    EnforceDefaultLabel     : 
+    DefaultLabelType        : 
+    DefaultLabelId          :
+    DefaultOwner            : 
+    RepositoryOwner         :
+    PreserveFileDetails     : 
+    IncludeFileTypes        :
+    ExcludeFileTypes        : 
+    Repositories:
+    c:\repoToScan1
+  description: |-
+    This example shows a sample command and response when the content scan job has been configured by importing a file, or using the Azure portal. In this case, the individual content scan job parameters are not applicable, and do not return values.
+  summary: ""
+uid: AzureInformationProtection.Get-AIPScannerContentScanJob
+name: Get-AIPScannerContentScanJob
+description: |-
+  Returns a full list of all the parameters configured for the content scan job.
+
+  For more information about content scan jobs, see the [Azure Information Protection on-premises scanner documentation](/information-protection/deploy-aip-scanner-configure-install#create-a-content-scan-job).
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2144824
+  schema: 2.0.0

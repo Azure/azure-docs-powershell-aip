@@ -1,0 +1,60 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Sets a group for the users who must not be tracked by Rights Management.
+module: AADRM
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Clear-AadrmDoNotTrackUserGroup
+  href: ./Clear-AadrmDoNotTrackUserGroup.yml
+- text: Disable-AadrmSuperUserFeature
+  href: ./Disable-AadrmSuperUserFeature.yml
+- text: Enable-AadrmDocumentTrackingFeature
+  href: ./Enable-AadrmDocumentTrackingFeature.yml
+- text: Get-AadrmDoNotTrackUserGroup
+  href: ./Get-AadrmDoNotTrackUserGroup.yml
+syntaxes:
+- Set-AadrmDoNotTrackUserGroup -EmailAddress <String>
+examples:
+- title: Example 1
+  code: |-
+    PS C:\>Set-AadrmDoNotTrackUserGroup -EmailAddress "DoNotTrackUserGroup@contoso.com"
+  description: |-
+    This command sets a group that has the email address of DoNotTrackUserGroup@contoso.com for the Contoso organization so that users in that group will not be tracked with the document tracking feature.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: EmailAddress
+  isRequired: true
+  description: |+
+    Specifies the email address of the group whose members will be exempt from being tracked with the document tracking feature.
+
+    You can specify a group that contains individual users, or nested groups. The email address must be a valid group email address that already exists in the organization.
+
+    Note: Global administrators can always track the activities of these members.
+
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AADRM.Set-AadrmDoNotTrackUserGroup
+name: Set-AadrmDoNotTrackUserGroup
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Set-AadrmDoNotTrackUserGroup** cmdlet sets a group for your Azure Rights Management service when you use document tracking and you have users who must not be tracked. This configuration might be needed for privacy requirements. For more information, see [Privacy controls for your document tracking site](/information-protection/rms-client/client-admin-guide-document-tracking#privacy-controls-for-your-document-tracking-site).
+
+  If this cmdlet has been run before, running it again overwrites the group that was set previously. You can set only one group, but it can contain nested groups.
+
+  You must use PowerShell to set this group so that users are not tracked; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=846352
+  schema: 2.0.0
+  ms.assetid: a168cc5e-4e90-4a6d-8241-2f6d9dc27d7e

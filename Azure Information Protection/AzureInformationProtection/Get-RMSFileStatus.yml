@@ -1,0 +1,65 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the RMS protection status of a specified file.
+module: AzureInformationProtection
+notes: ""
+links:
+- text: Protect-RMSFile
+  href: ./Protect-RMSFile.yml
+- text: Unprotect-RMSFile
+  href: ./Unprotect-RMSFile.yml
+syntaxes:
+- Get-RMSFileStatus -File <String> [<CommonParameters>]
+examples:
+- title: 'Example 1: List the protection status for a specified file'
+  code: |-
+    PS C:\>Get-RMSFileStatus -File "C:\Test.docx"
+    FileName             Status
+    --------             ------
+    C:\Test.docx         Unprotected
+  description: |-
+    This command lists the Rights Management protection status for the specified file **C:\Test.docx**.
+
+    Because a file with a **.docx file** name extension supports native protection, the status returns "Protected (Native)" or "Unprotected".
+  summary: ""
+- title: 'Example 2: List the protection status for all files in a folder and any subfolders'
+  code: |-
+    PS C:\>foreach ($file in (Get-ChildItem -Path C:\Documents -Recurse -Force | where {!$_.PSIsContainer})) {Get-RMSFileStatus -f $file.PSPath}
+  description: |-
+    Although the **Get-RMSFileStatus** cmdlet works for one file at a time, you can use the following Windows PowerShell command to get the status of all files in a folder (in our example, named **C:\Documents)** and its subfolders.
+
+    The same command can be used with a UNC path instead of a drive and path.
+  summary: ""
+- title: 'Example 3: Create a .CSV file with the protection status for all files in a folder and any subfolders'
+  code: |-
+    PS C:\>$(foreach ($file in (Get-ChildItem -Path C:\Documents\ -Recurse -Force | where {!$_.PSIsContainer})) {Get-RMSFileStatus -f $file.PSPath}) | Export-Csv -Path C:\Temp\ProtectedFilesList.csv -Encoding ascii -NoTypeInformation
+  description: |-
+    You can further extend the previous example by outputting the results to a .CSV file, so that you can sort and order the information.
+
+    In this example, the **.CSV** file is named **ProtectedFilesList.csv** and saved to the **C:\Temp** folder. If the file already exists, it will be overwritten.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: File
+  isRequired: true
+  description: |+
+    Specifies the fully qualified path to the file to verify whether it is protected by Rights Management.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Get-RMSFileStatus
+name: Get-RMSFileStatus
+description: |-
+  The **Get-RMSFileStatus** cmdlet returns the protection status (whether the file is protected by Rights Management or not) of a specified file.
+
+  A protected file has a status of **Protected (Native)** or **Protected (Generic)**, and an unprotected file has a status of **Unprotected**.
+
+  Note that a natively protected container file, such as an Outlook data file (.PST) always returns the protection status of Unprotected.
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  ms.assetid: 104C7431-A41A-4178-AA0B-74FF1A5B51AA
+  online version: https://go.microsoft.com/fwlink/?linkid=841543
+  schema: 2.0.0

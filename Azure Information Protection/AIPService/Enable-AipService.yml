@@ -1,0 +1,37 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Activates the protection service for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Disable-AipService
+  href: ./Disable-AipService.yml
+- text: Get-AipService
+  href: ./Get-AipService.yml
+- text: Activating the protection service from Azure Information Protection
+  href: /information-protection/deploy-use/activate-service
+syntaxes:
+- Enable-AipService [<CommonParameters>]
+examples:
+- title: 'Example 1: Enable the protection service'
+  code: |-
+    PS C:\>Enable-AipService
+  description: |-
+    This command activates the protection service for Azure Information Protection.
+  summary: ""
+uid: AIPService.Enable-AipService
+name: Enable-AipService
+description: |-
+  The **Enable-AipService** cmdlet activates the protection service from Azure Information Protection so that all users in your tenant can protect documents and emails. 
+
+  You can also do this action in a management portal. For more information, see [Activating the protection service from Azure Information Protection](/information-protection/deploy-use/activate-service). 
+
+  When you activate the protection service, you turn on this service for all rights-enabled applications and services for your tenant, but some applications and services and might need further configuration before they can use the protection capabilities from Azure Information Protection.
+
+  For information about other deployment steps that might be needed, see the [deployment roadmap](/information-protection/plan-design/deployment-roadmap).
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 60B3F42C-4FEF-435B-AE28-771932FA6251
+  online version: https://go.microsoft.com/fwlink/?linkid=2044863
+  schema: 2.0.0

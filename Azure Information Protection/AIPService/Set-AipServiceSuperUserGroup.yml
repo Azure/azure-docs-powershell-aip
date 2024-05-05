@@ -1,0 +1,60 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Sets the super user group for Azure Information Protection.
+module: AIPService
+notes: ""
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Add-AipServiceSuperUser
+  href: ./Add-AipServiceSuperUser.yml
+- text: Clear-AipServiceSuperUserGroup
+  href: ./Clear-AipServiceSuperUserGroup.yml
+- text: Get-AipServiceSuperUserGroup
+  href: ./Get-AipServiceSuperUserGroup.yml
+syntaxes:
+- Set-AipServiceSuperUserGroup -GroupEmailAddress <String> [<CommonParameters>]
+examples:
+- title: 'Example 1: Set the super user group'
+  code: |-
+    PS C:\>Set-AipServiceSuperUserGroup -GroupEmailAddress "SuperUserGroup@contoso.com"
+  description: |-
+    This command sets the super user group for the organization to SuperUserGroup@contoso.com.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: GroupEmailAddress
+  isRequired: true
+  description: |+
+    Specifies the group email address for the super user group.
+
+    *GroupEmailAddress* can specify a group that contains individual users or other nested groups. It must be a valid group email address for an existing group in the organization.
+
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AIPService.Set-AipServiceSuperUserGroup
+name: Set-AipServiceSuperUserGroup
+description: |-
+  The **Set-AipServiceSuperUserGroup** cmdlet specifies a group to use as the super user group for Azure Information Protection. Members of this group are then super users, which means they become an owner for all content that is protected by your organization. 
+
+  These super users can decrypt this protected content and remove protection from it, even if an expiration date has been set and expired. Typically, this level of access is required for legal eDiscovery and by auditing teams.
+
+  You can specify any group that has an email address, but be aware that for performance reasons, group membership is cached. For information about group requirements, see [Preparing users and groups for Azure Information Protection](/information-protection/plan-design/prepare).
+
+  If a super user group already exists, running this cmdlet overwrites it. This cmdlet does not affect users that are individually assigned as super users with the [Add-AipServiceSuperUser](./Add-AipServiceSuperUser.yml) cmdlet.
+
+  An organization can have only one super user group in addition to multiple users who are assigned the privilege individually, but you can nest groups.
+
+  You must use PowerShell to configure super users; you cannot do this configuration by using a management portal.
+
+  For more information about super users, see [Configuring super users for Azure Information Protection and discovery services or data recovery](/information-protection/deploy-use/configure-super-users).
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 23E946A0-E6FC-4F8C-8F3B-352AD48CE426
+  online version: https://go.microsoft.com/fwlink/?linkid=2045240
+  schema: 2.0.0

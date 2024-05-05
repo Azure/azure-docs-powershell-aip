@@ -1,0 +1,28 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the migration URL for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Set-AipServiceMigrationUrl
+  href: ./Set-AipServiceMigrationUrl.yml
+syntaxes:
+- Get-AipServiceMigrationUrl [<CommonParameters>]
+examples:
+- title: 'Example 1: Get the migration URL'
+  code: |-
+    PS C:\>Get-AipServiceMigrationUrl
+  description: |-
+    This command gets the migration URL for Azure Information Protection.
+  summary: ""
+uid: AIPService.Get-AipServiceMigrationUrl
+name: Get-AipServiceMigrationUrl
+description: |-
+  The **Get-AipServiceMigrationUrl** cmdlet gets the migration URL for Azure Information Protection.
+
+  You must use PowerShell to get this information; you cannot get the migration URL by using a management portal.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  online version: https://go.microsoft.com/fwlink/?LinkId=2092222
+  schema: 2.0.0

@@ -1,0 +1,65 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Turns off document tracking for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Enable-AipServiceDocumentTrackingFeature
+  href: ./Enable-AipServiceDocumentTrackingFeature.yml
+- text: Get-AipServiceDocumentTrackingFeature
+  href: ./Get-AipServiceDocumentTrackingFeature.yml
+syntaxes:
+- Disable-AipServiceDocumentTrackingFeature [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
+examples:
+- title: 'Example 1: Disable document tracking'
+  code: |-
+    PS C:\>Disable-AipServiceDocumentTrackingFeature
+  description: |-
+    This command disables document tracking for Azure Information Protection.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Confirm
+  description: |+
+    Prompts you for confirmation before running the cmdlet.
+
+  defaultValue: "False"
+  position: Named
+  aliases: cf
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Forces the command to run without asking for user confirmation.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+  defaultValue: "False"
+  position: Named
+  aliases: wi
+  parameterValueGroup: ""
+uid: AIPService.Disable-AipServiceDocumentTrackingFeature
+name: Disable-AipServiceDocumentTrackingFeature
+description: |-
+  The **Disable-AipServiceDocumentTrackingFeature** cmdlet turns off the document tracking feature for Azure Information Protection, so that users in your organization cannot track or revoke access to documents that they have protected.
+
+  Document tracking is turned on by default, but you may need to turn it off for privacy requirements in your organization or region. This setting is organization-wide, and you cannot turn it off for some users in your organization but not others.
+
+  To turn off document tracking features with the unified labeling client, make sure that you set the **EnableTrackAndRevoke** advanced client setting to **False** in addition to running this cmdlet.
+
+  > [!NOTE]
+  > If you have upgraded to the unified labeling client from the classic client, and have had document tracking turned off, it remains turned off after your upgrade.
+  >
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 5C8ED12E-4A84-446E-962F-5E886CB40DF9
+  online version: https://go.microsoft.com/fwlink/?linkid=2045125
+  schema: 2.0.0

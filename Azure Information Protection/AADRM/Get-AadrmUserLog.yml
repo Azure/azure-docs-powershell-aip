@@ -1,0 +1,140 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Downloads Rights Management user logs to local storage.
+module: AADRM
+notes: ""
+links:
+- text: Get-Date
+  href: /powershell/module/Microsoft.PowerShell.Utility/Get-Date?viewFallbackFrom=powershell-4.0
+- text: Logging and analyzing usage of the Azure Rights Management service
+  href: /information-protection/deploy-use/log-analyze-usage
+syntaxes:
+- >-
+  Get-AadrmUserLog -Path <String> [-FromDate <DateTime>] [-ToDate <DateTime>] [-ForDate <DateTime>] [-Force]
+
+   [-NumberOfThreads <Int32>] [<CommonParameters>]
+examples:
+- title: 'Example 1: Get user logs for a date range'
+  code: |-
+    PS C:\>Get-AadrmUserLog -Path 'C:\Logs' -FromDate 12/12/2015 -ToDate 12/15/2015 -NumberOfThreads 10
+  description: |-
+    This command downloads user logs created between 12/12/2015 and 12/15/2015 (in UTC time) to the folder C:\Logs. 
+
+    The command uses 10 threads to download the logs.
+  summary: ""
+- title: 'Example 2: Get user logs for a date'
+  code: |-
+    PS C:\>Get-AadrmUserLog -Path 'C:\Logs' -ForDate 12/5/2015
+  description: |-
+    This command downloads the user logs for 12/5/2015 (in UTC time) to the folder C:\Logs.
+  summary: ""
+- title: 'Example 3: Get user logs for a date, taking into account a UTC +offset time conversion'
+  code: |-
+    PS C:\>Get-AadrmUserLog -Path 'C:\Logs' -ForDate 2/2/2016 12:00:00
+  description: |-
+    This command shows how you might need to take into account a UTC +offset time conversion from your local time, before downloading user logs to the folder C:\Logs.
+
+    You are in New Zealand, which means your computer's local time is UTC+12 and you want to download logs for 2/2/2016 for your local time rather than UTC. If you didn't specify the time of 12:00:00 with the date, your logs would contain data for only the first 12 hours of 2/2/2016 (and the last 12 hours of the previous day).
+  summary: ""
+- title: 'Example 4: Get user logs for a date range, taking into account a UTC -offset time conversion'
+  code: |-
+    PS C:\>Get-AadrmUserLog -Path 'C:\Logs' -FromDate 2/1/2016 18:00:00 -ToDate 2/9/15/2016 18:00:00
+  description: |-
+    This command shows how you might need to take into account a UTC -offset time conversion from your local time before downloading user logs to the folder C:\Logs.
+
+    You are in Houston, USA, which means your computer's local time is UTC-6 and you want to download logs from 2/2/2016 through 2/9/2016 for your local time rather than UTC. 
+
+    If you didn't specify the previous date and time of 18:00:00, your logs would be missing data for the first 6 hours of 2/2/2016 your local time (and an additional 6 hours for the ending date).
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Indicates that this cmdlet overwrites, without prompting for confirmation, an existing log file for the same date or date range.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="DateTime" data-throw-if-not-resolved="False" />
+  name: ForDate
+  description: |+
+    Specifies a date (and optionally, a time) for the log file as a **DateTime** object.
+
+    Use this parameter when you do not use the *FromDate* parameter. 
+
+    To obtain a **DateTime** object, use the [Get-Date](/powershell/module/Microsoft.PowerShell.Utility/Get-Date?viewFallbackFrom=powershell-4.0) cmdlet.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="DateTime" data-throw-if-not-resolved="False" />
+  name: FromDate
+  description: |+
+    Specifies the start date (and optionally, a time) for the log file as a **DateTime** object.
+
+    Use this parameter when you do not use the *ForDate* parameter.
+
+    If you specify this parameter but not the *ToDate*, the end date is the day you run the command.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="Int32" data-throw-if-not-resolved="False" />
+  name: NumberOfThreads
+  description: |+
+    Specifies the number of threads to use to download logs.
+
+    The acceptable values for this parameter are: 1-32. 
+
+    The default value is 3.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: Path
+  isRequired: true
+  description: |+
+    Specifies an existing path of the folder in which to save the logs.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="DateTime" data-throw-if-not-resolved="False" />
+  name: ToDate
+  description: |+
+    Specifies the stop date (and optionally, a time) for the log file as a **DateTime** object.
+
+    Optionally, specify this parameter when you use the *FromDate* parameter, to specify a specific date range. If you do not specify this parameter when you use the *FromDate* parameter, the end date is the day you run the command.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AADRM.Get-AadrmUserLog
+name: Get-AadrmUserLog
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Get-AadrmUserLog** cmdlet downloads Azure Rights Management user logs to local storage. You must specify either a specific date or a date range to download the log entries.
+
+  You must use PowerShell to get these user logs; you cannot do this action by using a management portal.
+
+  When you run this command and specify a date only for the **DateTime** objects, the time is assumed to be 00:00:00 in your local time, and then converted to UTC. 
+
+  When you specify a time with a date (for example, -ForDate "2/1/2016 15:00:00"), that date and time is converted to UTC. The **Get-AadrmUserLog** command then gets the logs for that UTC time period. 
+
+  See the examples for how you might need to change your **DateTime** values, to accommodate the conversion needed for your local time.
+
+  For more information about usage logging and a step-by-step example, see [Logging and analyzing usage of the Azure Rights Management service](/information-protection/deploy-use/log-analyze-usage).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=722835
+  schema: 2.0.0
+  ms.assetid: 7C339803-9C45-4B06-B741-DB8CD43EF886

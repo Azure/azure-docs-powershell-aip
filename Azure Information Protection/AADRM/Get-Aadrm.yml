@@ -1,0 +1,32 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the activation status of Rights Management for your organization.
+module: AADRM
+notes: ""
+links:
+- text: Disable-Aadrm
+  href: ./Disable-Aadrm.yml
+- text: Enable-Aadrm
+  href: ./Enable-Aadrm.yml
+syntaxes:
+- Get-Aadrm [<CommonParameters>]
+examples:
+- title: 'Example 1: Get the status of Rights Management'
+  code: |-
+    PS C:\>Get-Aadrm
+  description: |-
+    This command gets the activation status of your Rights Management service for your organization.
+  summary: ""
+uid: AADRM.Get-Aadrm
+name: Get-Aadrm
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Get-Aadrm** cmdlet gets the activation status of Azure Rights Management for your organization. The status of Rights Management is enabled (activated) or disabled (deactivated).
+
+  You can also view this information in a management portal. For more information, see [Activating the protection service from Azure Information Protection](/information-protection/deploy-use/decommission-deactivate).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400606
+  schema: 2.0.0
+  ms.assetid: DF116EAD-6AC1-44CF-89E6-5E63D72FF58C

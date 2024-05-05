@@ -1,0 +1,76 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  **Relevant for:** AIP unified labeling client only
+
+  Instructs the Azure Information Protection scanner to start a network scan job.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-MIPNetworkDiscoveryConfiguration
+  href: Get-MIPNetworkDiscoveryConfiguration.yml
+- text: Get-MIPNetworkDiscoveryJobs
+  href: Get-MIPNetworkDiscoveryJobs.yml
+- text: Get-MIPNetworkDiscoveryStatus
+  href: Get-MIPNetworkDiscoveryStatus.yml
+- text: Import-MIPNetworkDiscoveryConfiguration
+  href: Import-MIPNetworkDiscoveryConfiguration.yml
+- text: Install-MIPNetworkDiscovery
+  href: Install-MIPNetworkDiscovery.yml
+- text: Set-MIPNetworkDiscovery
+  href: Set-MIPNetworkDiscovery.yml
+- text: Set-MIPNetworkDiscoveryConfiguration
+  href: Set-MIPNetworkDiscoveryConfiguration.yml
+- text: Uninstall-MIPNetworkDiscovery
+  href: Uninstall-MIPNetworkDiscovery.yml
+syntaxes:
+- Start-MIPNetworkDiscovery -JobId <Guid> [-Force] [<CommonParameters>]
+examples:
+- title: Example 1
+  code: |-
+    PS C:\> 
+    Start-MIPNetworkDiscovery -JobId f7715158-dc9e-40d5-b78e-9c93a8c30577
+  description: |-
+    This example runs the network scan job with a job GUID of **f7715158-dc9e-40d5-b78e-9c93a8c30577**.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Forces the command to run without asking for user confirmation.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="Guid" data-throw-if-not-resolved="False" />
+  name: JobId
+  description: |+
+    The network scan job GUID. 
+
+    This parameter is mandatory. Get the network scan job GUID by using the [Get-MIPNetworkDiscoveryJobs](Get-MIPNetworkDiscoveryJobs.yml) cmdlet.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Start-MIPNetworkDiscovery
+name: Start-MIPNetworkDiscovery
+description: |-
+  The **Start-MIPNetworkDiscovery** cmdlet instructs the Azure Information Protection scanner to immediately start a specified network scan job. 
+
+  Network scan jobs enables AIP administrators to scan a specified IP address or range for possibly risky repositories. Administrators may want to add these repositories to a content scan job to further scan their contents.
+
+  The scanner's Network Discovery service must be started before you can run this cmdlet.
+
+  [!INCLUDE [audit-logs-sunset](../includes/audit-logs-sunset.md)]
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2137919
+  schema: 2.0.0

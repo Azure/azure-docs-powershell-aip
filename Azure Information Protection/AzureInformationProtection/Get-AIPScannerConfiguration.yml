@@ -1,0 +1,55 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the configuration settings for the Azure Information Protection scanner.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-AIPScannerStatus
+  href: ./Get-AIPScannerStatus.yml
+- text: Install-AIPScanner
+  href: ./Install-AIPScanner.yml
+- text: Set-AIPScanner
+  href: ./Set-AIPScanner.yml
+- text: Set-AIPScannerConfiguration
+  href: ./Set-AIPScannerConfiguration.yml
+- text: Start-AIPScan
+  href: ./Start-AIPScan.yml
+- text: Uninstall-AIPScanner
+  href: ./Uninstall-AIPScanner.yml
+- text: Update-AIPScanner
+  href: ./Update-AIPScanner.yml
+syntaxes:
+- Get-AIPScannerConfiguration [<CommonParameters>]
+examples:
+- title: 'Example 1: Gets the configuration for the Azure Information Protection scanner'
+  code: |-
+    PS C:\> Get-AIPScannerConfiguration
+    OnlineConfiguration : On
+    ReportLevel         : Info
+    LogLevel            : Trace
+    Cluster             : contoso-test
+    SqlInstance         : localhost\sqlexpress
+    DatabaseName        : AIPScannerUL_contoso-test
+    Cloud               : Commercial
+  description: |-
+    This command gets the current PowerShell configuration settings for the Azure Information Protection unified labeling scanner. 
+
+    In this example, the output shows that the scanner is using the default configuration for online configuration, the report level of **Info**, and a logging level of **Trace**. The cluster name, SQL instance, and database names are listed, and the cloud type is **Commercial**.
+  summary: ""
+uid: AzureInformationProtection.Get-AIPScannerConfiguration
+name: Get-AIPScannerConfiguration
+description: |-
+  The **Get-AIPScannerConfiguration** cmdlet gets the configuration settings for the Azure Information Protection scanner. 
+
+  If you run [Import-AIPScannerConfiguration](./Import-AIPScannerConfiguration.yml), this action automatically configures the scanner to get its configuration offline. As a result, when you run this Get-AIPScannerConfiguration cmdlet after importing settings from a file, **OnlineConfiguration** displays **Off**.
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=858206
+  schema: 2.0.0

@@ -1,0 +1,98 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Grants administrative rights to Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Get-AipServiceRoleBasedAdministrator
+  href: ./Get-AipServiceRoleBasedAdministrator.yml
+- text: Remove-AipServiceRoleBasedAdministrator
+  href: ./Remove-AipServiceRoleBasedAdministrator.yml
+syntaxes:
+- Add-AipServiceRoleBasedAdministrator [-ObjectId <Guid>] [-Role <Role>] [<CommonParameters>]
+- Add-AipServiceRoleBasedAdministrator [-SecurityGroupDisplayName <String>] [-Role <Role>] [<CommonParameters>]
+- Add-AipServiceRoleBasedAdministrator [-EmailAddress <String>] [-Role <Role>] [<CommonParameters>]
+examples:
+- title: 'Example 1: Grant administrative rights by using a display name'
+  code: |-
+    PS C:\>Add-AipServiceRoleBasedAdministrator -SecurityGroupDisplayName "Finance Employees"
+  description: |-
+    This command grants administrative rights to the protection service for the group that has a display name of **Finance Employees**.
+  summary: ""
+- title: 'Example 2: Grant administrative rights by using a GUID'
+  code: |-
+    PS C:\>Add-AipServiceRoleBasedAdministrator -ObjectId 2c8afe23-bf58-4289-bea1-05131aeb50ab
+  description: |-
+    This command grants administrative rights to the protection service  for the group that has the specified GUID.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: EmailAddress
+  description: |+
+    Specifies the email address of a user or group to have administrative rights for the protection service. If the user has no email address, specify the user's Universal Principal Name.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="Guid" data-throw-if-not-resolved="False" />
+  name: ObjectId
+  description: |+
+    Specifies the GUID of a user or group to have administrative rights for the protection service.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="Role" data-throw-if-not-resolved="False" />
+  name: Role
+  description: |+
+    Specifies a role of either **Azure Information Protection service global administrator** (the user can configure all aspects of the protection service by using PowerShell commands) or **Azure Information Protection service connector administrator** (the account is granted least privileges to configure and run the Rights Management (RMS) connector).
+
+    To specify these roles, use the following values:  
+
+    - **GlobalAdministrator**
+
+    - **ConnectorAdministrator**
+
+    The default value is **GlobalAdministrator**.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: GlobalAdministrator, ConnectorAdministrator
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: SecurityGroupDisplayName
+  description: |+
+    Specifies the display name of a user or group to have administrative rights for the protection service.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AIPService.Add-AipServiceRoleBasedAdministrator
+name: Add-AipServiceRoleBasedAdministrator
+description: |-
+  The **Add-AipServiceRoleBasedAdministrator** cmdlet grants administrative rights to the protection service from Azure Information Protection, so that administrators you delegate to configure this service can do so by using PowerShell commands. 
+
+  You must use PowerShell to configure delegated administrative control for the protection service; you cannot do this configuration by using a management portal.
+
+  When you run this cmdlet, you can specify a user or a group in Azure AD, and you can run the cmdlet multiple times to add new users and new groups. To see the full list, use [Get-AipServiceRoleBasedAdministrator](./Get-AipServiceRoleBasedAdministrator.yml).
+
+  If you specify a group, it can be any group in Azure AD and does not need to be mail-enabled. To specify a group that is not mail-enabled, use either the *SecurityGroupDisplayName* parameter, or the *ObjectId* parameter. You can also use these parameters or the EmailAddress parameter for a mail-enabled group.
+
+  For more information about the user and group requirements, see [Preparing users and groups for Azure Information Protection](/information-protection/plan-design/prepare). This information includes how to identify the different group types and how to find the values to specify them when you run this cmdlet. 
+
+  After delegating control to other administrators, they might find it useful to reference a list of the cmdlets they can run, grouped by administrative task. For this information, see [Administering the protection service by using PowerShell](/information-protection/deploy-use/administer-powershell).
+
+  Note that these administrative roles are separate from the Azure Active Directory admin roles or Office 365 admin roles.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 9802F554-834A-4BA0-A086-C7F8B2976939
+  online version: https://go.microsoft.com/fwlink/?linkid=2044795
+  schema: 2.0.0

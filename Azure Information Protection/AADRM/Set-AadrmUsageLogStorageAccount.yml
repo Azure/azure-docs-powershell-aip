@@ -1,0 +1,67 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Sets the location for Rights Management usage logs.
+module: AADRM
+notes: ""
+links:
+- text: Get-AadrmUsageLogStorageAccount
+  href: ./Get-AadrmUsageLogStorageAccount.yml
+- text: ConvertTo-SecureString
+  href: /powershell/module/microsoft.powershell.security/convertto-securestring
+- text: Logging and analyzing usage of the Azure Rights Management service
+  href: /information-protection/deploy-use/log-analyze-usage
+syntaxes:
+- Set-AadrmUsageLogStorageAccount -StorageAccount <String> -AccessKey <SecureString> [<CommonParameters>]
+examples:
+- title: 'Example 1: Set the log location'
+  code: |-
+    PS C:\>$AccessKey = ConvertTo-SecureString "aeDpsMswiYNGNwOaCkOrfPiDtIpjRREosiXNLKrG" -AsPlainText -Force
+    PS C:\> Set-AadrmUsageLogStorageAccount -AccessKey $AccessKey -StorageAccount "RmsStorageAccount"
+  description: |-
+    The first command uses the [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring) cmdlet to convert your access key to a secure string, and then stores it in the **$AccessKey** variable.
+    For more information, type `Get-Help ConvertTo-SecureString`.
+
+    The second command specifies the location for your usage logs.
+  summary: ""
+parameters:
+- type: <xref href="SecureString" data-throw-if-not-resolved="False" />
+  name: AccessKey
+  isRequired: true
+  description: |+
+    Specifies your access key as a secure string.
+
+    To view your access key, connect to the Azure portal.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: StorageAccount
+  isRequired: true
+  description: |+
+    Specifies a storage account.
+
+    To obtain the name of this account, use the Azure portal.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AADRM.Set-AadrmUsageLogStorageAccount
+name: Set-AadrmUsageLogStorageAccount
+description: |-
+  The **Set-AadrmUsageLogStorageAccount** cmdlet sets the Azure storage location for usage logs for Azure Rights Management.
+
+  You must use PowerShell to set this information; you cannot do this action by using a management portal.
+
+  This cmdlet should be used only if you have usage logs prior to the usage logging change in February 2016. After this date, the only Windows PowerShell cmdlet that you need for Azure RMS usage logging is Get-AadrmUserLog.
+
+  For more information about usage logging, see [Logging and analyzing usage of the Azure Rights Management service](/information-protection/deploy-use/log-analyze-usage).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400623
+  schema: 2.0.0
+  ms.assetid: D4615C3C-F6B3-42EF-BE69-C4CD4B6BD5A2

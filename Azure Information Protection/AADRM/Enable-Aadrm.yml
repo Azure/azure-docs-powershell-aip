@@ -1,0 +1,42 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Activates Rights Management for your organization.
+module: AADRM
+notes: ""
+links:
+- text: Disable-Aadrm
+  href: ./Disable-Aadrm.yml
+- text: Get-Aadrm
+  href: ./Get-Aadrm.yml
+- text: Activating the protection service from Azure Information Protection
+  href: /information-protection/deploy-use/activate-service
+syntaxes:
+- Enable-Aadrm [<CommonParameters>]
+examples:
+- title: 'Example 1: Enable Rights Management'
+  code: |-
+    PS C:\>Enable-Aadrm
+  description: |-
+    This command activates Rights Management for your organization.
+  summary: ""
+uid: AADRM.Enable-Aadrm
+name: Enable-Aadrm
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Enable-Aadrm** cmdlet enables your organization to use Azure Rights Management when you have a subscription that includes this service. 
+
+  You can also do this action in a management portal. For more information, see [Activating the protection service from Azure Information Protection](/information-protection/deploy-use/decommission-deactivate). 
+
+  The Azure Rights Management service must be activated before you can begin to use information rights management (IRM) features in Office applications and before you can protect documents and emails by using other applications that use Azure Rights Management.
+
+  When you activate Rights Management, you turn on this service for all rights-enabled applications and services, but some applications and services and might need further configuration before they can use Azure Rights Management.
+
+  For more information about activating Rights Management and a link to information about the service plans that include Azure Rights Management, see [Activating the protection service from Azure Information Protection](/information-protection/deploy-use/activate-service).
+
+  For more information about other deployment steps that might be needed, see the [deployment roadmap](/information-protection/plan-design/deployment-roadmap).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400602
+  schema: 2.0.0
+  ms.assetid: 60B3F42C-4FEF-435B-AE28-771932FA6251

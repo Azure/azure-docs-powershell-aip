@@ -1,0 +1,70 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Deletes a protection template for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Add-AipServiceTemplate
+  href: ./Add-AipServiceTemplate.yml
+- text: Export-AipServiceTemplate
+  href: ./Export-AipServiceTemplate.yml
+- text: Get-AipServiceTemplate
+  href: ./Get-AipServiceTemplate.yml
+- text: Import-AipServiceTemplate
+  href: ./Import-AipServiceTemplate.yml
+syntaxes:
+- Remove-AipServiceTemplate -TemplateId <Guid> [<CommonParameters>]
+examples:
+- title: 'Example 1: Delete a template'
+  code: |-
+    PS C:\>Remove-AipServiceTemplate -TemplateId 36546649-4944-4462-a409-74373a67b6dd
+  description: |-
+    This command deletes the specified template.
+  summary: ""
+parameters:
+- type: <xref href="Guid" data-throw-if-not-resolved="False" />
+  name: TemplateId
+  isRequired: true
+  description: |+
+    Specifies the GUID of the protection template.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AIPService.Remove-AipServiceTemplate
+name: Remove-AipServiceTemplate
+description: |-
+  The **Remove-AipServiceTemplate** cmdlet deletes a protection template for Azure Information Protection.
+
+  You can delete only templates that you have created for your organization. You can set default templates to an archived state but you cannot delete them.
+
+  Although you can configure protection templates in the Azure portal, you must use PowerShell to remove these templates.
+
+  After a template is deleted, content protected with that template might become inaccessible. Users who are super users can continue to access content that was previously protected with a template that is now deleted. For more information about super users, see [Configuring super users for Azure Information Protection and discovery services or data recovery](/information-protection/deploy-use/configure-super-users).
+
+  This cmdlet requires the template ID, which you can get with the [Get-AipServiceTemplate](./Get-AipServiceTemplate.yml) cmdlet.
+
+  This cmdlet performs the following operations:
+
+  - Displays the template properties.
+
+  - Warns that all content protected with this template may become inaccessible.
+
+  - Asks to confirm whether to proceed.
+
+  - Calls the service to remove the template with the specified GUID.
+
+  For more information about protection templates, including how to configure them in the Azure portal, see [Configuring and managing templates for Azure Information Protection](/information-protection/deploy-use/configure-policy-templates).
+
+  **Using the Azure Information Protection unified labeling client?**
+
+  The Azure Information Protection unified labeling client uses protection templates indirectly. If you have the unified labeling client, we recommend that you use label-based cmdlets instead of modifying your protection templates directly.
+
+  For more information, see [Create and publish sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels) in the Microsoft 365 documentation.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: EAC26502-ECB3-43A0-B468-D166C1E4A9C4
+  online version: https://go.microsoft.com/fwlink/?linkid=2045542
+  schema: 2.0.0

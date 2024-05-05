@@ -1,0 +1,36 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Removes the super user group for your organization.
+module: AADRM
+notes: ""
+links:
+- text: Add-AadrmSuperUser
+  href: ./Add-AadrmSuperUser.yml
+- text: Get-AadrmSuperUserGroup
+  href: ./Get-AadrmSuperUserGroup.yml
+- text: Set-AadrmSuperUserGroup
+  href: ./Set-AadrmSuperUserGroup.yml
+syntaxes:
+- Clear-AadrmSuperUserGroup [<CommonParameters>]
+examples:
+- title: 'Example 1: Remove the super user group'
+  code: |-
+    PS C:\>Clear-AadrmSuperUserGroup
+  description: |-
+    This command removes the super user group, if one exists, for the organization.
+  summary: ""
+uid: AADRM.Clear-AadrmSuperUserGroup
+name: Clear-AadrmSuperUserGroup
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Clear-AadrmSuperUserGroup** cmdlet removes the super user group for your organization.
+
+  This cmdlet does not affect users that are individually assigned the super user privilege with the [Add-AadrmSuperUser](./Add-AadrmSuperUser.yml) cmdlet.
+
+  You must use PowerShell to configure super users; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=722836
+  schema: 2.0.0
+  ms.assetid: F4A1DD4B-C8B9-4FA8-A809-388F01C0A0F0

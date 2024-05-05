@@ -1,0 +1,34 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Indicates whether document tracking is enabled or disabled for Azure Information Protection.
+module: AADRM
+notes: ""
+links:
+- text: Disable-AadrmDocumentTrackingFeature
+  href: ./Disable-AadrmDocumentTrackingFeature.yml
+- text: Enable-AadrmDocumentTrackingFeature
+  href: ./Enable-AadrmDocumentTrackingFeature.yml
+syntaxes:
+- Get-AadrmDocumentTrackingFeature [<CommonParameters>]
+examples:
+- title: 'Example: Determine whether the document tracking site is enabled'
+  code: |-
+    PS C:\>Get-AadrmDocumentTrackingFeature
+  description: |-
+    This command determines whether the Azure Information Protection document tracking feature is enabled.
+  summary: ""
+uid: AADRM.Get-AadrmDocumentTrackingFeature
+name: Get-AadrmDocumentTrackingFeature
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Get-AadrmDocumentTrackingFeature** cmdlet indicates whether the Azure Information Protection document tracking feature is enabled or disabled.
+
+  You must use PowerShell to get this information about document tracking; you cannot get this information by using a management portal.
+
+  For additional information about the document tracking site, see [Configuring and using document tracking for Azure Information Protection](/information-protection/rms-client/client-admin-guide-document-tracking) from the Azure Information Protection client administrator guide.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=623037
+  schema: 2.0.0
+  ms.assetid: 3F0BC472-41CC-41CA-A1B5-ACB84B1C2DA9

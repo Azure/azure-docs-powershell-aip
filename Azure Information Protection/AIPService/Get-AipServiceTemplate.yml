@@ -1,0 +1,73 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets a list of protection templates for Azure Information Protection.
+module: AIPService
+notes: ""
+inputs:
+- name: <xref href="TemplateID" data-throw-if-not-resolved="False" />
+  description: |-
+    Specifies the GUID of the protection template to get.
+outputs:
+- name: <xref href=" " data-throw-if-not-resolved="False" />
+  description: |-
+    This cmdlet outputs a list comprising all protection templates for the tenant, or for a selected template.
+
+    If no name is defined for a template in the current locale, "No name defined in language-code" is returned as the name for that template.
+
+    If no description is defined for a template in the current locale, **No description defined in language-code** is returned as the description for that template.
+links:
+- text: Add-AipServiceTemplate
+  href: ./Add-AipServiceTemplate.yml
+- text: Export-AipServiceTemplate
+  href: ./Export-AipServiceTemplate.yml
+- text: Import-AipServiceTemplate
+  href: ./Import-AipServiceTemplate.yml
+- text: Remove-AipServiceTemplate
+  href: ./Remove-AipServiceTemplate.yml
+syntaxes:
+- Get-AipServiceTemplate [-TemplateId <Guid>] [<CommonParameters>]
+examples:
+- title: 'Example 1: Get all templates'
+  code: |-
+    PS C:\> Get-AipServiceTemplate
+  description: |-
+    This command gets all templates for your tenant, so you can get the template ID that you want to use, by identifying the template by its name and description.
+  summary: ""
+- title: 'Example 2: Get a specific template'
+  code: |-
+    PS C:\> Get-AipServiceTemplate -TemplateId 28168524-29c3-44f1-9e11-ea6c60bb6428
+  description: |-
+    This command gets a specific template, specified by its template ID (GUID), so that you can confirm from its name and description that it is the template that you want to use.
+  summary: ""
+parameters:
+- type: <xref href="Guid" data-throw-if-not-resolved="False" />
+  name: TemplateId
+  description: |+
+    Specifies the GUID of a protection template.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AIPService.Get-AipServiceTemplate
+name: Get-AipServiceTemplate
+description: |-
+  The **Get-AipServiceTemplate** cmdlet gets all existing or selected protection templates from Azure Information Protection. Use the *TemplateID* parameter to get a specific template. If you do not specify the *TemplateId*, all templates are retrieved.
+
+  Similar configuration information can also be viewed in the Azure portal, but this cmdlet also returns the template GUID that isn't available in the portal.
+
+  The cmdlet output is a list of template objects that contain all the template properties that you can use for further processing. The output of this command displays the template GUID, name, and description in the current locale. For additional template properties, such as usage rights and whether the template is published or archived, use the [Get-AipServiceTemplateProperty](./Get-AipServiceTemplateProperty.yml) cmdlets.
+
+  For more information about protection templates, including how to configure them in the Azure portal, see [Configuring and managing templates for Azure Information Protection](/information-protection/deploy-use/configure-policy-templates).
+
+  **Using the Azure Information Protection unified labeling client?**
+
+  The Azure Information Protection unified labeling client uses protection templates indirectly. If you have the unified labeling client, we recommend that you use label-based cmdlets instead of modifying your protection templates directly.
+
+  For more information, see [Create and publish sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels) in the Microsoft 365 documentation.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 89C3B584-6401-46D5-BB40-5DCB41A149B4
+  online version: https://go.microsoft.com/fwlink/?linkid=2045197
+  schema: 2.0.0

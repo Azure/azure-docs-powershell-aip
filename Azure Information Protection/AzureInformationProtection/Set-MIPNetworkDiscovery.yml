@@ -1,0 +1,202 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Updates the installation settings for the Network Discovery service.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-MIPNetworkDiscoveryConfiguration
+  href: Get-MIPNetworkDiscoveryConfiguration.yml
+- text: Get-MIPNetworkDiscoveryJobs
+  href: Get-MIPNetworkDiscoveryJobs.yml
+- text: Get-MIPNetworkDiscoveryStatus
+  href: Get-MIPNetworkDiscoveryStatus.yml
+- text: Import-MIPNetworkDiscoveryConfiguration
+  href: Import-MIPNetworkDiscoveryConfiguration.yml
+- text: Set-MIPNetworkDiscovery
+  href: Set-MIPNetworkDiscovery.yml
+- text: Set-MIPNetworkDiscoveryConfiguration
+  href: Set-MIPNetworkDiscoveryConfiguration.yml
+- text: Start-MIPNetworkDiscovery
+  href: Start-MIPNetworkDiscovery.yml
+- text: Uninstall-MIPNetworkDiscovery
+  href: Uninstall-MIPNetworkDiscovery.yml
+syntaxes:
+- >-
+  Set-MIPNetworkDiscovery [[-SqlServerInstance] <String>] [-ServiceUserCredentials] <PSCredential>
+
+   [-StandardDomainsUserAccount <PSCredential>] [-ShareAdminUserAccount <PSCredential>] -Cluster <String> [-Force] 
+
+   [<CommonParameters>]
+examples:
+- title: 'Example 1: Update the Network Discovery service settings by using a SQL Server instance'
+  code: |-
+    PS C:\> $serviceacct= Get-Credential -UserName domain\scannersvc -Message ScannerAccount
+    PS C:\> $shareadminacct= Get-Credential -UserName domain\adminacct -Message ShareAdminAccount
+    PS C:\> $publicaccount= Get-Credential -UserName domain\publicuser -Message PublicUser
+    PS C:\> Set-MIPNetworkDiscovery -SqlServerInstance SQLSERVER1\AIPSCANNER -Cluster EU -ServiceUserCredentials $serviceacct  -ShareAdminUserAccount $shareadminacct -StandardDomainsUserAccount $publicaccount
+  description: |-
+    This command updates the settings for the Network Discovery service by using a SQL Server instance named **AIPSCANNER**, which runs on the server named **SQLSERVER1**. 
+
+    - You are prompted to provide the Active Directory account details for the scanner service account. 
+    - If an existing database named **AIPScannerUL_EU** isn't found on the specified SQL Server instance, a new database with this name is created to store the scanner configuration. 
+    - The command displays the update progress, where the install log is located, and the creation of the new Windows Application event log, named **Azure Information Protection Scanner**.
+    - At the end of the output, you see **The transacted install has completed**.
+
+    **Accounts used in this example**
+
+    The following table lists the accounts used in this example for activity:
+
+    |Activity  |Account description  |
+    |---------|---------|
+    |**Running the service**     |  The service is run using the **domain\scannersvc** account.       |
+    |**Checking permissions**     |  The service checks the permissions of the discovered shares using the **domain\adminacct** account. </br></br>This account should be the admin account on your shares.       |
+    |**Checking public exposure**    |    The service will check the share's public exposure using the **domain\publicuser** account. </br></br>This user should be a standard Domain user, and a member of the **Domain Users** group only.     |
+  summary: ""
+- title: 'Example 2: Update the Network Discovery service settings by using the SQL Server default instance'
+  code: |-
+    PS C:\> $serviceacct= Get-Credential -UserName domain\scannersvc -Message ScannerAccount
+    PS C:\> $shareadminacct= Get-Credential -UserName domain\adminacct -Message ShareAdminAccount
+    PS C:\> $publicaccount= Get-Credential -UserName domain\publicuser -Message PublicUser
+    PS C:\> Set-MIPNetworkDiscovery -SqlServerInstance SQLSERVER1 -Cluster EU -ServiceUserCredentials $serviceacct  -ShareAdminUserAccount $shareadminacct -StandardDomainsUserAccount $publicaccount
+  description: |-
+    This command updates the settings for the the Network Discovery service by using the SQL Server default instance that runs on the server, named **SQLSERVER1**, as well as the settings for the ShareAdminUserAccount and the StandardDomainsUserAccount.  
+
+
+    As with the previous example, you are prompted for credentials, and then the command displays the progress, where the install log is located, and the creation of the new Windows Application event log.
+  summary: ""
+- title: 'Example 3: Update the settings for the Network Discovery service by using SQL Server Express'
+  code: |-
+    PS C:\> $serviceacct= Get-Credential -UserName domain\scannersvc -Message ScannerAccount
+    PS C:\> $shareadminacct= Get-Credential -UserName domain\adminacct -Message ShareAdminAccount
+    PS C:\> $publicaccount= Get-Credential -UserName domain\publicuser -Message PublicUser
+    PS C:\> Set-MIPNetworkDiscovery -SqlServerInstance SQLSERVER1\SQLEXPRESS -Cluster EU -ServiceUserCredentials $serviceacct  -ShareAdminUserAccount $shareadminacct -StandardDomainsUserAccount $publicaccount
+  description: |-
+    This command updates the settings for the Network Discovery service by using SQL Server Express that runs on the server named **SQLSERVER1**. 
+
+    As with the previous examples, you are prompted for credentials, and then the command displays the progress, where the install log is located, and the creation of the new Windows Application event log.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: Cluster
+  isRequired: true
+  description: |+
+    The name of your scanner instance, as defined by your scanner cluster name.
+
+  defaultValue: None
+  position: Named
+  aliases: Profile
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Forces the command to run without asking for user confirmation.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="PSCredential" data-throw-if-not-resolved="False" />
+  name: ServiceUserCredentials
+  isRequired: true
+  description: |+
+    Specifies the account credentials used to run the Azure Information Protection service. 
+
+    - The credentials used must be an Active Directory account. 
+
+    - Set the value of this parameter using the following syntax: `Domain\Username`. 
+
+        For example: `contoso\scanneraccount`
+
+    - If you do not specify this parameter, you are prompted for the username and password.
+
+    For more information, see [Prerequisites for the Azure Information Protection scanner](/information-protection/deploy-aip-scanner#prerequisites-for-the-azure-information-protection-scanner). 
+
+    > [!TIP]
+    > Use a **PSCredential** object by using the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet. In this case, you are prompted for the password only.
+    >
+    > For more information, type `Get-Help Get-Cmdlet`. 
+
+  defaultValue: None
+  position: "0"
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="PSCredential" data-throw-if-not-resolved="False" />
+  name: ShareAdminUserAccount
+  description: |+
+    Specifies the credentials for a strong account in an on-premises network, used to get a full list of file share and NTFS permissions.
+
+    - The credentials used must be an Active Directory account with Administrator/FC rights on your network shares. This will usually be a Server Admin or Domain Admin.
+
+    - Set the value of this parameter using the following syntax: `Domain\Username`
+
+        For example: `contoso\admin`
+
+    - If you do not specify this parameter, you are prompted for both the username and password.
+
+    > [!TIP]
+    > Use a **PSCredential** object by using the [**Get-Credential**](/powershell/module/microsoft.powershell.security/get-credential) cmdlet. In this case, you are prompted for the password only.
+    > 
+    >For more information, type `Get-Help Get-Cmdlet`.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: SqlServerInstance
+  description: |+
+    Specifies the SQL Server instance on which to create a database for the Network Discovery service.
+
+    For information about the SQL Server requirements, see [Prerequisites for the Azure Information Protection scanner](/azure/information-protection/deploy-aip-scanner#prerequisites-for-the-azure-information-protection-scanner).
+
+    - For the default instance, specify the server name. For example: `SQLSERVER1`. 
+    - For a named instance, specify the server name and instance name. For example: `SQLSERVER1\AIPSCANNER`.
+    - For SQL Server Express, specify the server name and SQLEXPRESS. For example: `SQLSERVER1\SQLEXPRESS`.
+
+  defaultValue: None
+  position: "2"
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="PSCredential" data-throw-if-not-resolved="False" />
+  name: StandardDomainsUserAccount
+  description: |+
+    Specifies the credentials for a weak account in an on-premises network, used to check access for weak users on the network and expose discovered network shares.
+
+    - The credentials used must be an Active Directory account, and a user of the **Domain Users** group only.
+
+    - Set the value of this parameter using the following syntax: `Domain\Username`
+
+        For example: `contoso\stduser`
+
+    - If you do not specify this parameter, you are prompted for both the username and password.
+
+    > [!TIP]
+    > Use a **PSCredential** object by using the [**Get-Credential**](/powershell/module/microsoft.powershell.security/get-credential) cmdlet. In this case, you are prompted for the password only.
+    > 
+    >For more information, type `Get-Help Get-Cmdlet`.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Set-MIPNetworkDiscovery
+name: Set-MIPNetworkDiscovery
+description: |-
+  The **Set-MIPNetworkDiscovery** cmdlet updates installation settings for the Network Discovery service. 
+
+  The Network Discovery service enables AIP administrators to scan a specified IP address or range for possibly risky repositories, using a network scan job.
+
+  Use network scan job results to identify additional repositories in your network to further scan using a content scan job. For more information, see [Create a network scan job](/azure/information-protection/deploy-aip-scanner-configure-install#create-a-network-scan-job-public-preview).
+
+  [!INCLUDE [audit-logs-sunset](../includes/audit-logs-sunset.md)]
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2144638
+  schema: 2.0.0

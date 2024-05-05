@@ -1,0 +1,80 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Exports the properties of a protection template from Azure Information Protection to a file.
+module: AIPService
+notes: ""
+links:
+- text: Add-AipServiceTemplate
+  href: ./Add-AipServiceTemplate.yml
+- text: Get-AipServiceTemplate
+  href: ./Get-AipServiceTemplate.yml
+- text: Import-AipServiceTemplate
+  href: ./Import-AipServiceTemplate.yml
+- text: Remove-AipServiceTemplate
+  href: ./Remove-AipServiceTemplate.yml
+syntaxes:
+- Export-AipServiceTemplate -TemplateId <Guid> -Path <String> [-Force] [<CommonParameters>]
+examples:
+- title: 'Example 1: Export a template'
+  code: |-
+    PS C:\>Export-AipServiceTemplate -Path "C:\MyTemplates\MyTemplateFile.xml" -TemplateId 28168524-29c3-44f1-9e11-ea6c60bb6428
+  description: |-
+    This command exports the specified template to the file named MyTemplateFile.xml.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Indicates that the cmdlet overwrites an existing template file that has the same path.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: Path
+  isRequired: true
+  description: |+
+    Specifies the path to the location where you want to save the file.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="Guid" data-throw-if-not-resolved="False" />
+  name: TemplateId
+  isRequired: true
+  description: |+
+    Specifies the GUID of a protection template.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AIPService.Export-AipServiceTemplate
+name: Export-AipServiceTemplate
+description: |-
+  The **Export-AipServiceTemplate** cmdlet exports all the properties of a protection template from Azure Information Protection to a file. You can then import the template to another tenant using Azure Information Protection, or you can edit the exported template and import it back to the original tenant. You can use this technique to perform bulk edits of complex properties in templates, such as multilingual names and descriptions.
+
+  Although you can configure protection templates in the Azure portal, you must use PowerShell to export and import these templates.
+
+  > [!TIP]
+  > Consider using this cmdlet as a way to back up your protection templates, so that you can revert to a known-good version if required.
+  > 
+  The export process does not automatically append a file name extension, so you can specify a file name extension to match the application that you will use to view and edit the resulting data.
+
+  You can use the [Get-AipServiceTemplate](./Get-AipServiceTemplate.yml) cmdlet to get the GUIDs of all templates.
+
+  For more information about protection templates, including how to configure them in the Azure portal, see [Configuring and managing templates for Azure Information Protection](/information-protection/deploy-use/configure-policy-templates).
+
+  **Using the Azure Information Protection unified labeling client?**
+
+  The Azure Information Protection unified labeling client uses protection templates indirectly. If you have the unified labeling client, we recommend that you use label-based cmdlets instead of modifying your protection templates directly.
+
+  For more information, see [Create and publish sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels) in the Microsoft 365 documentation.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 7B9098EE-CE4B-4033-AB04-2F53B6238CE2
+  online version: https://go.microsoft.com/fwlink/?linkid=2045037
+  schema: 2.0.0

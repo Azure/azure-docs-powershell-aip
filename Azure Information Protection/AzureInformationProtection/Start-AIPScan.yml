@@ -1,0 +1,70 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  **Relevant for:** Unified labeling client only
+
+  Instructs the Azure Information Protection scanner to start a one-time scan cycle.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-AIPScannerConfiguration
+  href: ./Get-AIPScannerConfiguration.yml
+- text: Get-AIPScannerStatus
+  href: ./Get-AIPScannerStatus.yml
+- text: Install-AIPScanner
+  href: ./Install-AIPScanner.yml
+- text: Set-AIPScanner
+  href: ./Set-AIPScanner.yml
+- text: Set-AIPScannerConfiguration
+  href: ./Set-AIPScannerConfiguration.yml
+- text: Uninstall-AIPScanner
+  href: ./Uninstall-AIPScanner.yml
+- text: Update-AIPScanner
+  href: ./Update-AIPScanner.yml
+syntaxes:
+- Start-AIPScan [-Reset] [-Force] [<CommonParameters>]
+examples:
+- title: 'Example 1: Initiate immediate one-time scan for new and changed files'
+  code: |-
+    PS C:\> Start-AIPScan
+  description: |-
+    Because this is not the first time that the scanner has run and the Azure Information Protection policy has not changed since the last scanning cycle, the scanner initiates an incremental scan for all new or changed files since the last scanning cycle.
+  summary: ""
+- title: 'Example 2: Initiate immediate one time scan for all files'
+  code: |-
+    PS C:\> Start-AIPScan -Reset
+  description: |-
+    The scanner initiates a full scan of all the files, even if they have been scanned before and the Azure Information Protection policy has not changed.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Forces the command to run without asking for user confirmation.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Reset
+  description: |+
+    Resets the scanner cache so that the scanner initiates a full scan of all the files, even if they have been scanned before and the Azure Information Protection policy has not changed.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Start-AIPScan
+name: Start-AIPScan
+description: "The **Start-AIPScan** cmdlet instructs the Azure Information Protection scanner to immediately start a one-time scan cycle. The scanner service must be started already and the scanner schedule must be configured for a manual schedule. \r\n\r\nTo configure the schedule, use the [Azure portal to configure the scanner](/azure/information-protection/deploy-aip-scanner).\r\n\r\nBy default, all files are scanned the first time the scanner runs and then, unless the Azure Information Protection policy is changed, only new or changed files are scanned. However, you can change this behavior when you use the *-Reset* parameter with this cmdlet, which forces the scanner to scan all files.\r\n  \r\n> [!NOTE]\r\n> If the scanner schedule is set to **Always**, this cmdlet is ignored.\r\n>"
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2004364
+  schema: 2.0.0

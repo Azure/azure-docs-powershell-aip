@@ -1,0 +1,68 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets a list of Rights Management templates.
+module: AADRM
+notes: ""
+inputs:
+- name: <xref href="TemplateID" data-throw-if-not-resolved="False" />
+  description: |-
+    Specifies the GUID of the template to get.
+outputs:
+- name: <xref href=" " data-throw-if-not-resolved="False" />
+  description: |-
+    This cmdlet outputs a list comprising all templates for the tenant, or for a selected template.
+
+    If no name is defined for a template in the current locale, "No name defined in language-code" is returned as the name for that template.
+
+    If no description is defined for a template in the current locale, "No description defined in language-code" is returned as the description for that template.
+links:
+- text: Add-AadrmTemplate
+  href: ./Add-AadrmTemplate.yml
+- text: Export-AadrmTemplate
+  href: ./Export-AadrmTemplate.yml
+- text: Import-AadrmTemplate
+  href: ./Import-AadrmTemplate.yml
+- text: Remove-AadrmTemplate
+  href: ./Remove-AadrmTemplate.yml
+syntaxes:
+- Get-AadrmTemplate [-TemplateId <Guid>] [<CommonParameters>]
+examples:
+- title: 'Example 1: Get all templates'
+  code: |-
+    PS C:\> Get-AadrmTemplate
+  description: |-
+    This command gets all templates for your tenant, so you can get the template ID that you want to use, by identifying the template by its name and description.
+  summary: ""
+- title: 'Example 2: Get a specific template'
+  code: |-
+    PS C:\> Get-AadrmTemplate -TemplateId 28168524-29c3-44f1-9e11-ea6c60bb6428
+  description: |-
+    This command gets a specific template, specified by its template ID (GUID), so that you can confirm from its name and description that it is the template that you want to use.
+  summary: ""
+parameters:
+- type: <xref href="Guid" data-throw-if-not-resolved="False" />
+  name: TemplateId
+  description: |+
+    Specifies the GUID of an Rights Management template.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AADRM.Get-AadrmTemplate
+name: Get-AadrmTemplate
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Get-AadrmTemplate** cmdlet gets all existing or selected templates from the active Azure Rights Management tenant. Use the *TemplateID* parameter to get a specific template. If you do not specify the *TemplateId*, all templates are retrieved.
+
+  Similar configuration information can also be viewed in the Azure portal, but this cmdlet also returns the template GUID that isn't available in the portal.
+
+  The cmdlet output is a list of template objects that contain all the template properties that you can use for further processing. The output of this command displays the template GUID, name, and description in the current locale. For additional template properties, such as usage rights and whether the template is published or archived, use the [Get-AadrmTemplateProperty](./Get-AadrmTemplateProperty.yml) cmdlets.
+
+  For more information about custom templates, including how to configure them in the Azure portal, see [Configuring and managing templates for Azure Information Protection](/information-protection/deploy-use/configure-policy-templates).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkID=400626
+  schema: 2.0.0
+  ms.assetid: 89C3B584-6401-46D5-BB40-5DCB41A149B4

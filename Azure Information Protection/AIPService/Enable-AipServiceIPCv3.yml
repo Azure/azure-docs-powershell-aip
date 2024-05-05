@@ -1,0 +1,31 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Enables the MSIPC v3 platform for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Disable-AipServiceIPCv3
+  href: ./Disable-AipServiceIPCv3.yml
+- text: Get-AipServiceIPCv3
+  href: ./Get-AipServiceIPCv3.yml
+syntaxes:
+- Enable-AipServiceIPCv3 [<CommonParameters>]
+examples:
+- title: 'Example1: Enable the MSIPC v3 platform for iOS and Android devices'
+  code: |-
+    PS C:\>Enable-AipServiceIPCv3
+  description: |-
+    This command enables the MSIPC v3 platform so that iOS and Android mobile devices can use the protection service from Azure Information Protection.
+  summary: ""
+uid: AIPService.Enable-AipServiceIPCv3
+name: Enable-AipServiceIPCv3
+description: |-
+  The **Enable-AipServiceIPCv3** cmdlets enables the MSIPC v3 platform on mobile devices such as iOS and Android. This platform must be enabled to support the protection service from Azure Information Protection.
+
+  You must use PowerShell to do this configuration; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 847B715B-0951-40BC-A1CA-8BD6E8AD8148
+  online version: https://go.microsoft.com/fwlink/?linkid=2045030
+  schema: 2.0.0

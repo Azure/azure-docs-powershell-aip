@@ -1,0 +1,76 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  **Relevant for:** AIP unified labeling client only
+
+  Gets a list of Azure Information Protection network scan jobs configured in your tenant.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-MIPNetworkDiscoveryConfiguration
+  href: Get-MIPNetworkDiscoveryConfiguration.yml
+- text: Get-MIPNetworkDiscoveryStatus
+  href: Get-MIPNetworkDiscoveryStatus.yml
+- text: Import-MIPNetworkDiscoveryConfiguration
+  href: Import-MIPNetworkDiscoveryConfiguration.yml
+- text: Install-MIPNetworkDiscovery
+  href: Install-MIPNetworkDiscovery.yml
+- text: Set-MIPNetworkDiscovery
+  href: Set-MIPNetworkDiscovery.yml
+- text: Set-MIPNetworkDiscoveryConfiguration
+  href: Set-MIPNetworkDiscoveryConfiguration.yml
+- text: Start-MIPNetworkDiscovery
+  href: Start-MIPNetworkDiscovery.yml
+- text: Uninstall-MIPNetworkDiscovery
+  href: Uninstall-MIPNetworkDiscovery.yml
+syntaxes:
+- Get-MIPNetworkDiscoveryJobs [<CommonParameters>]
+examples:
+- title: Example 1
+  code: |-
+    PS C:\> Get-MIPNetworkDiscoveryJobs
+
+    JobID       : 496ca93c-ba49-497b-a527-62ffd980891ea
+    IpRanges    : [{"Start":"10.90.208.62", "End":"10.90.208.62"}]
+    LastScanned : 8/2/2020 1:13:16 PM
+    NodeName    : msanchez-7060-emea.corp.contoso.com
+    StartTime   : 
+    Status      : Idle
+    Schedule    : Weekly Mon,Wed 
+
+    JobID       : 40zaw385-o28c-398k-i482-43o2xcggsejsz
+    IpRanges    : [{"Start":"88.205.56.230", "End":"88.205.56.230"}]
+    LastScanned : 9/4/2020 1:13:16 PM
+    NodeName    : 
+    StartTime   : 
+    Status      : Idle
+    Schedule    : Monthly 4
+
+    JobID       : v7r05qqh-eb2z-2enz-3o2n-a85w1eji3vagv
+    IpRanges    : [{"Start":"183.118.20.113", "End":"183.118.20.113"}]
+    LastScanned : 10/13/2020 1:13:16 PM
+    NodeName    : msanchez-7060-emea.corp.contoso.com
+    StartTime   : 
+    Status      : Idle
+    Schedule    : Weekly Sun
+  description: |-
+    This command gets the list of the three Network Discovery network scan jobs, as configured in the Azure portal.
+  summary: ""
+uid: AzureInformationProtection.Get-MIPNetworkDiscoveryJobs
+name: Get-MIPNetworkDiscoveryJobs
+description: |-
+  The **Get-MIPNetworkDiscoveryJobs** cmdlet gets a list of the Network Discovery network scan jobs configured in your tenant.
+
+  Network Discovery network scan jobs enable Azure Information Protection administrators to scan specific IP addresses or ranges for risky repositories to add to scan further with content scan jobs.
+
+  [!INCLUDE [audit-logs-sunset](../includes/audit-logs-sunset.md)]
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2137526
+  schema: 2.0.0

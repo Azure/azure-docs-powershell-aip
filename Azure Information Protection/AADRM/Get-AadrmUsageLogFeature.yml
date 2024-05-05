@@ -1,0 +1,33 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Deprecated: Gets the status of legacy usage logging for Rights Management.
+module: AADRM
+notes: ""
+links:
+- text: Get-AadrmUserLog
+  href: ./Get-AadrmUserLog.yml
+- text: Logging and analyzing usage of the Azure Rights Management service
+  href: /information-protection/deploy-use/log-analyze-usage
+syntaxes:
+- Get-AadrmUsageLogFeature [<CommonParameters>]
+examples:
+- title: 'Example 1: Get usage log feature'
+  code: |-
+    PS C:\>Get-AadrmUsageLogFeature
+    False
+  description: |-
+    This command always returns False because this cmdlet is now deprecated.
+  summary: ""
+uid: AADRM.Get-AadrmUsageLogFeature
+name: Get-AadrmUsageLogFeature
+description: |-
+  This cmdlet is now deprecated.
+
+  This cmdlet always returns **False** after the usage logging change in February 2016. After this date, usage logging is enabled automatically and the only Windows PowerShell cmdlet that you need for Azure RMS usage logging is [Get-AadrmUserLog](./Get-AadrmUserLog.yml).
+
+  For more information about usage logging, see [Logging and analyzing usage of the Azure Rights Management service](/information-protection/deploy-use/log-analyze-usage).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400617
+  schema: 2.0.0
+  ms.assetid: C63B5A33-75B8-43A4-83E2-F6AF477A5BBF

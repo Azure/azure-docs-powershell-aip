@@ -1,0 +1,93 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Removes administrative rights from Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Add-AipServiceRoleBasedAdministrator
+  href: ./Add-AipServiceRoleBasedAdministrator.yml
+- text: Get-AipServiceRoleBasedAdministrator
+  href: ./Get-AipServiceRoleBasedAdministrator.yml
+syntaxes:
+- Remove-AipServiceRoleBasedAdministrator [-ObjectId <Guid>] [-Role <Role>] [<CommonParameters>]
+- >-
+  Remove-AipServiceRoleBasedAdministrator [-SecurityGroupDisplayName <String>] [-Role <Role>]
+
+   [<CommonParameters>]
+- Remove-AipServiceRoleBasedAdministrator [-EmailAddress <String>] [-Role <Role>] [<CommonParameters>]
+examples:
+- title: 'Example 1: Remove administrative rights by using a display name'
+  code: |-
+    PS C:\>Remove-AipServiceRoleBasedAdministrator -SecurityGroupDisplayName "Finance Employees"
+  description: |-
+    This command removes administrative rights from Azure Information Protection for the group that has a display name of "Finance Employees".
+  summary: ""
+- title: 'Example 2: Remove administrative rights by using an email address'
+  code: |-
+    PS C:\>Remove-AipServiceRoleBasedAdministrator -EmailAddress "EvanNarvaez@Contoso.com"
+  description: |-
+    This command removes administrative rights from Azure Information Protection for the user who has an email address of "EvanNarvaez@Contoso.com".
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: EmailAddress
+  description: |+
+    Specifies the email address of a user or group to remove administrative rights from Azure Information Protection. If the user has no email address, specify the user's Universal Principal Name.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="Guid" data-throw-if-not-resolved="False" />
+  name: ObjectId
+  description: |+
+    Specifies the GUID of a user or group to remove administrative rights from Azure Information Protection.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="Role" data-throw-if-not-resolved="False" />
+  name: Role
+  description: |+
+    Specifies a role. The cmdlet removes an administrator that belongs to the role that you specify.
+
+    The acceptable values for this parameter are:
+
+    - ConnectorAdministrator
+
+    - GlobalAdministrator
+
+    If you do not specify a role, the cmdlet removes the administrator from the GlobalAdministrator role.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: GlobalAdministrator, ConnectorAdministrator
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: SecurityGroupDisplayName
+  description: |+
+    Specifies the display name of a user or group that should no longer have administrative rights for Azure Information Protection.
+
+  defaultValue: None
+  pipelineInput: true
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AIPService.Remove-AipServiceRoleBasedAdministrator
+name: Remove-AipServiceRoleBasedAdministrator
+description: |-
+  The **Remove-AipServiceRoleBasedAdministrator** cmdlet removes administrative rights from Azure Information Protection, so that administrators you have previously delegated to configure the protection service can no longer do so by using PowerShell commands.
+
+  You must use PowerShell to configure delegated administrative control for the protection service from Azure Information Protection, you cannot do this configuration by using a management portal.
+
+  To see the full list of delegated administrators for the protection service, use [Get-AipServiceRoleBasedAdministrator](./Get-AipServiceRoleBasedAdministrator.yml). Run the **Remove-AipServiceRoleBasedAdministrator** cmdlet for each user or group that you want to remove from the list.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: C019DD8B-8C2C-487C-B730-38E50A170180
+  online version: https://go.microsoft.com/fwlink/?linkid=2045318
+  schema: 2.0.0

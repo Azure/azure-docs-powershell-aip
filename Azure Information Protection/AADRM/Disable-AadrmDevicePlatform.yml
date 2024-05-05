@@ -1,0 +1,116 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Disables Rights Management support for device platforms.
+module: AADRM
+notes: ""
+links:
+- text: Enable-AadrmDevicePlatform
+  href: ./Enable-AadrmDevicePlatform.yml
+- text: Get-AadrmDevicePlatform
+  href: ./Get-AadrmDevicePlatform.yml
+syntaxes:
+- Disable-AadrmDevicePlatform [-All] [<CommonParameters>]
+- >-
+  Disable-AadrmDevicePlatform [-Windows] [-WindowsStore] [-WindowsPhone] [-Mac] [-iOS] [-Android] [-Web]
+
+   [<CommonParameters>]
+examples:
+- title: 'Example 1: Disable Rights Management support for device platforms'
+  code: |-
+    PS C:\>Disable-AadrmDevicePlatform -WindowsPhone -WindowStore
+  description: |-
+    This command disables Rights Management support for Windows Phone and Windows Store device platforms.
+  summary: ""
+- title: 'Example 2: Disable Rights Management support for all device platforms'
+  code: |-
+    PS C:\>Disable-AadrmDevicePlatform -All
+  description: |-
+    This command disables Rights Management support for all device platforms.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: All
+  isRequired: true
+  description: |+
+    Indicates that the cmdlet specifies all device platforms. The cmdlet disables Rights Management support for all device platforms.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Android
+  description: |+
+    Indicates that the cmdlet specifies the Android device platform. The cmdlet disables Rights Management support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: iOS
+  description: |+
+    Indicates that the cmdlet specifies the iOS device platform. The cmdlet disables Rights Management support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Mac
+  description: |+
+    Indicates that the cmdlet specifies the Macintosh operating system device platform. The cmdlet disables Rights Management support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Web
+  description: |+
+    Indicates that the cmdlet specifies the web device platform. The cmdlet disables Rights Management support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Windows
+  description: |+
+    Indicates that the cmdlet specifies the Windows operating system device platform. The cmdlet disables Rights Management support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WindowsPhone
+  description: |+
+    Indicates that the cmdlet specifies the Windows Phone device platform. The cmdlet disables Rights Management support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WindowsStore
+  description: |+
+    Indicates that the cmdlet specifies the Windows Store device platform. The cmdlet disables Rights Management support for the specified device platform.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AADRM.Disable-AadrmDevicePlatform
+name: Disable-AadrmDevicePlatform
+description: |-
+  [!INCLUDE [AADRM is deprecated](../includes/aadrm-deprecated.md)]
+
+  The **Disable-AadrmDevicePlatform** cmdlet disables Azure Rights Management support for device platforms. For information about supported device platforms, see the [Enable-AadrmDevicePlatform](./Enable-AadrmDevicePlatform.yml) cmdlet.
+
+  You must use PowerShell to do this configuration; you cannot do this configuration by using a management portal.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400597
+  schema: 2.0.0
+  ms.assetid: 56F5DDA0-7EFE-4B9B-BE34-4052DC5968B2

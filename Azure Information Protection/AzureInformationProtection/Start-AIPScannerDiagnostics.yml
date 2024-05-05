@@ -1,0 +1,106 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  **Relevant for:** Unified labeling client only
+
+  Starts a series of health checks for a locally installed AIP scanner service.
+module: AzureInformationProtection
+notes: |-
+  - This cmdlet requires you to define a specific scanner account in the **-OnBehalfOf** parameter. The OnBehalfOf parameter requires you to run your PowerShell session as an Administrator.
+
+  - Diagnostic checks do check for scanner deployment prerequisites. This cmdlet is supported only after you have the scanner deployed and your [profile configured](/azure/information-protection/deploy-aip-scanner#install-the-scanner).
+
+      For more information, see [Deploying the Azure Information Protection scanner](/azure/information-protection/deploy-aip-scanner).
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-AIPScannerConfiguration
+  href: ./Get-AIPScannerConfiguration.yml
+- text: Get-AIPScannerStatus
+  href: ./Get-AIPScannerStatus.yml
+- text: Install-AIPScanner
+  href: ./Install-AIPScanner.yml
+- text: Set-AIPScanner
+  href: ./Set-AIPScanner.yml
+- text: Set-AIPScannerConfiguration
+  href: Set-AIPScannerConfiguration.yml
+- text: Start-AIPScan
+  href: ./Stop-AIPScan.yml
+- text: Uninstall-AIPScanner
+  href: ./Uninstall-AIPScanner.yml
+- text: Update-AIPScanner
+  href: Update-AIPScanner.yml
+syntaxes:
+- Start-AIPScannerDiagnostics [-OnBehalfOf <PSCredential>] [-ResetConfig] [-VerboseErrorCount <integer>] [<CommonParameters>]
+examples:
+- title: 'Example 1: Starts the diagnostic tool for a locally installed AIP scanner'
+  code: |-
+    PS C:\> $scanner_account_creds= Get-Credential
+    PS C:\> Start-AIPScannerDiagnostics -onbehalf $scanner_account_creds
+  description: |-
+    This example prompts you to enter credentials for a specific account, and then provide the credentials of the service account used to run the AIP scanner service.
+  summary: ""
+- title: 'Example 2: Starts the diagnostic tool with a large number of errors printed from the scanner log'
+  code: |-
+    PS C:\> $scanner_account_creds= Get-Credential
+    PS C:\> Start-AIPScannerDiagnostics -onbehalf $scanner_account_creds -Verbose -VerboseErrorCount 30
+  description: |-
+    This example prompts you to enter credentials for a specific account, and then provide the credentials of the service account used to run the AIP scanner service. The last 30 errors are printed from the scanner log.
+  summary: ""
+parameters:
+- type: <xref href="PSCredential" data-throw-if-not-resolved="False" />
+  name: OnBehalfOf
+  description: |+
+    Defines the scanner where you want to run the diagnostics, when you are running the command under a user that is not the scanner user.
+
+    The **OnBehalfOf** value defines the variable that holds a credentials object. The diagnostics checks are run on the AIP scanner for the account defined by that credentials object.
+
+    Use the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet to get the variable that stores your credentials.
+
+    > [!NOTE]
+    > If you are running the command under the scanner user, this parameter is not required. 
+    > 
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: ResetConfig
+  description: |+
+    Resets the policy cache. When used, the policy is refreshed even if the last refresh occurred less than four hours ago.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="Integer" data-throw-if-not-resolved="False" />
+  name: VerboseErrorCount
+  description: |+
+    Relevant only when the **Verbose** parameter is used in the command.
+
+    Defines the number of errors you want to see printed from the scanner log, if you want to print a number of errors other than the default of 10.
+
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Start-AIPScannerDiagnostics
+name: Start-AIPScannerDiagnostics
+description: |-
+  The **Start-AIPScannerDiagnostics** cmdlet triggers a series of diagnostic checks to verify that the scanner deployment is healthy.
+
+  Diagnostic checks include whether:
+
+  - The database is up-to-date and accessible
+  - URLs are accessible
+  - An authentication token is found and the policy can be acquired
+  - The profile is set in the Azure portal
+  - Offline/online configuration exists and can be acquired
+  - Rules are valid
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=2137317
+  schema: 2.0.0

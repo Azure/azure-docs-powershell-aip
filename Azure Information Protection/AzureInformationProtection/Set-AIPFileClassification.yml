@@ -1,0 +1,290 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Scans a file to automatically set an Azure Information Protection label for a file, according to conditions that are configured in the policy.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+  description: ""
+outputs:
+- name: <xref href="Microsoft.InformationProtection.Powershell.AIP.Results.SetAIPFileClassificationResult" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-AIPFileStatus
+  href: ./Get-AIPFileStatus.yml
+- text: Set-AIPAuthentication
+  href: ./Set-AIPAuthentication.yml
+- text: Set-AIPFileLabel
+  href: ./Set-AIPFileLabel.yml
+syntaxes:
+- >-
+  Set-AIPFileClassification [-JustificationMessage <String>] [-Force] [-PreserveFileDetails] [-Path] <String[]>
+
+   [<CommonParameters>]
+- >-
+  Set-AIPFileClassification [-JustificationMessage <String>] [-Force] [-WhatIf] [-DiscoveryInfoTypes <String[]>]
+
+   [-Path] <String[]> [<CommonParameters>]
+examples:
+- title: 'Example 1: Scan all files in a folder and any of its subfolders, and apply labels according to the configured conditions for automatic classification'
+  code: |-
+    PS C:\> Set-AIPFileClassification -Path C:\Projects\ -PreserveFileDetails
+
+
+    FileName      : C:\Projects\Project1.docx
+    Status        : Success
+    Comment       :
+    MainLabelName : Confidential
+    MainLabelId   : 074e257c-1234-1234-1234-34a182080e71
+    SubLabelName  : Finance group
+    SubLabelId    : d9f23ae3-1234-1234-1234-f515f824c57b
+
+    FileName      : C:\Projects\Datasheet.pdf
+    Status        : Skipped
+    Comment       : No label to apply
+    MainLabelName : 
+    MainLabelId   : 
+    SubLabelName  : 
+    SubLabelId    : 
+
+    FileName      : C:\Projects\Analysis.xlsx
+    Status        : Skipped
+    Comment       : No label to apply
+    MainLabelName : 
+    MainLabelId   : 
+    SubLabelName  : 
+    SubLabelId    : 
+
+    FileName      : C:\Projects\Pricelist.xlsx
+    Status        : Skipped
+    Comment       : No label to apply
+    MainLabelName : 
+    MainLabelId   : 
+    SubLabelName  : 
+    SubLabelId    : 
+
+    FileName      : C:\Projects\Dashboard.xlsx
+    Status        : Success
+    Comment       : 
+    MainLabelName : Public
+    MainLabelId   : f018e9e7-0cfc-4c69-b27a-ac3cb7df43cc
+    SubLabelName  : 
+    SubLabelId    :
+  description: |-
+    This command scans all files in the Projects folder and any of its subfolders, and sets labels according to the configured conditions in the auto labeling policy. In this example, there are five files and two files are automatically labeled. The **Datasheet.pdf** file is not labeled because its contents does not match the configured conditions for automatic classification **Analysis.xlsx** was already manually labeled, and **Pricelist.xlsx** has a higher label. Because the command is run without the *-Force* parameter, the existing labels for **Analysis.xlsx** and **Pricelist.xlsx** are not overwritten.
+
+    If the applied labels are also configured to apply Rights Management protection, the files that are successfully labeled with this command are also protected. In this case, the Rights Management owner (who has the Rights Management Full Control permission) of these files is the user who ran the PowerShell command.
+
+    Because the PreserveFileDetails parameter is specified, the Date Modified of the labeled files remains unchanged.
+  summary: ""
+- title: 'Example 2: Scan all files in a folder and any of its subfolders, and apply labels according to the configured conditions for automatic classification, overriding any existing labels'
+  code: |-
+    PS C:\> Set-AIPFileClassification -Path C:\Projects\ -Force -PreserveFileDetails
+
+
+    FileName      : C:\Projects\Project1.docx
+    Status        : Success
+    Comment       :
+    MainLabelName : Confidential
+    MainLabelId   : 074e257c-1234-1234-1234-34a182080e71
+    SubLabelName  : Finance group
+    SubLabelId    : d9f23ae3-1234-1234-1234-f515f824c57b
+
+    FileName      : C:\Projects\Datasheet.pdf
+    Status        : Skipped
+    Comment       : No label to apply
+    MainLabelName : 
+    MainLabelId   : 
+    SubLabelName  : 
+    SubLabelId    : 
+
+    FileName      : C:\Projects\Analysis.xlsx
+    Status        : Success
+    Comment       :
+    MainLabelName : Public
+    MainLabelId   : f018e9e7-0cfc-4c69-b27a-ac3cb7df43cc
+    SubLabelName  : 
+    SubLabelId    : 
+
+    FileName      : C:\Projects\Pricelist.xlsx
+    Status        : Success
+    Comment       :
+    MainLabelName : Public
+    MainLabelId   : f018e9e7-0cfc-4c69-b27a-ac3cb7df43cc
+    SubLabelName  : 
+    SubLabelId    : 
+
+    FileName      : C:\Projects\Dashboard.xlsx
+    Status        : Success
+    Comment       : 
+    MainLabelName : Public
+    MainLabelId   : f018e9e7-0cfc-4c69-b27a-ac3cb7df43cc
+    SubLabelName  : 
+    SubLabelId    :
+  description: |-
+    This command is similar to the previous example in that it also scans all files in the Projects folder and any of its subfolders, and sets labels according to the configured conditions for auto labeling. However, this time, because the command includes the *-Force* parameter, it also replaces the existing label for **Dashboard.xlsx**, and **Pricelist.xlsx**. 
+
+    The contents of **Datasheet.pdf** did not match any configured conditions and this file remains without a label.
+  summary: ""
+- title: 'Example 3: (Unified labeling client only) Scan a file in WhatIf mode for all known sensitive information types'
+  code: |-
+    PS C:\> Set-AIPFileClassification -Path C:\Projects\Project1.docx -WhatIf -DiscoveryInfoTypes All
+
+
+    MainLabelName           : General
+    MainLabelId             : 89a453df-5df4-4976-8191-jdn2fsf9560a
+    SubLabelName            :
+    SubLabelId              :
+    WhatIf                  : True
+    MatchedInformationTypes : {Credit Card Number, U.S. Social Security Number (SSN), International Classification of
+                              Diseases (ICD-10-CM), International Classification of Diseases (ICD-9-CM)}
+    LastModifiedBy          :
+    LastModifiedTime        : 8/19/2014 5:11:26 AM
+    FileName                : C:\Projects\Project1.docx
+    Status                  : Success
+    Comment                 :
+  description: |-
+    This command discovers all known information types in Project1.docx file without applying protection or a label.
+  summary: ""
+- title: 'Example 4: (Unified labeling client only) Scan a file in WhatIf mode for specific sensitive information types'
+  code: |-
+    PS C:\> Set-AIPFileClassification -Path C:\Projects\Project1.docx -WhatIf -DiscoveryInfoTypes "50842eb7-edc8-4019-85dd-5a5c1f2bb085","a44669fe-0d48-453d-a9b1-2cc83f2cba77"
+
+    MainLabelName           : General
+    MainLabelId             : 89a453df-5df4-4976-8191-jdn2fsf9560a
+    SubLabelName            :
+    SubLabelId              :
+    WhatIf                  : True
+    MatchedInformationTypes : {Credit Card Number, U.S. Social Security Number (SSN)}
+    LastModifiedBy          :
+    LastModifiedTime        : 8/19/2014 5:11:26 AM
+    FileName                : Project1.docx
+    Status                  : Success
+    Comment                 :
+  description: |-
+    This command discovers the specific information types of "Credit Card Number", and "Social Security Number (SSN)" in **Project1.docx** file without applying protection or a label.
+  summary: ""
+- title: 'Example 5: (Unified labeling client only) Scan a file in WhatIf mode for specific sensitive information types and display the values found'
+  code: "PS C:\\> $x=Set-AIPFileClassification -Path \"C:\\Projects\\Project1.docx\" -WhatIf -DiscoveryInfoTypes \"50842eb7-edc8-4019-85dd-5a5c1f2bb085\",\"a44669fe-0d48-453d-a9b1-2cc83f2cba77\"\r\nPS C:\\> $x.MatchedInformationTypes\r\n\r\nRulePackageSetId  : 00000000-0000-0000-0000-000000000000\r\nRulePackageId     : 00000000-0000-0000-0000-000000000000\r\nRuleId            : 50842eb7-edc8-4019-85dd-5a5c1f2bb085\r\nName              : Credit Card Number\r\nCount             : 1\r\nUniqueCount       : 1\r\nConfidence        : 85\r\nSensitiveContents : {Offset: 2089, Length: 19}\r\n \r\nRulePackageSetId  : 00000000-0000-0000-0000-000000000000\r\nRulePackageId     : 00000000-0000-0000-0000-000000000000\r\nRuleId            : a44669fe-0d48-453d-a9b1-2cc83f2cba77\r\nName              : U.S. Social Security Number (SSN)\r\nCount             : 1\r\nUniqueCount       : 1\r\nConfidence        : 85\r\nSensitiveContents : {Offset: 7063, Length: 11}\r\n\r\n\r\nPS C:\\> $x.MatchedInformationTypes[0].SensitiveContents | fl\r\n\r\nOffset  : 2089\r\nLength  : 19\r\nValue   : 4539-9572-7949-2212\r\nContext : OLOGICAL SCIENCES     Credit Card #\r\n          Expiration Date:      4539-9572-7949-2212\r\n          8/2009                Department:     BIOLOGICAL SCIENCES     Anticipa"
+  description: |-
+    Similar to the previous example, the first command discovers the specific information types of "Credit Card Number", and "Social Security Number (SSN)" in **Project1.docx** file without applying protection or a label. However, in this example, the results are stored in a variable for further processing.
+
+    The second command is then used to display the contents of the matched information types, which includes the SensitiveContents parameter.
+
+    The final command displays and formats for easier reading the data that's identified by the first sensitive information type, which in this example, is the credit card details.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+  name: DiscoveryInfoTypes
+  description: |+
+    Note: This parameter is supported only with the Azure Information Protection unified labeling client.
+
+    Specify the sensitive information types to be discovered when you use the *WhatIf* parameter.
+
+    If you want to search for specific sensitive information types, specify the **Entity id** number for that information type, which you can find listed in [Sensitive information types in Exchange Server](/Exchange/policy-and-compliance/data-loss-prevention/sensitive-information-types?view=exchserver-2019). 
+
+    For example, "50842eb7-edc8-4019-85dd-5a5c1f2bb085" is the number to specify for the Credit Card Number sensitive information type.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: All, "rule_id_1", "rule_id_2"
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Replaces an existing label when the configured conditions apply.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: JustificationMessage
+  description: |+
+    The justification reason for lowering the classification label, removing a label, or removing protection, if the Azure Information Protection policy requires users to supply this information.
+
+    If setting a label triggers the justification and this reason is not supplied, the label is not applied, even if the *-Force* parameter is set. In this case, the status returned is "Skipped" with the following comment: "No label to apply"
+
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+  name: Path
+  isRequired: true
+  description: |+
+    Specifies a local path, network path, or SharePoint Server URL to the files for which you want to get the label and protection information.
+
+    Wildcards are not supported and WebDav locations are not supported.
+
+    For SharePoint paths, the following are supported: 
+
+    - SharePoint Server 2019
+    - SharePoint Server 2016
+    - SharePoint Server 2013
+
+    For example:
+
+    - C:\Folder\
+    - C:\Folder\Filename
+    - \\\Server\Folder
+    - http://sharepoint.contoso.com/Shared%20Documents/Folder
+
+    Paths can include spaces when you enclose the path value with quotes.
+
+  defaultValue: None
+  pipelineInput: true
+  position: "0"
+  aliases: FullName, FileName
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: PreserveFileDetails
+  description: |+
+    Specify this parameter to leave the date unchanged for documents that you label.
+
+    For local or network files, the Last Modified date remains unchanged.
+
+    For SharePoint files, the Modified date and Modified By date remains unchanged.
+
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    **Relevant for:** Unified labeling client only
+
+    Shows what would happen if the cmdlet runs, and is the equivalent of the discovery mode for the scanner. Changes will not apply on input or output files.
+
+    Use this parameter with *DiscoveryInfoTypes* to look for all sensitive information types, or specific sensitive information types.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AzureInformationProtection.Set-AIPFileClassification
+name: Set-AIPFileClassification
+description: |-
+  The **Set-AIPFileClassification** cmdlet can automatically apply a label for one or more files when you configure labels for automatic classification. 
+
+  When this cmdlet is run, it inspects the file contents and if the configured conditions are met for a label, that label is applied. This action will automatically apply protection if the selected label applies protection. 
+
+  By default, if the file already has a label, the existing label or protection is not replaced.
+
+  When a file isn't labeled because it was manually labeled, there was no match for the conditions that you specified, or the file had a higher classification, the file is skipped with the single comment of "No label to apply".
+
+
+  For more information, see: [Apply a sensitivity label to content automatically](/Office365/SecurityCompliance/apply_sensitivity_label_automatically)
+
+  **Running the cmdlet non-interactively**
+
+  You can run this cmdlet non-interactively. For more information, see the [Unified labeling client admin guide](/information-protection/rms-client/clientv2-admin-guide-powershell#how-to-label-files-non-interactively-for-azure-information-protection).
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  ms.assetid: ed1080cd-ae6f-4720-bac7-e719e31c708b
+  online version: https://go.microsoft.com/fwlink/?linkid=845215
+  schema: 2.0.0

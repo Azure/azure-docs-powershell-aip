@@ -1,0 +1,72 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Sets a migration URL for Rights Management.
+module: AADRM
+notes: ""
+links:
+- text: Get-AadrmMigrationUrl
+  href: ./Get-AadrmMigrationUrl.yml
+- text: 'Microsoft-managed: Tenant key lifecycle operations'
+  href: /information-protection/deploy-use/operations-microsoft-managed-tenant-key
+syntaxes:
+- Set-AadrmMigrationUrl -Domain <String> [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
+examples:
+- title: 'Example 1: Set a migration URL'
+  code: |-
+    PS C:\>Set-AadrmMigrationUrl -Domain "aadrm.online.contoso.com"
+  description: |-
+    This command sets a migration URL for Rights Management.
+  summary: ""
+parameters:
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Confirm
+  description: |+
+    Prompts you for confirmation before running the cmdlet.
+
+  defaultValue: "False"
+  position: Named
+  aliases: cf
+  parameterValueGroup: ""
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: Domain
+  isRequired: true
+  description: |+
+    Specifies a URL for the domain to migrate.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: Force
+  description: |+
+    Indicates that the cmdlet sets the value of the migration URL even if there is an existing migration URL.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="SwitchParameter" data-throw-if-not-resolved="False" />
+  name: WhatIf
+  description: |+
+    Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+  defaultValue: "False"
+  position: Named
+  aliases: wi
+  parameterValueGroup: ""
+uid: AADRM.Set-AadrmMigrationUrl
+name: Set-AadrmMigrationUrl
+description: |-
+  Note: This cmdlet is not needed and is no longer supported.
+
+  The **Set-AadrmMigrationUrl** cmdlet sets a migration URL for Azure Rights Management.
+
+  You must use PowerShell to set the migration URL; you cannot do this action by using a management portal.
+
+  Setting a migration URL for newly protected content can help you to migrate from Azure Rights Management to a supported on-premises Rights Management server. Do not use this cmdlet in isolation but in conjunction with the instructions from [Decommissioning and deactivating protection for Azure Information Protection](/information-protection/deploy-use/decommission-deactivate).
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: http://go.microsoft.com/fwlink/?LinkId=400622
+  schema: 2.0.0
+  ms.assetid: ECE82C74-2902-475D-9DCE-6E9F3842024D

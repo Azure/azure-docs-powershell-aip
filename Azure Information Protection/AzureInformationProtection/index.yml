@@ -1,0 +1,71 @@
+### YamlMime:PowershellModule
+children:
+- title: AzureInformationProtection
+  cmdlets:
+  - AzureInformationProtection.Add-AIPScannerRepository
+  - AzureInformationProtection.Clear-AIPAuthentication
+  - AzureInformationProtection.Clear-RMSAuthentication
+  - AzureInformationProtection.Export-AIPLogs
+  - AzureInformationProtection.Get-AIPFileStatus
+  - AzureInformationProtection.Get-AIPScannerConfiguration
+  - AzureInformationProtection.Get-AIPScannerContentScanJob
+  - AzureInformationProtection.Get-AIPScannerRepository
+  - AzureInformationProtection.Get-AIPScannerStatus
+  - AzureInformationProtection.Get-MIPNetworkDiscoveryConfiguration
+  - AzureInformationProtection.Get-MIPNetworkDiscoveryJobs
+  - AzureInformationProtection.Get-MIPNetworkDiscoveryStatus
+  - AzureInformationProtection.Get-RMSFileStatus
+  - AzureInformationProtection.Get-RMSServer
+  - AzureInformationProtection.Get-RMSServerAuthentication
+  - AzureInformationProtection.Get-RMSTemplate
+  - AzureInformationProtection.Import-AIPScannerConfiguration
+  - AzureInformationProtection.Import-MIPNetworkDiscoveryConfiguration
+  - AzureInformationProtection.Install-AIPScanner
+  - AzureInformationProtection.Install-MIPNetworkDiscovery
+  - AzureInformationProtection.New-AIPCustomPermissions
+  - AzureInformationProtection.New-RMSProtectionLicense
+  - AzureInformationProtection.Protect-RMSFile
+  - AzureInformationProtection.Remove-AIPScannerContentScanJob
+  - AzureInformationProtection.Remove-AIPScannerRepository
+  - AzureInformationProtection.Set-AIPAuthentication
+  - AzureInformationProtection.Set-AIPFileClassification
+  - AzureInformationProtection.Set-AIPFileLabel
+  - AzureInformationProtection.Set-AIPScanner
+  - AzureInformationProtection.Set-AIPScannerConfiguration
+  - AzureInformationProtection.Set-AIPScannerContentScanJob
+  - AzureInformationProtection.Set-AIPScannerRepository
+  - AzureInformationProtection.Set-MIPNetworkDiscovery
+  - AzureInformationProtection.Set-MIPNetworkDiscoveryConfiguration
+  - AzureInformationProtection.Set-RMSServerAuthentication
+  - AzureInformationProtection.Start-AIPScan
+  - AzureInformationProtection.Start-AIPScannerDiagnostics
+  - AzureInformationProtection.Start-MIPNetworkDiscovery
+  - AzureInformationProtection.Stop-AIPScan
+  - AzureInformationProtection.Uninstall-AIPScanner
+  - AzureInformationProtection.Uninstall-MIPNetworkDiscovery
+  - AzureInformationProtection.Unprotect-RMSFile
+  - AzureInformationProtection.Update-AIPScanner
+uid: AzureInformationProtection
+name: AzureInformationProtection
+description: |-
+  The following lists links to documentation for the Microsoft Azure Information Protection (AIP) cmdlets.
+
+  - **Installation:** The AzureInformationProtection module is installed with the  Azure Information Protection unified labeling client.
+
+      To check the version you have installed, run: `(Get-Module AIPService -ListAvailable).Version` If this command or any cmdlet from this module fails to run, first run **Import-Module AIPService**.
+
+  - **.dll file:** The .dll file for this module is *AIP.dll*.
+
+  For more information, see:
+
+  - [AIP unified labeling client](/azure/information-protection/rms-client/aip-clientv2) 
+  - [Unified client version release history](/azure/information-protection/rms-client/unifiedlabelingclient-version-release-history)
+  - [Using PowerShell with the AIP unified labeling client](/azure/information-protection/rms-client/clientv2-admin-guide-powershell) 
+
+  Check the version that you have installed by running the following command: `(Get-Module AzureInformationProtection -ListAvailable).Version`.
+metadata:
+  Module Name: AzureInformationProtection
+  Module Guid: NA
+  Download Help Link: NA
+  Help Version: NA
+  Locale: en-US

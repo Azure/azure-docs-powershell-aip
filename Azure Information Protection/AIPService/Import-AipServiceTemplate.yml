@@ -1,0 +1,62 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Creates a custom protection template for Azure Information Protection.
+module: AIPService
+notes: ""
+links:
+- text: Add-AipServiceTemplate
+  href: ./Add-AipServiceTemplate.yml
+- text: Export-AipServiceTemplate
+  href: ./Export-AipServiceTemplate.yml
+- text: Get-AipServiceTemplate
+  href: ./Get-AipServiceTemplate.yml
+- text: Remove-AipServiceTemplate
+  href: ./Remove-AipServiceTemplate.yml
+syntaxes:
+- Import-AipServiceTemplate -Path <String> [<CommonParameters>]
+examples:
+- title: 'Example 1: Import a template file'
+  code: |-
+    PS C:\>Import-AipServiceTemplate -Path "C:\MyTemplates\MyFile.xml"
+  description: |-
+    This command imports a template file.
+  summary: ""
+parameters:
+- type: <xref href="String" data-throw-if-not-resolved="False" />
+  name: Path
+  isRequired: true
+  description: |+
+    Specifies the path to the template file to import.
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: ""
+uid: AIPService.Import-AipServiceTemplate
+name: Import-AipServiceTemplate
+description: |-
+  The **Import-AipServiceTemplate** cmdlet creates a custom protection template for Azure Information Protection and sets its properties according to data contained in a template file.
+
+  Although you can configure protection templates in the Azure portal, you must use PowerShell to export and import these templates.
+
+  The file you import must be a valid protection template file that has been exported from Azure Information Protection or AD RMS. The file can have any file name extension.
+
+  If you import a template file identified by a GUID that matches the GUID of an existing template for the tenant, the original template is overwritten without warning. During the import operation, the GUID for the new template is set to the GUID in the input file, so the new template is valid to consume content protected with the imported template as long as Azure Information Protection has the necessary decryption keys.
+
+  If the name of the template in the import file matches the name of an existing template for the tenant in any language, you will have two templates with the same name.
+
+  You can store a maximum of 500 custom templates (published or archived) in Azure. If you can't import templates because you have reached this limit as a result of keeping many archived templates, consider exporting them to save the information locally and then removing these templates from Azure Information Protection.
+
+  For more information about protection templates, see [Configuring and managing templates for Azure Information Protection](/information-protection/deploy-use/configure-policy-templates).
+
+  **Using the Azure Information Protection unified labeling client?**
+
+  The Azure Information Protection unified labeling client uses protection templates indirectly. If you have the unified labeling client, we recommend that you use label-based cmdlets instead of modifying your protection templates directly.
+
+  For more information, see [Create and publish sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels) in the Microsoft 365 documentation.
+metadata:
+  external help file: AipService.dll-Help.xml
+  Module Name: AIPService
+  ms.assetid: 86B51085-E23E-4A2E-A512-9098C908F3AD
+  online version: https://go.microsoft.com/fwlink/?linkid=2045508
+  schema: 2.0.0

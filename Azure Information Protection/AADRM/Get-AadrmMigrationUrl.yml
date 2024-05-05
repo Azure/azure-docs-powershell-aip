@@ -1,0 +1,30 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Gets the migration URL for Rights Management.
+module: AADRM
+notes: ""
+links:
+- text: Set-AadrmMigrationUrl
+  href: ./Set-AadrmMigrationUrl.yml
+syntaxes:
+- Get-AadrmMigrationUrl [<CommonParameters>]
+examples:
+- title: 'Example 1: Get the migration URL'
+  code: |-
+    PS C:\>Get-AadrmMigrationUrl
+  description: |-
+    This command gets the migration URL for Rights Management.
+  summary: ""
+uid: AADRM.Get-AadrmMigrationUrl
+name: Get-AadrmMigrationUrl
+description: |-
+  Note: This cmdlet is not needed and is no longer supported.
+
+  The **Get-AadrmMigrationUrl** cmdlet gets the migration URL for Azure Rights Management.
+
+  You must use PowerShell to get this information; you cannot get the migration URL by using a management portal.
+metadata:
+  external help file: Microsoft.RightsManagementServices.Online.Admin.PowerShell.dll-Help.xml
+  online version: https://go.microsoft.com/fwlink/?LinkId=400612
+  schema: 2.0.0
+  ms.assetid: 46D00FBB-EB69-463B-BFE2-CC754BF71FA4

@@ -1,0 +1,86 @@
+### YamlMime:PowershellCmdlet
+summary: |-
+  Sets optional configuration for the Azure Information Protection scanner.
+module: AzureInformationProtection
+notes: ""
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: ""
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+  description: ""
+links:
+- text: Get-AIPScannerConfiguration
+  href: ./Get-AIPScannerConfiguration.yml
+- text: Get-AIPScannerStatus
+  href: ./Get-AIPScannerStatus.yml
+- text: Install-AIPScanner
+  href: ./Install-AIPScanner.yml
+- text: Set-AIPScanner
+  href: ./Set-AIPScanner.yml
+- text: Start-AIPScan
+  href: ./Start-AIPScan.yml
+- text: Uninstall-AIPScanner
+  href: ./Uninstall-AIPScanner.yml
+- text: Update-AIPScanner
+  href: ./Update-AIPScanner.yml
+syntaxes:
+- Set-AIPScannerConfiguration [-ReportLevel <ReportLevel>] [-OnlineConfiguration <OnlineConfiguration>] [<CommonParameters>]
+examples:
+- title: 'Example 1: Set the Azure Information Protection scanner to use online configuration'
+  code: |-
+    PS C:\> Set-AIPScannerConfiguration -OnlineConfiguration On
+
+    Configuration was set successfully.
+  description: |-
+    This command sets the scanner to get its configuration directly from the Azure Information Protection service.
+  summary: ""
+parameters:
+- type: <xref href="OnlineConfiguration" data-throw-if-not-resolved="False" />
+  name: OnlineConfiguration
+  description: |+
+    Specifies whether the scanner gets its configuration settings directly from the Azure Information Protection service (the default), or uses an offline configuration file.
+
+    - **On:** The default setting. The scanner gets its configuration settings directly from the Azure Information Protection service.
+
+    - **Off:** The scanner is prevented from getting its configuration settings directly from the Azure Information Protection service. Instead, the scanner is configured by settings that you import from a file. 
+
+    If the scanner cannot support online configuration, you must still configure the scanner in the Azure portal. Then, export the scanner configuration from the portal to a .json file and import this file by using the [Import-AIPScannerConfiguration](./Import-AIPScannerConfiguration.yml) cmdlet.
+
+  position: named
+  aliases: ""
+  parameterValueGroup: ""
+- type: <xref href="ReportLevel" data-throw-if-not-resolved="False" />
+  name: ReportLevel
+  description: |+
+    Define the level of logging for the scanner reports. By default, only files that are successfully labeled by the scanner or contain sensitive information types are included in the log file.
+
+    Log files are stored in the **%localappdata%\Microsoft\MSIP\Scanner\Reports** folder. A summary report **(.txt)** includes the time taken to scan, the number of scanned files, and statistics of how many files were classified and protected. Detailed reports **(.csv)** has details for each file. The folder stores up to 60 reports for each scanning cycle and all but the latest report is compressed to help minimize the required disk space.
+
+    |Log level |Description  |
+    |---------|---------|
+    |**Debug**     | Logs every file that was discovered and the resulting action. This level of logging is useful for troubleshooting but slows down the Azure Information Protection scanner. This category includes files that don't meet any of the conditions and files that are skipped because of an unsupported file type. </br></br>For example, trying to label a file for classification-only when the file type doesn't support this action, and trying to label files that are automatically excluded. </br></br>For more information, see [Unified labeling client admin guide](/information-protection/rms-client/clientv2-admin-guide-file-types).  |
+    |**Info**   (Default)  | Logs only the files that:<br>- Were successfully labeled by the scanner<br>- Would have been labeled by the scanner, if the scanner was not in discovery mode<br>- Contain sensitive information types      |
+    |**Error**     |  Logs only the files that the scanner attempted to label or identify but could not. For example, a file was in use, or the scanner service did not have write access to the file.       |
+    |**Off**     |  Disables reporting, which results in the best performance for the scanner.       |
+
+    The local Windows **Applications and Services** event log, **Azure Information Protection** contains additional logging information. The events include the start and end times for each scanning cycle, when a scanned file has a label applied, and when protection is applied or removed. For more information, see [Event log IDs and descriptions for the scanner](/information-protection/deploy-aip-scanner#event-log-ids-and-descriptions-for-the-scanner).
+
+
+  defaultValue: None
+  position: Named
+  aliases: ""
+  parameterValueGroup: Off, Debug, Info, Error
+uid: AzureInformationProtection.Set-AIPScannerConfiguration
+name: Set-AIPScannerConfiguration
+description: |-
+  The **Set-AIPScannerConfiguration** cmdlet sets local configuration settings for the Azure Information Protection scanner. 
+
+  You configure most of the scanner configuration settings in the Azure portal, but must use this cmdlet if you need to import configuration settings from a file because the scanner cannot support online configuration, or if you need to change the report level for the locally created reports.
+
+  Any changes will be used the next time the scanner runs. If you need the changes to take effect immediately, restart the Azure Information Protection Scanner service on the Windows server computer.
+metadata:
+  external help file: AIP.dll-Help.xml
+  Module Name: AzureInformationProtection
+  online version: https://go.microsoft.com/fwlink/?linkid=858205
+  schema: 2.0.0

@@ -1,0 +1,85 @@
+### YamlMime:PowershellModule
+children:
+- title: AIPService
+  cmdlets:
+  - AIPService.Add-AipServiceRoleBasedAdministrator
+  - AIPService.Add-AipServiceSuperUser
+  - AIPService.Add-AipServiceTemplate
+  - AIPService.Clear-AipServiceDocumentRevoked
+  - AIPService.Clear-AipServiceDoNotTrackUserGroup
+  - AIPService.Clear-AipServiceSuperUserGroup
+  - AIPService.Connect-AipService
+  - AIPService.Convert-AipServiceKeyToKeyVault
+  - AIPService.Disable-AipService
+  - AIPService.Disable-AipServiceDevicePlatform
+  - AIPService.Disable-AipServiceDocumentTrackingFeature
+  - AIPService.Disable-AipServiceIPCv3
+  - AIPService.Disable-AipServiceSuperUserFeature
+  - AIPService.Disconnect-AipService
+  - AIPService.Enable-AipService
+  - AIPService.Enable-AipServiceDevicePlatform
+  - AIPService.Enable-AipServiceDocumentTrackingFeature
+  - AIPService.Enable-AipServiceIPCv3
+  - AIPService.Enable-AipServiceSuperUserFeature
+  - AIPService.Export-AipServiceTemplate
+  - AIPService.Get-AipService
+  - AIPService.Get-AipServiceAdminLog
+  - AIPService.Get-AipServiceConfiguration
+  - AIPService.Get-AipServiceDevicePlatform
+  - AIPService.Get-AipServiceDocumentLog
+  - AIPService.Get-AipServiceDocumentTrackingFeature
+  - AIPService.Get-AipServiceDoNotTrackUserGroup
+  - AIPService.Get-AipServiceIPCv3
+  - AIPService.Get-AipServiceKeys
+  - AIPService.Get-AipServiceMaxUseLicenseValidityTime
+  - AIPService.Get-AipServiceMigrationUrl
+  - AIPService.Get-AipServiceOnboardingControlPolicy
+  - AIPService.Get-AipServiceRoleBasedAdministrator
+  - AIPService.Get-AipServiceSuperUser
+  - AIPService.Get-AipServiceSuperUserFeature
+  - AIPService.Get-AipServiceSuperUserGroup
+  - AIPService.Get-AipServiceTemplate
+  - AIPService.Get-AipServiceTemplateProperty
+  - AIPService.Get-AipServiceTrackingLog
+  - AIPService.Get-AipServiceUserLog
+  - AIPService.Import-AipServiceTemplate
+  - AIPService.Import-AipServiceTpd
+  - AIPService.New-AipServiceRightsDefinition
+  - AIPService.Remove-AipServiceRoleBasedAdministrator
+  - AIPService.Remove-AipServiceSuperUser
+  - AIPService.Remove-AipServiceTemplate
+  - AIPService.Set-AipServiceDocumentRevoked
+  - AIPService.Set-AipServiceDoNotTrackUserGroup
+  - AIPService.Set-AipServiceKeyProperties
+  - AIPService.Set-AipServiceMaxUseLicenseValidityTime
+  - AIPService.Set-AipServiceMigrationUrl
+  - AIPService.Set-AipServiceOnboardingControlPolicy
+  - AIPService.Set-AipServiceSuperUserGroup
+  - AIPService.Set-AipServiceTemplateProperty
+  - AIPService.Use-AipServiceKeyVaultKey
+uid: AIPService
+name: AIPService
+description: |-
+  This page displays help links for the cmdlets that administer the protection service from Azure Information Protection. 
+
+  > [!NOTE]
+  > This module replaces the older module, **AADRM**. Support for the AADRM module ended on July 15, 2020.
+  > Update to the latest version to ensure that your AIPService module is compliant with upcoming TLS 1.2 enforcement.
+
+  These PowerShell cmdlets let you administer Azure Information Protection from the command line. Although this administration method enables automation, it also supports reliable and repeated processes to help reduce administrative overheads. In addition, advanced configurations and some operations require this PowerShell module.
+
+  For more information about when you must use PowerShell cmdlets and to see groupings of cmdlets by administration tasks, see [Administering the protection service from Azure Information Protection by using PowerShell](/information-protection/deploy-use/administer-powershell).
+
+  - **Current version:** The current version of this module is **2.0.0.2**. 
+
+      To check the version you have installed, run: `(Get-Module AIPService -ListAvailable).Version` If this command or any cmdlet from this module fails to run, first run **Import-Module AIPService**.
+
+  - **.dll file:** The .dll file for this module is *AIPService.dll*.
+
+  - **Prerequisites**: For a list of prerequisites for installing this module, see [Installing the AIPService PowerShell module](/azure/information-protection/install-powershell).
+metadata:
+  Module Name: AIPService
+  Module Guid: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+  Download Help Link: N/A
+  Help Version: 1.0.0.2
+  Locale: en-US
