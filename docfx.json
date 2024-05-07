@@ -59,6 +59,7 @@
     },
     "globalMetadata": {
       "showPowerShellPicker": "true",
+      "hideEdit": true,
       "apiPlatform": "powershell",
       "brand": "azure",
       "uhfHeaderId": "Azure",
