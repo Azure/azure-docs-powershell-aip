@@ -14,7 +14,7 @@ Instructs the Microsoft Purview Information Protection scanner to start a one-ti
 
 ## SYNTAX
 
-```
+```powershell
 Start-Scan [-Reset] [-Force] [<CommonParameters>]
 ```
 
@@ -27,7 +27,7 @@ By default, all files are scanned the first time the scanner runs and then, unle
   
 > [!NOTE]
 > If the scanner schedule is set to **Always**, this cmdlet is ignored.
-> 
+>
 ## EXAMPLES
 
 ### Example 1: Initiate immediate one-time scan for new and changed files

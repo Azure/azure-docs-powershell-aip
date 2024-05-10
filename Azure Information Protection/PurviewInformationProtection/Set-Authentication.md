@@ -12,7 +12,7 @@ schema: 1.0.0
 Sets the authentication credentials for the Microsoft Purview Information Protection client.
 
 ## SYNTAX
-```
+```powershell
 Set-Authentication [-AppId <Guid>] [-AppSecret <String>] [-TenantId <String>] [-DelegatedUser <String>] [-OnBehalfOf <PSCredential>] [<CommonParameters>]
 ```
 
@@ -27,7 +27,7 @@ For example:
 
 **Running with or without parameters**
 
-If you run this cmdlet without parameters, the account acquires an Azure AD access token that is valid for 90 days or until your password expires. 
+If you run this cmdlet without parameters, the account acquires an Azure AD access token that is valid for 90 days or until your password expires.
 
 To control when the access token expires, run this cmdlet with parameters. This lets you configure the access token for 1 year, 2 years, or to never expire. This configuration requires you to have one or more applications registered in Azure Active Directory.   
 

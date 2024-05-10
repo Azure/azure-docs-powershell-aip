@@ -182,11 +182,11 @@ To run Purview Information Protection labeling cmdlets unattended, use the follo
     |**Decrypting content**     |    If this account needs to decrypt content, for example, to reprotect files and inspect files that others have protected, make it a super user for Information Protection and make sure the super user feature is enabled.     |
     |**Onboarding controls**     |    If you have implemented onboarding controls for a phased deployment, make sure that this account is included in your onboarding controls you've configured.     |
 
-- **a Microsoft Entra access token**, which sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token. 
+- **a Microsoft Entra access token**, which sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
 
     The parameters for **Set-Authentication** use values from an app registration process in Microsoft Entra ID. For more information, see [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-azure-ad-applications-for-set-authentication).
 
-Run the labeling cmdlets non-interactively by first running the [Set-Authentication](Set-Authentication.md) cmdlet.
+Run the labeling cmdlets non-interactively by first running the [Set-Authentication](../PurviewInformationProtection/Set-Authentication.md) cmdlet.
 
 The computer running the **Authentication** cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview compliance portal.
 
@@ -260,7 +260,7 @@ The **Set-Authentication** cmdlet requires an app registration for the *AppId* a
 
 1. Back on the **AIP-DelegatedUser - API permissions** pane, select **Grant admin consent for _your tenant_** and select **Yes** for the confirmation prompt.
 
-After this step, the registration of this app with a secret completes. You're ready to run [Set-Authentication](Set-Authentication.md) with the parameters *AppId*, and *AppSecret*. Additionally, you need your tenant ID.
+After this step, the registration of this app with a secret completes. You're ready to run [Set-Authentication](../PurviewInformationProtection/Set-Authentication.md) with the parameters *AppId*, and *AppSecret*. Additionally, you need your tenant ID.
 
 > [!TIP]
 >You can quickly copy your tenant ID by using Azure portal: **Microsoft Entra ID** > **Manage** > **Properties** > **Directory ID**.
