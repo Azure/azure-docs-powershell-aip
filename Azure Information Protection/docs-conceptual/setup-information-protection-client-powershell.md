@@ -23,10 +23,10 @@ The Microsoft Purview Information Protection module is installed with the inform
 
 The PurviewInformationProtection module enables you to manage the client by running commands for automation scripts; for example:
 
-- [Install-Scanner](Install-Scanner.md): Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
-- [Get-FileStatus](Get-FileStatus.md): Gets the Information Protection label and protection information for a specified file or files.
-- [Start-Scan](Start-Scan.md): Instructs the information protection scanner to start a one-time scan cycle.
-- [Set-FileLabel -Autolabel](Set-FileLabel.md): Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
+- [Install-Scanner](../PurviewInformationProtection/Install-Scanner.md): Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
+- [Get-FileStatus](../PurviewInformationProtection/Get-FileStatus.md): Gets the Information Protection label and protection information for a specified file or files.
+- [Start-Scan](../PurviewInformationProtection/Start-Scan.md): Instructs the information protection scanner to start a one-time scan cycle.
+- [Set-FileLabel -Autolabel](../PurviewInformationProtection/Set-FileLabel.md): Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
 
 ### Install the PurviewInformationProtection PowerShell module
 
@@ -46,17 +46,17 @@ The module is installed in the **\ProgramFiles (x86)\PurviewInformationProtectio
 > [!IMPORTANT]
 > The PurviewInformationProtection module doesn't support configuring advanced settings for labels or label policies.
 
-To use cmdlets with path lengths greater than 260 characters, use the following [group policy setting](https://learn.microsoft.com/archive/blogs/jeremykuhne/net-4-6-2-and-long-paths-on-windows-10) that is available starting with Windows 10, version 1607:
+To use cmdlets with path lengths greater than 260 characters, use the following [group policy setting](/archive/blogs/jeremykuhne/net-4-6-2-and-long-paths-on-windows-10) that is available starting with Windows 10, version 1607:
 
 **Local Computer Policy** > **Computer Configuration** > **Administrative Templates** > **All Settings** > **Enable Win32 long paths**
 
 For Windows Server 2016, you can use the same group policy setting when you install the latest Administrative Templates (.admx) for Windows 10.
 
-For more information, see the [Maximum Path Length Limitation](https://learn.microsoft.com/windows/desktop/FileIO/naming-a-file#maximum-path-length-limitation) section from the Windows 10 developer documentation.
+For more information, see the [Maximum Path Length Limitation](/windows/desktop/FileIO/naming-a-file#maximum-path-length-limitation) section from the Windows 10 developer documentation.
 
 ### Prerequisites for using the PurviewInformationProtection PowerShell module
 
-In addition to the prerequisites for installing the PurviewInformationProtection module, you must also activate the [Azure Rights Management service](https://learn.microsoft.com/azure/information-protection/what-is-azure-rms).
+In addition to the prerequisites for installing the PurviewInformationProtection module, you must also activate the [Azure Rights Management service](/azure/information-protection/what-is-azure-rms).
 
 In some cases, you may want to remove protection from files for others using your own account. For example, you may want to remove protection for others for the sake of data discovery or recovery. If you are using labels to apply protection, you can remove that protection by setting a new label that doesn't apply protection, or you can remove the label.
 
@@ -90,7 +90,7 @@ For the delegated user account, configure the following requirements:
 
 - **A Microsoft Entra access token** that sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
 
-The parameters for [Set-Authentication](Set-Authentication.md) use values from an app registration process in Microsoft Entra ID.
+The parameters for [Set-Authentication](../PurviewInformationProtection/Set-Authentication.md) use values from an app registration process in Microsoft Entra ID.
 
 Run the labeling cmdlets non-interactively by first running the `Set-Authentication` cmdlet. The computer running the cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview portal.
 
