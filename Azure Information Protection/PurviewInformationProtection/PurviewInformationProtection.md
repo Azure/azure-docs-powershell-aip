@@ -41,7 +41,7 @@ The module is installed in the **\ProgramFiles (x86)\PurviewInformationProtectio
 > [!IMPORTANT]
 > The PurviewInformationProtection module doesn't support configuring advanced settings for labels or label policies.
 
-To use cmdlets with path lengths greater than 260 characters, use the following [group policy setting](https://learn.microsoft.com/archive/blogs/jeremykuhne/net-4-6-2-and-long-paths-on-windows-10) that is available starting Windows 10, version 1607:
+To use cmdlets with path lengths greater than 260 characters, use the following [group policy setting](https://learn.microsoft.com/archive/blogs/jeremykuhne/net-4-6-2-and-long-paths-on-windows-10) that is available starting with Windows 10, version 1607:
 
 **Local Computer Policy** > **Computer Configuration** > **Administrative Templates** > **All Settings** > **Enable Win32 long paths**
 

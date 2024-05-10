@@ -1,18 +1,18 @@
 ---
-title: Overview of PowerShell for Azure Information Protection| Microsoft Docs
-description: An introduction to the PowerShell modules that you can use with Azure Information Protection.
+title: Set up Microsoft Purview Information Protection client using PowerShell | Microsoft Docs
+description: Describes installing and configuring the Microsoft Purview Information Protection client.
 services: azure
-author: batamig
-manager: rkarlin
+author: kccross
+manager: laurawi
 ms.product: information-protection
 ms.service: information-protection
 ms.devlang: powershell
 ms.topic: reference
-ms.date: 10/14/2020
-ms.author: bagol
+ms.date: 05/10/2024
+ms.author: krowley
 ---
 
-# Azure Information Protection
+# Microsoft Purview Information Protection client
 
 Use the following PowerShell modules with Azure Information Protection: 
 
