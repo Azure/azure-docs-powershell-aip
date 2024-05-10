@@ -38,12 +38,11 @@ After you have run this command, use the Microsoft Purview compliance portal to 
 
 For step-by-step instructions to install, configure, and use the scanner, see [Learn about the information protection scanner](/information-protection/deploy-aip-scanner).
 
-
 ## EXAMPLES
 
 ### Example 1: Install the Microsoft Purview Information Protection Scanner service by using a SQL Server instance and a cluster
 ```
-PS C:\> Install-Scanner -SqlServerInstance SQLSERVER1\AIPSCANNER -Cluster EU
+PS C:\> Install-Scanner -SqlServerInstance SQLSERVER1\MIPSCANNER -Cluster EU
 ```
 
 This command installs the Microsoft Purview Information Protection Scanner service by using a SQL Server instance named **MIPSCANNER**, which runs on the server named **SQLSERVER1**. 

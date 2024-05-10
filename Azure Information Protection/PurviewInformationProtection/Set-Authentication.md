@@ -17,35 +17,35 @@ Set-Authentication [-AppId <Guid>] [-AppSecret <String>] [-TenantId <String>] [-
 ```
 
 ## DESCRIPTION
-The **Set-Authentication** cmdlet sets credentials by using an access token so that you can sign in as a different user and also use the labeling cmdlets non-interactively. 
+The **Set-Authentication** cmdlet sets credentials by using an access token so that you can sign in as a different user and also use the labeling cmdlets non-interactively.
 
 For example:
 
-- You want to use the Microsoft Purview Information Protection scanner to continually discover and automatically label and protect files in multiple data stores. 
-- You want to run a scheduled PowerShell script that automatically labels and protects files on a file server by using the [Set-FileLabel](Set-FileLabel.md) cmdlet. 
-- You have a data loss prevention (DLP) solution that that you want to augment by automatically labeling and protecting files that this solution identifies. 
+- You want to use the Microsoft Purview Information Protection scanner to continually discover and automatically label and protect files in multiple data stores.
+- You want to run a scheduled PowerShell script that automatically labels and protects files on a file server by using the [Set-FileLabel](Set-FileLabel.md) cmdlet.
+- You have a data loss prevention (DLP) solution that that you want to augment by automatically labeling and protecting files that this solution identifies.
 
 **Running with or without parameters**
 
-If you run this cmdlet without parameters, the account acquires an Azure AD access token that is valid for 90 days or until your password expires.
+If you run this cmdlet without parameters, the account acquires a Microsoft Entra access token that is valid for 90 days or until your password expires.
 
-To control when the access token expires, run this cmdlet with parameters. This lets you configure the access token for 1 year, 2 years, or to never expire. This configuration requires you to have one or more applications registered in Azure Active Directory.   
+To control when the access token expires, run this cmdlet with parameters. This lets you configure the access token for 1 year, 2 years, or to never expire. This configuration requires you to have one or more applications registered in Microsoft Entra.
 
 The Microsoft Purview Information Protection client supports the *OnBehalfOf* parameter, which accepts a stored variable that contains your specified Windows user name and password.
 
-Use the *DelegatedUser* parameter to specify a user account in Azure Active Directory that is assigned one or more label policies from your labeling management center.
+Use the *DelegatedUser* parameter to specify a user account in Microsoft Entra that is assigned one or more label policies from your labeling management center.
 
 ## EXAMPLES
 
-### Example 1: Set the authentication credentials without using applications that are registered in Azure Active Directory
+### Example 1: Set the authentication credentials without using applications that are registered in Microsoft Entra
 ```
 PS C:\> Set-Authentication 
 Acquired access token
 ```
 
-This command prompts you for your Azure AD credentials that are used to acquire an access token that is valid for 90 days or until your password expires.
+This command prompts you for your Microsoft Entra credentials that are used to acquire an access token that is valid for 90 days or until your password expires.
 
-### Example 2: Set the authentication credentials by using an application that is registered in Azure Active Directory
+### Example 2: Set the authentication credentials by using an application that is registered in Microsoft Entra
 
 ```
 PS C:\>$pscreds = Get-Credential CONTOSO\scanner
@@ -57,22 +57,19 @@ Run the commands in this PowerShell session with the **Run as Administrator** op
 
 The first command creates a **PSCredential** object and stores the specified Windows user name and password in the **$pscreds** variable. When you run this command, you are prompted for the password for the user name that you specified.
 
-The second command acquires an access token that is combined with the application so that the token becomes valid for 1 year, 2 years, or never expires, according to your configuration of the registered app in Azure AD. The user name of scanner@contoso.com sets the user context to download labels and label policies from the Microsoft Purview compliance portal. 
-
+The second command acquires an access token that is combined with the application so that the token becomes valid for 1 year, 2 years, or never expires, according to your configuration of the registered app in Microsoft Entra . The user name of scanner@contoso.com sets the user context to download labels and label policies from the Microsoft Purview portal or the Microsoft Purview compliance portal.
 
 ## PARAMETERS
-
-
 
 ### -DelegatedUser
 
 Specifies the user account credentials to use when downloading label policies with sensitivity labels from your labeling management center.
 
-- The credentials used must be an Azure Active Directory account that can be used to get the policy and online configuration. 
+- The credentials used must be a Microsoft Entra account that can be used to get the policy and online configuration. 
 
-    - It can be the same account that is used for the **ServiceUserCredentials** if this account is synched to Azure Active Directory, or a different account. 
+  - It can be the same account that is used for the **ServiceUserCredentials** if this account is synched to Microsoft Entra, or a different account.
 
-    - If this account needs to reprotect files, remove protection from files, or inspect protected files, make it a [super user](/azure/information-protection/configure-super-users) for Microsoft Purview Information Protection.
+  - If this account needs to reprotect files, remove protection from files, or inspect protected files, make it a [super user](/azure/information-protection/configure-super-users) for Microsoft Purview Information Protection.
 
 - Set the value of this parameter using the UPN. For example: `scannerservice@contoso.com`
 
@@ -116,7 +113,7 @@ Accept wildcard characters: False
 
 ### -AppId
 
-Specifies the "Application (client) ID" for app registered in Azure AD.
+Specifies the "Application (client) ID" for app registered in Microsoft Entra.
 
 ```yaml
 Type: Guid
@@ -132,7 +129,7 @@ Accept wildcard characters: False
 
 ### -AppSecret
 
-Specifies the client secret value generated at the time your app was registered in Azure AD.
+Specifies the client secret value generated at the time your app was registered in Microsoft Entra.
 
 
 ```yaml
@@ -149,7 +146,7 @@ Accept wildcard characters: False
 
 ### -TenantId
 
-Specifies the tenant GUID that contains your registered app in Azure AD.
+Specifies the tenant GUID that contains your registered app in Microsoft Entra.
 
 ```yaml
 Type: String

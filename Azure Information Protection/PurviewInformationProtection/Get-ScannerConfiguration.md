@@ -18,7 +18,7 @@ Get-ScannerConfiguration [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The **Get-ScannerConfiguration** cmdlet gets the configuration settings for the Microsoft Purview Information Protectionscanner. 
+The **Get-ScannerConfiguration** cmdlet gets the configuration settings for the Microsoft Purview Information Protection scanner.
 
 If you run [Import-ScannerConfiguration](./Import-ScannerConfiguration.md), this action automatically configures the scanner to get its configuration offline. As a result, when you run this Get-ScannerConfiguration cmdlet after importing settings from a file, **OnlineConfiguration** displays **Off**. 
 

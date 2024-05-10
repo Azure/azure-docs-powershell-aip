@@ -13,7 +13,7 @@ Updates the database schema for the Microsoft Purview Information Protection sca
 
 ## SYNTAX
 
-```
+```powershell
 Update-ScannerDatabase [-Cluster | -Profile <String>] [-Force] [<CommonParameters>]
 ```
 
@@ -21,16 +21,15 @@ Update-ScannerDatabase [-Cluster | -Profile <String>] [-Force] [<CommonParameter
 The **Update-ScannerDatabase** cmdlet updates the database schema for the Microsoft Purview Information Protection scanner and if required, the scanner service account is also granted delete permissions for the scanner database. 
 
 Run this cmdlet after upgrading your Microsoft Purview Information Protection client.
-   
-For more information, see [Installing the Microsoft Purview Information Protection scanner](/azure/information-protection/rms-client/clientv2-admin-guide#installing-the-azure-information-protection-scanner.md) from the admin guide for the unified labeling client.
-    
-Run this cmdlet with an account that has the database-level role of **db_owner** for the configuration database that the scanner is using, named **AIPScannerUL_\<cluster_name>**.
 
+For more information, see [Installing the Microsoft Purview Information Protection scanner](/purview/deploy-scanner-configure-install.md).
+
+Run this cmdlet with an account that has the database-level role of **db_owner** for the configuration database that the scanner is using, named **AIPScannerUL_\<cluster_name>**.
 
 ## EXAMPLES
 
 ### Example 1: Update the scanner after the Microsoft Purview Information Protection client has been upgraded, and set a scanner cluster  name
-```
+```powershell
 PS C:\> Update-ScannerDatabase –cluster USWEST
 ```
 
