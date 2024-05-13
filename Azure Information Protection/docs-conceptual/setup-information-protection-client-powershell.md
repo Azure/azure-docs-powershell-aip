@@ -3,13 +3,13 @@ title: Set up the Information Protection client using PowerShell
 titleSuffix: Microsoft Docs
 description: This article describes installing and configuring the Microsoft Purview Information Protection client.
 services: azure
-author: kccross
+author: aashishr
 manager: laurawi
 ms.service: purview-information-protection
 ms.devlang: powershell
 ms.topic: reference
 ms.date: 05/10/2024
-ms.author: krowley
+ms.author: libarson
 ---
 
 # Microsoft Purview Information Protection client

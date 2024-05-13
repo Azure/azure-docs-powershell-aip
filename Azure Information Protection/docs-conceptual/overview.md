@@ -3,14 +3,14 @@ title: Overview of PowerShell for information protection
 titleSuffix: Microsoft Docs
 description: An introduction to the PowerShell modules that you can use with Azure and Purview Information Protection.
 services: azure
-author: kccross
-manager: laurawi
+author: libarson
+manager: aashishr
 ms.product: purview
 ms.service: purview-information-protection
 ms.devlang: powershell
 ms.topic: reference
 ms.date: 05/13/2024
-ms.author: krowley
+ms.author: libarson
 ---
 
 # Information protection
@@ -23,9 +23,9 @@ Use the following PowerShell modules with Azure and Purview Information Protecti
 
 ## AIPService
 
-These cmdlets let you administer the Azure Rights Management protection service for Azure Information Protection. 
+These cmdlets let you administer the Azure Rights Management protection service for Azure Information Protection.
 
-The AIPService module replaces the older module, [AADRM](#aadrm).
+The AIPService module replaces the older module, [AADRM](#deprecated-modules), which has been deprecated.
 
 For more information about when to use these PowerShell cmdlets and to see groupings of cmdlets by administration tasks, see [Administering protection from Azure Information Protection by using PowerShell](/information-protection/deploy-use/administer-powershell).
 
@@ -35,7 +35,9 @@ For upgrading and installation instructions, see [Installing the AIPService Powe
 
 This module has cmdlets for the information protection client that are installed together with the client.
 
-For installation instructions, see [Set up the information protection client using PowerShell](setup-information-protection-client-powershell).
+The PurviewInformationProtection module replaces the older module, [AzureInformationProtection](#deprecated-modules), which has been deprecated.
+
+For installation instructions, see [Set up the information protection client using PowerShell](setup-information-protection-client-powershell.md).
 
 - This module requires Windows PowerShell 4.0. This prerequisite is not checked by the installation.
 - The module installs automatically when you install the Purview Information Protection client.
