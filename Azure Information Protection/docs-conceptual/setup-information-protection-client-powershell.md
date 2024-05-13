@@ -23,10 +23,10 @@ The Microsoft Purview Information Protection module is installed with the inform
 
 The PurviewInformationProtection module enables you to manage the client by running commands for automation scripts; for example:
 
-- [Install-Scanner](/PurviewInformationProtection/Install-Scanner.md): Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
-- [Get-FileStatus](/PurviewInformationProtection/Get-FileStatus.md): Gets the Information Protection label and protection information for a specified file or files.
-- [Start-Scan](/PurviewInformationProtection/Start-Scan.md): Instructs the information protection scanner to start a one-time scan cycle.
-- [Set-FileLabel -Autolabel](/PurviewInformationProtection/Set-FileLabel.md): Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
+- Install-Scanner: Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
+- Get-FileStatus: Gets the Information Protection label and protection information for a specified file or files.
+- Start-Scan: Instructs the information protection scanner to start a one-time scan cycle.
+- Set-FileLabel -Autolabel: Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
 
 ### Install the PurviewInformationProtection PowerShell module
 
@@ -90,9 +90,9 @@ For the delegated user account, configure the following requirements:
 
 - **A Microsoft Entra access token** that sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
 
-The parameters for [Set-Authentication](../PurviewInformationProtection/Set-Authentication.md) use values from an app registration process in Microsoft Entra ID.
+The parameters for Set-Authentication use values from an app registration process in Microsoft Entra ID.
 
-Run the labeling cmdlets non-interactively by first running the `Set-Authentication` cmdlet. The computer running the cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview portal.
+Run the labeling cmdlets non-interactively by first running the Set-Authentication cmdlet. The computer running the cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview portal.
 
 #### Prerequisites for running labeling cmdlets unattended
 
@@ -112,7 +112,7 @@ To run Purview Information Protection labeling cmdlets unattended, use the follo
 
 - **a Microsoft Entra access token**, which sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
 
-    The parameters for **Set-Authentication** use values from an app registration process in Microsoft Entra ID. For more information, see [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-azure-ad-applications-for-set-authentication).
+    The parameters for Set-Authentication use values from an app registration process in Microsoft Entra ID. For more information, see [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-azure-ad-applications-for-set-authentication).
 
 Run the labeling cmdlets non-interactively by first running the [Set-Authentication](../PurviewInformationProtection/Set-Authentication.md) cmdlet.
 
@@ -122,7 +122,7 @@ The computer running the **Authentication** cmdlet downloads the labeling policy
 
 #### Create and configure Microsoft Entra applications for Set-Authentication
 
-The **Set-Authentication** cmdlet requires an app registration for the *AppId* and *AppSecret* parameters.
+The Set-Authentication cmdlet requires an app registration for the *AppId* and *AppSecret* parameters.
 
 **To create a new app registration for the unified labeling client Set-Authentication cmdlet**:
 
@@ -188,7 +188,7 @@ The **Set-Authentication** cmdlet requires an app registration for the *AppId* a
 
 1. Back on the **AIP-DelegatedUser - API permissions** pane, select **Grant admin consent for _your tenant_** and select **Yes** for the confirmation prompt.
 
-After this step, the registration of this app with a secret completes. You're ready to run [Set-Authentication](../PurviewInformationProtection/Set-Authentication.md) with the parameters *AppId*, and *AppSecret*. Additionally, you need your tenant ID.
+After this step, the registration of this app with a secret completes. You're ready to run Set-Authentication with the parameters *AppId*, and *AppSecret*. Additionally, you need your tenant ID.
 
 > [!TIP]
 >You can quickly copy your tenant ID by using Azure portal: **Microsoft Entra ID** > **Manage** > **Properties** > **Directory ID**.
@@ -205,7 +205,7 @@ After this step, the registration of this app with a secret completes. You're re
 
     You're prompted for this account's password.
 
-1. Run the **Set-Authentication** cmdlet, with the *OnBeHalfOf* parameter, specifying as its value the variable that you created.
+1. Run the Set-Authentication cmdlet, with the *OnBeHalfOf* parameter, specifying as its value the variable that you created.
 
     Also specify your app registration values, your tenant ID, and the name of the delegated user account in Microsoft Entra ID. For example:
 
