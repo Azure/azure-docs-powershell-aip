@@ -23,7 +23,7 @@ The Microsoft Purview Information Protection module is installed with the inform
 
 The PurviewInformationProtection module enables you to manage the client by running commands for automation scripts; for example:
 
-- Install-Scanner: Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
+- [Install-Scanner](/powershell/module/purviewinformationprotection/install-scanner): Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
 - Get-FileStatus: Gets the Information Protection label and protection information for a specified file or files.
 - Start-Scan: Instructs the information protection scanner to start a one-time scan cycle.
 - Set-FileLabel -Autolabel: Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
@@ -71,7 +71,7 @@ By default, when you run the cmdlets for labeling, the commands run in your own 
 
 - [Prerequisites for automating labeling cmdlets](#prerequisites-for-automating-labeling-cmdlets)
 - [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-microsoft-entra-applications-for-set-authentication)
-- [Running the Set-Authentication cmdlet](#run-the-set-authentication-cmdlet)
+- [Run the Set-Authentication cmdlet](#run-the-set-authentication-cmdlet)
 
 #### Prerequisites for automating labeling cmdlets
 
@@ -114,9 +114,9 @@ To run Purview Information Protection labeling cmdlets unattended, use the follo
 
     The parameters for Set-Authentication use values from an app registration process in Microsoft Entra ID. For more information, see [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-azure-ad-applications-for-set-authentication).
 
-Run the labeling cmdlets non-interactively by first running the [Set-Authentication](../PurviewInformationProtection/Set-Authentication.md) cmdlet.
+Run the labeling cmdlets non-interactively by first running the Set-Authentication cmdlet.
 
-The computer running the **Authentication** cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview compliance portal.
+The computer running the Set-Authentication cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview compliance portal.
 
 <a name='create-and-configure-azure-ad-applications-for-set-authentication'></a>
 
@@ -162,7 +162,7 @@ The Set-Authentication cmdlet requires an app registration for the *AppId* and *
     To make sure you copy all the characters, select the icon to **Copy to clipboard**.
 
     > [!IMPORTANT]
-    > It's important that you save this string because it is not displayed again and it cannot be retrieved. As with any sensitive information that you use, store the saved value securely and restrict access to it.
+    > Save this string because it's not displayed again and it can't be retrieved. As with any sensitive information that you use, store the saved value securely and restrict access to it.
     >
 
 1. From the sidebar, select **Manage** > **API permissions**.
@@ -193,7 +193,7 @@ After this step, the registration of this app with a secret completes. You're re
 > [!TIP]
 >You can quickly copy your tenant ID by using Azure portal: **Microsoft Entra ID** > **Manage** > **Properties** > **Directory ID**.
 
-### Running the Set-Authentication cmdlet
+### Run the Set-Authentication cmdlet
 
 1. Open Windows PowerShell with the **Run as administrator option**.
 
