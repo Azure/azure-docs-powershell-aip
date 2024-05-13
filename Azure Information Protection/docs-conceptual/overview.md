@@ -48,6 +48,6 @@ The AzureInformationProtection and AADRM modules are now deprecated and have bee
 
 The renamed cmdlets in the current modules have aliases to the old cmdlets. Cmdlets from the old modules that were already deprecated and no longer used were not carried forward to the newer modules.
 
-- The AzureInformationProtection module was replaced with the [#purviewinformationprotection] module. Support for this older module ended **May 13, 2024**.
+- The AzureInformationProtection module was replaced with the [PurviewInformationProtection](#purviewinformationprotection) module. Support for this older module ended **May 13, 2024**.
 
 - The AADRM module was replaced with the [AIPService](#aipservice) module. Support for this older module ended **July 15, 2020**.  
