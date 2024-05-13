@@ -1,2 +1,4 @@
 - name: Overview
   href: overview.md
+- name: Set up the Microsoft Purview Information Protection client using PowerShell
+  href: setup-information-protection-client-powershell.md
