@@ -22,36 +22,34 @@ The **Update-ScannerDatabase** cmdlet updates the database schema for the Micros
 
 Run this cmdlet after upgrading your Microsoft Purview Information Protection client.
 
-For more information, see [Installing the Microsoft Purview Information Protection scanner](/purview/deploy-scanner-configure-install.md).
+For more information, see [Installing the Microsoft Purview Information Protection scanner](/purview/deploy-scanner-configure-install).
 
 Run this cmdlet with an account that has the database-level role of **db_owner** for the configuration database that the scanner is using, named **AIPScannerUL_\<cluster_name>**.
 
 ## EXAMPLES
 
-### Example 1: Update the scanner after the Microsoft Purview Information Protection client has been upgraded, and set a scanner cluster  name
+### Example 1: Update the scanner after the Microsoft Purview Information Protection client has been upgraded, and set a scanner cluster name
+
 ```powershell
 PS C:\> Update-ScannerDatabase –cluster USWEST
 ```
 
-This command updates the database schema for the Microsoft Purview Information Protection scanner, and sets the cluster name to **USWEST** rather than use the default name of the computer. 
+This command updates the database schema for the Microsoft Purview Information Protection scanner, and sets the cluster name to **USWEST** rather than use the default name of the computer.
 
 You are prompted to continue and if you confirm, the scanner then gets is configuration from the **USWEST** scanner cluster that you configure by using the Microsoft Purview compliance portal.
 
-The Microsoft Purview Information Protection scanner is updated successfully, the scanner database is renamed to **AIPScannerUL_USWEST**, and the scanner now gets its configuration from the Microsoft Purview Information Protection service. 
+The Microsoft Purview Information Protection scanner is updated successfully, the scanner database is renamed to **AIPScannerUL_USWEST**, and the scanner now gets its configuration from the Microsoft Purview Information Protection service.
 
-For reference purposes, a backup of your old configuration is stored in **%localappdata%\Microsoft\MSIP\ScannerConfiguration.bak**. 
-
+For reference purposes, a backup of your old configuration is stored in **%localappdata%\Microsoft\MSIP\ScannerConfiguration.bak**.
 
 ## PARAMETERS
-
 
 ### -Cluster
 Specifies the configured name of the scanner's database, used to identify the scanner you want to update.
 
-Use the following syntax: **AIPScannerUL_<cluster_name>**. 
+Use the following syntax: **AIPScannerUL_<cluster_name>**.
 
 Using either this parameter or the **Profile** parameter is mandatory. We recommend using this parameter instead of the **Profile** parameter.
-
 
 ```yaml 
 Type: String 
@@ -84,8 +82,7 @@ Specifies the configured name of the scanner's database, used to identify the sc
 
 Using either this parameter or the **Cluster** parameter is mandatory. We recommend using the **Cluster** parameter instead of the this parameter.
 
-The database name for the scanner is **AIPScannerUL_\<profile_name>**. 
-
+The database name for the scanner is **AIPScannerUL_\<profile_name>**.
 
 ```yaml 
 Type: String 
