@@ -1,7 +1,7 @@
 ---
 title: Overview of PowerShell for information protection
 titleSuffix: Microsoft Docs
-description: An introduction to the PowerShell modules that you can use with Azure and Purview Information Protection.
+description: An introduction to the PowerShell modules that you can use with Azure Information Protection and Purview Information Protection.
 services: azure
 author: libarson
 manager: aashishr
