@@ -14,7 +14,7 @@ Sets the sensitivity label and protection for a file through manual labeling or 
 ## SYNTAX
 
 ### SetLabel
-```
+```powershell
 Set-FileLabel [-Path] <String[]> -LabelId <Guid> [-JustificationMessage <String>] [-Owner <String>]
  [-PreserveFileDetails] [<CommonParameters>]
 ```

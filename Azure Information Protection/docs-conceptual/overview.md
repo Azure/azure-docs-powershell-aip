@@ -1,5 +1,6 @@
 ---
-title: Overview of PowerShell for Azure Information Protection| Microsoft Docs
+title: Overview of PowerShell for Azure Information Protection
+titleSuffix: Microsoft Docs
 description: An introduction to the PowerShell modules that you can use with Azure Information Protection.
 services: azure
 author: batamig
@@ -40,7 +41,6 @@ For more information, see:
 - [About the AIP unified labeling client](/information-protection/rms-client/aip-clientv2)
 - [Using PowerShell with the AIP unified labeling client](/information-protection/rms-client/clientv2-admin-guide-powershell)
 - [Install the AIP unified labeling client for users](/information-protection/rms-client/clientv2-admin-guide-install)
-
 
 ### Installing the AzureInformationProtection module
 

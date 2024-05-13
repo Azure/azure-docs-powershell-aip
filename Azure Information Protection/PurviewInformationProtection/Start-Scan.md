@@ -14,20 +14,20 @@ Instructs the Microsoft Purview Information Protection scanner to start a one-ti
 
 ## SYNTAX
 
-```
+```powershell
 Start-Scan [-Reset] [-Force] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 The **Start-Scan** cmdlet instructs the Microsoft Purview Information Protection scanner to immediately start a one-time scan cycle. The scanner service must be started already and the scanner schedule must be configured for a manual schedule. 
 
-To configure the schedule, use the [Microsoft Purview compliance portal to configure the scanner](/azure/information-protection/deploy-aip-scanner).
+To configure the schedule, use the [Microsoft Purview portal or the Microsoft Purview compliance portal to configure the scanner](/azure/information-protection/deploy-aip-scanner).
 
-By default, all files are scanned the first time the scanner runs and then, unless the Microsoft Purview Information Protection policy is changed, only new or changed files are scanned. However, you can change this behavior when you use the *-Reset* parameter with this cmdlet, which forces the scanner to scan all files.
+By default, all files are scanned the first time the scanner runs and then, unless the information protection policy is changed, only new or changed files are scanned. However, you can change this behavior when you use the *-Reset* parameter with this cmdlet, which forces the scanner to scan all files.
   
 > [!NOTE]
 > If the scanner schedule is set to **Always**, this cmdlet is ignored.
-> 
+>
 ## EXAMPLES
 
 ### Example 1: Initiate immediate one-time scan for new and changed files
@@ -35,14 +35,14 @@ By default, all files are scanned the first time the scanner runs and then, unle
 PS C:\> Start-Scan
 ```
 
-Because the scanner ran before, and the Microsoft Purview Information Protection policy wasn't changed since the last scanning cycle, the scanner initiates an incremental scan for all new or changed files since the last scanning cycle.
+Because the scanner ran before, and the information protection scanner policy wasn't changed since the last scanning cycle, the scanner initiates an incremental scan for all new or changed files since the last scanning cycle.
 
 ### Example 2: Initiate immediate one time scan for all files
 ```powershell
 PS C:\> Start-Scan -Reset
 ```
 
-The scanner initiates a full scan of all the files, even if they were scanned before and the Microsoft Purview Information Protection policy wasn't changed.
+The scanner initiates a full scan of all the files, even if they were scanned before and the information protection scanner policy wasn't changed.
 
 ## PARAMETERS
 
@@ -64,7 +64,7 @@ Accept wildcard characters: False
 
 ### -Reset
 
-Resets the scanner cache so that the scanner initiates a full scan of all the files, even if they were scanned before and the Microsoft Purview Information Protection policy wasn't changed.
+Resets the scanner cache so that the scanner initiates a full scan of all the files, even if they were scanned before and the information protection scanner policy wasn't changed.
 
 ```yaml
 Type: SwitchParameter
