@@ -23,10 +23,10 @@ The Microsoft Purview Information Protection module is installed with the inform
 
 The PurviewInformationProtection module enables you to manage the client by running commands for automation scripts; for example:
 
-- [Install-Scanner](../PurviewInformationProtection/Install-Scanner.md): Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
-- [Get-FileStatus](../PurviewInformationProtection/Get-FileStatus.md): Gets the Information Protection label and protection information for a specified file or files.
-- [Start-Scan](../PurviewInformationProtection/Start-Scan.md): Instructs the information protection scanner to start a one-time scan cycle.
-- [Set-FileLabel -Autolabel](../PurviewInformationProtection/Set-FileLabel.md): Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
+- [Install-Scanner](/PurviewInformationProtection/Install-Scanner.md): Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
+- [Get-FileStatus](/PurviewInformationProtection/Get-FileStatus.md): Gets the Information Protection label and protection information for a specified file or files.
+- [Start-Scan](/PurviewInformationProtection/Start-Scan.md): Instructs the information protection scanner to start a one-time scan cycle.
+- [Set-FileLabel -Autolabel](/PurviewInformationProtection/Set-FileLabel.md): Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
 
 ### Install the PurviewInformationProtection PowerShell module
 
