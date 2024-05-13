@@ -1,5 +1,5 @@
 ---
-title: Set up theInformation Protection client using PowerShell
+title: Set up the Information Protection client using PowerShell
 titleSuffix: Microsoft Docs
 description: This article describes installing and configuring the Microsoft Purview Information Protection client.
 services: azure
@@ -19,6 +19,7 @@ ms.author: krowley
 Contains documentation for Microsoft Purview Information Protection cmdlets.
 
 ### Using PowerShell with the Microsoft Purview Information Protection client
+
 The Microsoft Purview Information Protection module is installed with the information protection client. The associated PowerShell module is *PurviewInformationProtection*.
 
 The PurviewInformationProtection module enables you to manage the client by running commands for automation scripts; for example:
