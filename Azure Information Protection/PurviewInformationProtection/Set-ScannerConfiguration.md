@@ -52,8 +52,7 @@ Log files are stored in the **%localappdata%\Microsoft\MSIP\Scanner\Reports** fo
 |**Error**     |  Logs only the files that the scanner attempted to label or identify but could not. For example, a file was in use, or the scanner service did not have write access to the file.       |
 |**Off**     |  Disables reporting, which results in the best performance for the scanner.       |
 
-The local Windows **Applications and Services** event log, **Information Protection Scanner** contains additional logging information. The events include the start and end times for each scanning cycle, when a scanned file has a label applied, and when protection is applied or removed. For more information, see [Event log IDs and descriptions for the scanner](/information-protection/deploy-aip-scanner#event-log-ids-and-descriptions-for-the-scanner).
-
+The local Windows **Applications and Services** event log, **Information Protection Scanner** contains additional logging information. The events include the start and end times for each scanning cycle, when a scanned file has a label applied, and when protection is applied or removed.
 
 ```yaml
 Type: ReportLevel

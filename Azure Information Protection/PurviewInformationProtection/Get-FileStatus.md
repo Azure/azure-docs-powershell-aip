@@ -13,7 +13,7 @@ Gets the Microsoft Purview Information Protection label and protection informati
 
 ## SYNTAX
 
-```
+```powershell
 Get-FileStatus [-Path] <String[]> [<CommonParameters>]
 ```
 
@@ -31,7 +31,6 @@ Note that password-protected files always return the protection status of **Fals
 You can run this cmdlet non-interactively. 
 
 ## EXAMPLES
-
 
 ### Example 1: Get the label and protection status of a single file
 
@@ -54,7 +53,7 @@ RMSIssuer       : John@Contoso.com
 ContentId       : 4ca757d2-83bf-4ec3-b93b-c7fe9433bf33
 ```
 
-This command provides information about a file that is labeled as "Confidential \ Finance group", which is a label that is configured for your tenant. This file was labeled manually by John and it is also protected by using the Rights Management template, "Contoso - Confidential Finance". 
+This command provides information about a file that is labeled as "Confidential \ Finance group", which is a label that is configured for your tenant. This file was labeled manually by John and it is also protected by using the Rights Management template, "Contoso - Confidential Finance".
 
 ### Example 2: Get the label and protection status for all files in a  folder and export the results to a CSV file
 ```

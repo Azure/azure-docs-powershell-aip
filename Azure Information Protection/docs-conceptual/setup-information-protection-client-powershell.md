@@ -23,10 +23,10 @@ The Microsoft Purview Information Protection module is installed with the inform
 
 The PurviewInformationProtection module enables you to manage the client by running commands for automation scripts; for example:
 
-- [Install-Scanner](../PurviewInformationProtection/Install-Scanner.md): Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
-- [Get-FileStatus](../PurviewInformationProtection/Get-FileStatus.md): Gets the Information Protection label and protection information for a specified file or files.
-- [Start-Scan](../PurviewInformationProtection/Start-Scan.md): Instructs the information protection scanner to start a one-time scan cycle.
-- [Set-FileLabel -Autolabel](../PurviewInformationProtection/Set-FileLabel.md): Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
+- [Install-Scanner](/powershell/module/purviewinformationprotection/install-scanner): Installs and configures the Information Protection Scanner service on a computer running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.
+- Get-FileStatus: Gets the Information Protection label and protection information for a specified file or files.
+- Start-Scan: Instructs the information protection scanner to start a one-time scan cycle.
+- Set-FileLabel -Autolabel: Scans a file to automatically set an information protection label for a file, according to conditions that are configured in the policy.
 
 ### Install the PurviewInformationProtection PowerShell module
 
@@ -71,7 +71,7 @@ By default, when you run the cmdlets for labeling, the commands run in your own 
 
 - [Prerequisites for automating labeling cmdlets](#prerequisites-for-automating-labeling-cmdlets)
 - [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-microsoft-entra-applications-for-set-authentication)
-- [Running the Set-Authentication cmdlet](#run-the-set-authentication-cmdlet)
+- [Run the Set-Authentication cmdlet](#run-the-set-authentication-cmdlet)
 
 #### Prerequisites for automating labeling cmdlets
 
@@ -90,81 +90,9 @@ For the delegated user account, configure the following requirements:
 
 - **A Microsoft Entra access token** that sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
 
-The parameters for [Set-Authentication](../PurviewInformationProtection/Set-Authentication.md) use values from an app registration process in Microsoft Entra ID.
+The parameters for Set-Authentication use values from an app registration process in Microsoft Entra ID.
 
-Run the labeling cmdlets non-interactively by first running the `Set-Authentication` cmdlet. The computer running the cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview portal.
-
-#### Create and configure Microsoft Entra applications for Set-Authentication
-
-The `Set-Authentication` cmdlet requires an app registration for the *AppId* and *AppSecret* parameters.
-
-To create a new app registration for the `Set-Authentication` cmdlet:
-
-1. In a new browser window, sign in to the Azure portal to access the Microsoft Entra tenant that you use with Microsoft Purview Information Protection.
-
-1. Navigate to **Microsoft Entra ID** > **Manage** > **App registrations**, and select **New registration**.
-
-1. In the **Register an application** pane, specify the following values, and then select **Register**:
-
-   | Option | Value    |
-   | ------ | -----    |
-   | Name | `DelegatedUser` <br> Specify a different name as needed. The name must be unique per tenant.  |
-   | Supported account types | Select **Accounts** in this organizational directory only   |
-   | Redirect URI (optional) | Select **Web**, and then enter `https://localhost`.   |
-
-1. In the **DelegatedUser** pane, copy the value for the **Application (client) ID**. The value looks similar to this example: `77c3c1c3-abf9-404e-8b2b-4652836c8c66`. This value is used for the *AppId* parameter when you run the `Set-Authentication` cmdlet. Paste and save the value for later reference.
-
-1. From the sidebar, select **Manage** > **Certificates & secrets**.
-
-1. In the **DelegatedUser - Certificates & secrets** pane, in the **Client secrets** section, select **New client secret**.
-
-1. For **Add a client secret**, specify the following, and then select **New client secret**.
-
-   | Field | Value |
-   | ----- | ----- |
-   | Description | `Purview Information Protection client` |
-   | Expires     | Specify your choice of duration (*1 year*, *2 years*, or *Never expires*) |
-
-1. Back on the **AIP-DelegatedUser - Certificates & secrets** pane, in the **Client secrets* section**, copy the **VALUE** string. This string resembles the following example:
-
-   `OAkk+rnuYc/u+]ah2kNxVbtrDGbS47L4`
-
-   > [!IMPORTANT]
-   > **Save this string.** it is not displayed again and **cannot be retrieved later**.  As with any sensitive information that you use, store the saved string value securely and restrict access to it.
-
-1. From the sidebar, select **Manage** > **API permissions**.
-
-1. On the **DelegatedUser--API permissions** page, select **Add a permission**.
-
-1. On the **Request API permissions** pane, make sure that you're on the **Microsoft APIs** tab, and select **Azure Rights Management Services**. <br><br> When you're prompted for the type of permissions that your application requires, select **Application permissions**.
-
-1. For **Select permissions**, expand **Content** and select the following
-
-   - **Content.DelegatedReader**
-   - **Content.DelegatedWriter**
-
-1. Choose **Add permissions**.
-
-1. Back on the **AIP-DelegatedUser - API permissions** page, select **Add a permission** again.
-
-1. In the **Request AIP permissions** pane, select **APIs my organization uses**, and search for **Microsoft Information Protection Sync Service.**
-
-1. In the **Request API permissions** pane, select **Application permissions**.
-
-1. For **Select permissions**, expand **UnifiedPolicy**, select **UnifiedPolicy.Tenant.Read**, and then choose **Add permissions**.
-
-1. Back on the **AIP-DelegatedUser - API permissions page**, select **Grant admin consent for _your tenant_** and select **Yes** at the confirmation prompt.
-
-#### Run the Set-Authentication cmdlet
-
-Once you have configured your Microsoft Entra applications, run the `Set-Authentication`.
-
-> [!IMPORTANT]
-> You'll need your tenant ID to run this cmdlet. To get your tenant ID, open the Azure portal and navigate to **Microsoft Entra ID** > **Manage** > **Properties** > **Directory ID**.
-
-1. Open Windows PowerShell with the **Run as administrator** option.
-
-1. In your PowerShell session, create a variable to store the credentials of the Windows user account that will run non-interactively. For example, if you created a service account for the scanner.
+Run the labeling cmdlets non-interactively by first running the Set-Authentication cmdlet. The computer running the cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview portal.
 
 #### Prerequisites for running labeling cmdlets unattended
 
@@ -182,19 +110,19 @@ To run Purview Information Protection labeling cmdlets unattended, use the follo
     |**Decrypting content**     |    If this account needs to decrypt content, for example, to reprotect files and inspect files that others have protected, make it a super user for Information Protection and make sure the super user feature is enabled.     |
     |**Onboarding controls**     |    If you have implemented onboarding controls for a phased deployment, make sure that this account is included in your onboarding controls you've configured.     |
 
-- **a Microsoft Entra access token**, which sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token. 
+- **a Microsoft Entra access token**, which sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
 
-    The parameters for **Set-Authentication** use values from an app registration process in Microsoft Entra ID. For more information, see [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-azure-ad-applications-for-set-authentication).
+    The parameters for Set-Authentication use values from an app registration process in Microsoft Entra ID. For more information, see [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-azure-ad-applications-for-set-authentication).
 
-Run the labeling cmdlets non-interactively by first running the [Set-Authentication](Set-Authentication.md) cmdlet.
+Run the labeling cmdlets non-interactively by first running the Set-Authentication cmdlet.
 
-The computer running the **Authentication** cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview compliance portal.
+The computer running the Set-Authentication cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview compliance portal.
 
 <a name='create-and-configure-azure-ad-applications-for-set-authentication'></a>
 
 #### Create and configure Microsoft Entra applications for Set-Authentication
 
-The **Set-Authentication** cmdlet requires an app registration for the *AppId* and *AppSecret* parameters.
+The Set-Authentication cmdlet requires an app registration for the *AppId* and *AppSecret* parameters.
 
 **To create a new app registration for the unified labeling client Set-Authentication cmdlet**:
 
@@ -234,7 +162,7 @@ The **Set-Authentication** cmdlet requires an app registration for the *AppId* a
     To make sure you copy all the characters, select the icon to **Copy to clipboard**.
 
     > [!IMPORTANT]
-    > It's important that you save this string because it is not displayed again and it cannot be retrieved. As with any sensitive information that you use, store the saved value securely and restrict access to it.
+    > Save this string because it's not displayed again and it can't be retrieved. As with any sensitive information that you use, store the saved value securely and restrict access to it.
     >
 
 1. From the sidebar, select **Manage** > **API permissions**.
@@ -260,12 +188,12 @@ The **Set-Authentication** cmdlet requires an app registration for the *AppId* a
 
 1. Back on the **AIP-DelegatedUser - API permissions** pane, select **Grant admin consent for _your tenant_** and select **Yes** for the confirmation prompt.
 
-After this step, the registration of this app with a secret completes. You're ready to run [Set-Authentication](Set-Authentication.md) with the parameters *AppId*, and *AppSecret*. Additionally, you need your tenant ID.
+After this step, the registration of this app with a secret completes. You're ready to run Set-Authentication with the parameters *AppId*, and *AppSecret*. Additionally, you need your tenant ID.
 
 > [!TIP]
 >You can quickly copy your tenant ID by using Azure portal: **Microsoft Entra ID** > **Manage** > **Properties** > **Directory ID**.
 
-### Running the Set-Authentication cmdlet
+### Run the Set-Authentication cmdlet
 
 1. Open Windows PowerShell with the **Run as administrator option**.
 
@@ -277,7 +205,7 @@ After this step, the registration of this app with a secret completes. You're re
 
     You're prompted for this account's password.
 
-1. Run the **Set-Authentication** cmdlet, with the *OnBeHalfOf* parameter, specifying as its value the variable that you created.
+1. Run the Set-Authentication cmdlet, with the *OnBeHalfOf* parameter, specifying as its value the variable that you created.
 
     Also specify your app registration values, your tenant ID, and the name of the delegated user account in Microsoft Entra ID. For example:
 

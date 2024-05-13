@@ -13,7 +13,7 @@ Installs the Microsoft Purview Information Protection scanner.
 
 ## SYNTAX
 
-```
+```powershell
 Install-Scanner [-ServiceUserCredentials] <PSCredential> [-StandardDomainsUserAccount <PSCredential>]
  [-ShareAdminUserAccount <PSCredential>] [-SqlServerInstance] [-Cluster | -Profile <String>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
@@ -26,10 +26,10 @@ The Microsoft Purview Information Protection scanner uses this service to scan f
 
 For more information about how to configure the labels and policy settings, see: [Overview of sensitivity labels](/microsoft-365/compliance/sensitivity-labels)
 
-
 > [!IMPORTANT]
 > You must run this cmdlet before you run any other cmdlet for the Microsoft Purview Information Protection scanner.
-> 
+>
+
 The command creates a Windows service named Information Protection Scanner. It also creates and configures a database on SQL Server to store configuration and operational information for the scanner. The service that you specify to run the scanner is automatically granted the required rights to read and write to the database that is created.
 
 To run this command, you must have local administrator rights for the Windows Server computer, and Sysadmin rights on the instance of SQL Server that you will use for the scanner.
@@ -38,12 +38,11 @@ After you have run this command, use the Microsoft Purview compliance portal to 
 
 For step-by-step instructions to install, configure, and use the scanner, see [Learn about the information protection scanner](/information-protection/deploy-aip-scanner).
 
-
 ## EXAMPLES
 
 ### Example 1: Install the Microsoft Purview Information Protection Scanner service by using a SQL Server instance and a cluster
 ```
-PS C:\> Install-Scanner -SqlServerInstance SQLSERVER1\AIPSCANNER -Cluster EU
+PS C:\> Install-Scanner -SqlServerInstance SQLSERVER1\MIPSCANNER -Cluster EU
 ```
 
 This command installs the Microsoft Purview Information Protection Scanner service by using a SQL Server instance named **MIPSCANNER**, which runs on the server named **SQLSERVER1**. 
