@@ -15,7 +15,7 @@ ms.author: libarson
 
 # Information protection
 
-Use the following PowerShell modules with Azure and Purview Information Protection:
+Use the following PowerShell modules with Azure Information Protection and Purview Information Protection:
 
 - **[AIPService](#aipservice)**. Used to administer Azure Information Protection's Azure Rights Management protection service, and replaces the deprecated AADRM module.
 
