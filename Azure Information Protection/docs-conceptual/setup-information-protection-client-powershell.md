@@ -70,7 +70,7 @@ For cases like this, the following requirements must also be met:
 
 By default, when you run the cmdlets for labeling, the commands run in your own user context in an interactive PowerShell session. To automatically run sensitivity labeling cmdlets, read the following sections:
 
-- [Understand prerequisites for automating labeling cmdlets](#understand-prerequisites-for-automating-labeling-cmdlets)
+- [Understand prerequisites for running labeling cmdlets unattended](#understand-prerequisites-for-running-labeling-cmdlets-unattended)
 - [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-microsoft-entra-applications-for-set-authentication)
 - [Run the Set-Authentication cmdlet](#run-the-set-authentication-cmdlet)
 
