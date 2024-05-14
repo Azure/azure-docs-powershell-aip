@@ -1,14 +1,14 @@
 ---
-title: Set up the Information Protection client using PowerShell
+title: Set up the information protection client using PowerShell
 titleSuffix: Microsoft Docs
 description: This article describes installing and configuring the Microsoft Purview Information Protection client.
 services: azure
-author: aashishr
-manager: laurawi
+author: libarson
+manager: aashishr
 ms.service: purview-information-protection
 ms.devlang: powershell
 ms.topic: reference
-ms.date: 05/10/2024
+ms.date: 05/13/2024
 ms.author: libarson
 ---
 
@@ -33,7 +33,7 @@ The PurviewInformationProtection module enables you to manage the client with co
 
 #### Installation prerequisites
 
-- This module requires Windows PowerShell 4.0. This prerequisite is not checked during installation. Make sure that you have the correct version of PowerShell installed.
+- This module requires Windows PowerShell 4.0. This prerequisite isn't checked during installation. Make sure that you have the correct version of PowerShell installed.
 - Make sure that you have the most recent version of the PurviewInformationProtection PowerShell module by running `Import-Module PurviewInformationProtection`.
 
 #### Installation details
@@ -55,11 +55,11 @@ For Windows Server 2016, you can use the same group policy setting when you inst
 
 For more information, see the [Maximum Path Length Limitation](/windows/desktop/FileIO/naming-a-file#maximum-path-length-limitation) section from the Windows 10 developer documentation.
 
-### Prerequisites for the PurviewInformationProtection PowerShell module
+### Understand prerequisites for the PurviewInformationProtection PowerShell module
 
 In addition to the installation prerequisites for the PurviewInformationProtection module, you must also activate the [Azure Rights Management service](/azure/information-protection/what-is-azure-rms).
 
-In some cases, you may want to remove protection from files for others that use your own account. For example, you may want to remove protection for others for the sake of data discovery or recovery. If you are using labels to apply protection, you can remove that protection by setting a new label that doesn't apply protection, or you can remove the label.
+In some cases, you might want to remove protection from files for others that use your own account. For example, you might want to remove protection for others for the sake of data discovery or recovery. If you're using labels to apply protection, you can remove that protection by setting a new label that doesn't apply protection, or you can remove the label.
 
 For cases like this, the following requirements must also be met:
 
@@ -70,32 +70,11 @@ For cases like this, the following requirements must also be met:
 
 By default, when you run the cmdlets for labeling, the commands run in your own user context in an interactive PowerShell session. To automatically run sensitivity labeling cmdlets, read the following sections:
 
-- [Prerequisites for automating labeling cmdlets](#prerequisites-for-automating-labeling-cmdlets)
+- [Understand prerequisites for automating labeling cmdlets](#understand-prerequisites-for-automating-labeling-cmdlets)
 - [Create and configure Microsoft Entra applications for Set-Authentication](#create-and-configure-microsoft-entra-applications-for-set-authentication)
 - [Run the Set-Authentication cmdlet](#run-the-set-authentication-cmdlet)
 
-#### Prerequisites to automate labeling cmdlets
-
-To run information protection labeling cmdlets unattended, use the following access details:
-
-- **A Windows account** that can sign in interactively.
-- **A Microsoft Entra account for delegated access**. For ease of administration, use a single account that's synchronized from Microsoft Entra to Microsoft Entra ID.
-
-  For the delegated user account, configure the following requirements:
-
-  | Requirement | Details |
-  | ----------- | ------- |
-  | Label policy | Make sure that you have a label policy assigned to this account and that the policy contains the published labels you want to use. If you use label policies for different users, you might need to create a new label policy that publishes all your labels, and publish the policy to just this delegated user account. |
-  | Decrypting content | If this account needs to decrypt content, for example, to reprotect files and inspect files that others have protected, make this account an Azure Rights Management super user and make sure the super user feature is enabled. |
-  | Onboarding controls | If you have implemented onboarding controls for a phased deployment, make sure that this account is included in the onboarding controls you've configured. |
-
-- **A Microsoft Entra access token** that sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
-
-The parameters for [Set-Authentication](/powershell/module/purviewinformationprotection/set-authentication) use values from an app registration process in Microsoft Entra ID.
-
-Run the labeling cmdlets non-interactively by first running the [Set-Authentication](/powershell/module/purviewinformationprotection/set-authentication) cmdlet. The computer running the cmdlet downloads the labeling policy that's assigned to your delegated user account in the Microsoft Purview portal.
-
-#### Prerequisites to run labeling cmdlets unattended
+#### Understand prerequisites for running labeling cmdlets unattended
 
 To run Purview Information Protection labeling cmdlets unattended, use the following access details:
 
@@ -103,12 +82,12 @@ To run Purview Information Protection labeling cmdlets unattended, use the follo
 
 - **A Microsoft Entra account**, for delegated access. For ease of administration, use a single account that synchronizes from Active Directory to Microsoft Entra ID.
 
-    For the delegated user account:
+    For the delegated user account, configure the following requirements:
 
     |Requirement  |Details  |
     |---------|---------|
     |**Label policy**     |  Make sure that you have a label policy assigned to this account and that the policy contains the published labels you want to use. <br><br>If you use label policies for different users, you might need to create a new label policy that publishes all your labels, and publish the policy to just this delegated user account.    |
-    |**Decrypting content**     |    If this account needs to decrypt content, for example, to reprotect files and inspect files that others have protected, make it a super user for Information Protection and make sure the super user feature is enabled.     |
+    |**Decrypting content**     |    If this account needs to decrypt content, for example, to reprotect files and inspect files protected by others, make it a super user for Information Protection and make sure the super user feature is enabled.     |
     |**Onboarding controls**     |    If you have implemented onboarding controls for a phased deployment, make sure that this account is included in your onboarding controls you've configured.     |
 
 - **A Microsoft Entra access token**, which sets and stores credentials for the delegated user to authenticate to Microsoft Purview Information Protection. When the token in Microsoft Entra ID expires, you must run the cmdlet again to acquire a new token.
@@ -154,7 +133,7 @@ The [Set-Authentication](/powershell/module/purviewinformationprotection/set-aut
    |Field  |Value  |
    |---------|---------|
    |**Description**     |  `Microsoft Purview Information Protection client`       |
-   |**Expires**     |   Specify your choice of duration (1 year, 2 years, or never expires)     |
+   |**Expires**     |   Specify your choice of duration (**1 year**, **2 years**, or **never expires**)     |
 
 1. Back on the **AIP-DelegatedUser - Certificates & secrets** pane, in the **Client secrets** section, copy the string for the **VALUE**.
 
